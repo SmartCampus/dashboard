@@ -17,17 +17,17 @@ $(document).ready(function($){
         var bats = [];
         var infowindow = [
             new google.maps.InfoWindow({
+                  content: "IUT"
+              }),new google.maps.InfoWindow({
                   content: "Forum"
               }),new google.maps.InfoWindow({
                   content: "Templier 1"
               }),new google.maps.InfoWindow({
-                  content: "Templier 2 Sud"
+                  content: "Templier 2 (sud)"
               }),new google.maps.InfoWindow({
                   content: "Templier 2 (barette haute)"
               }),new google.maps.InfoWindow({
-                  content: "Templier 2 (barette basse)"
-              }),new google.maps.InfoWindow({
-                  content: "IUT"
+                  content: "Templier 2 (barrette basse)"
               })];
         $.getJSON("./data/coord_bat.json",function(data){
             
@@ -53,6 +53,21 @@ $(document).ready(function($){
                 //display the polygon
                     display(this);
                 });
+                google.maps.event.addListener(batiments[i], 'mouseover', function(event) {
+                    display_info_window(event.latLng,this);
+                  });
+                google.maps.event.addListener(batiments[i], 'mouseout', function(event) {
+                    undisplay_info_window(this);
+                  });
+                function display_info_window(position,batiment){
+                    var index = batiments.indexOf(batiment);
+                    infowindow[index].setPosition(position);
+                    infowindow[index].open(map);
+                }
+                function undisplay_info_window(batiment){
+                    var index = batiments.indexOf(batiment);
+                    infowindow[index].close(map);
+                }
                 /* Display building */
                 function display(building){
                     
@@ -72,29 +87,7 @@ $(document).ready(function($){
                 });
             }
         });
-
-        /*
-        
-        
-        
-        /*var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(43.616917, 7.073574),
-      map: map,
-            animation: google.maps.Animation.DROP,
-      title: 'Hello World!'
-  });*
-        google.maps.event.addListener(forum, 'mouseover', function(event) {
-                infowindow.setPosition(event.latLng);
-                infowindow.open(map);
-  });
-       /* google.maps.event.addListener(forum, 'mouseout', function(event) {
-            infowindow.close(map);
-            bool = 1;
-  });*/
     }
-
-    
-
 
     google.maps.event.addDomListener(window, 'load', initialize);
 });
