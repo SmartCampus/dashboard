@@ -1,0 +1,103 @@
+
+<!doctype html>
+<html>
+    <head>
+        <title>Widgets dashboard SmartCampus</title>
+        
+        <!-- Jquery librairies -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
+        <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+        
+        <!-- D3 librairies -->
+        <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+        
+         <!-- Highcharts librairies -->
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/highcharts-more.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+         <!-- Amcharts librairies -->
+        <script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+        <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+        <script type="text/javascript" src="http://www.amcharts.com/lib/3/gauge.js"></script>
+        <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
+        <script type="text/javascript" src="../js/ready.js"></script>
+           
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 50% }
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNCIW5K9JPi9U8ji0iJMdDLjnVIAbKPpU">
+    </script>
+    <script type="text/javascript" src="../js/widgets/map-to-building.js">
+    </script>
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+        
+
+         <!-- CSS librairies -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/jquery-ui.min.css">
+        <link rel="stylesheet" href="./css/jquery-ui.structure.min.css">
+        <link rel="stylesheet" href="./css/jquery-ui.theme.min.css">
+         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+        
+        
+        
+    </head>
+    <body>
+      <div class="container">
+        <div class="page-header">
+            <h1>SmartCampus <small>tableau de bord</small></h1>
+          </div>
+          <nav>
+              <ul class="nav nav-pills ">
+                  <li>
+                      <a href="page.php?id=accueil" type="button" class="btn btn-default btn-lg">
+                          <span class="glyphicon glyphicon-home"></span> Accueil
+                    </a>
+                  </li>
+                    <li>
+                        <a href="page.php?id=widgets" type="button" class="btn btn-default btn-lg">
+                            <span class="glyphicon glyphicon-bell"></span> Alertes
+                        </a>
+                  </li>
+                  <li>
+                        <a href="page.php?id=widgets" type="button" class="btn btn-default btn-lg">
+                            <span class="glyphicon glyphicon-screenshot"></span> Carte
+                        </a>
+                  </li><li>
+                        <a href="page.php?id=widgets" type="button" class="btn btn-default btn-lg">
+                            <span class="glyphicon glyphicon-flash"></span> Energie
+                        </a>
+                  </li>
+                  <li>
+                        <a href="page.php?id=widgets" type="button" class="btn btn-default btn-lg">
+                            <span class="glyphicon glyphicon-map-marker"></span> Parking
+                        </a>
+                  </li>
+                  <li>
+                        <a href="page.php?id=widgets" type="button" class="btn btn-default btn-lg">
+                            <span class="glyphicon glyphicon-th-large"></span> RU
+                        </a>
+                  </li>
+                  <li>
+                        <a href="page.php?id=widgets" type="button" class="btn btn-default btn-lg">
+                            <span class="glyphicon glyphicon-list-alt"></span> Salles
+                        </a>
+                  </li>
+                  <li>
+                        <a href="page.php?id=widgets" type="button" class="btn btn-default btn-lg">
+                            <span class="glyphicon glyphicon-road"></span> Transport
+                        </a>
+                  </li>
+            </ul>
+          </nav><!--<div class="rows">
+    <div style="margin-bottom:10px" class="col-md-4">Texte</div>
+    <div style="margin-bottom:10px" class="col-md-8">rien</div>
+</div>-->
+
+</div> </body>
+</html>
