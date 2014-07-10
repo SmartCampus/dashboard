@@ -20,12 +20,25 @@
         <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
         <script type="text/javascript" src="http://www.amcharts.com/lib/3/gauge.js"></script>
         <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
-    <script type="text/javascript" src="./js/widgets.js">
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNCIW5K9JPi9U8ji0iJMdDLjnVIAbKPpU">
+    </script>
+    <script type="text/javascript" src="./js/carte.js">
     </script>
         
 
          <!-- CSS librairies -->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">       
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/style.css">
+        <!--<link rel="stylesheet" href="./css/jquery-ui.min.css">
+        <link rel="stylesheet" href="./css/jquery-ui.structure.min.css">
+        <link rel="stylesheet" href="./css/jquery-ui.theme.min.css">-->
+        
+        
         
     </head>
     <body>
@@ -35,7 +48,7 @@
           </div>
           <nav>
               <ul class="nav nav-pills ">
-                  <li class="active">
+                  <li>
                       <a href="index.html" class="btn btn-default btn-lg">
                           <span class="glyphicon glyphicon-home"></span> Accueil
                     </a>
@@ -45,7 +58,7 @@
                             <span class="glyphicon glyphicon-bell"></span> Alertes
                         </a>
                   </li>
-                  <li>
+                  <li class="active">
                         <a href="carte.html" class="btn btn-default btn-lg">
                             <span class="glyphicon glyphicon-screenshot"></span> Carte
                         </a>
@@ -78,13 +91,13 @@
           </nav>
           <div class="rows">
                 <div style="margin-bottom:10px" class="col-md-12">
-                    <h3>Bienvenue sur votre tableau de bord de SmartCampus</h3>
+                    <h3>Carte du campus :</h3>
                 </div>
-              <div style="margin-bottom:10px" class="col-md-4" id="chart_pie"></div>
-              <div style="margin-bottom:10px" class="col-md-4" id="chart_column"></div>
-              <div style="margin-bottom:10px" class="col-md-4" id="chart_temp"></div>
-        </div>
+              </div>
           </div>
+              <div id="map_google" style="width: 70%; height: 70%;margin-bottom:80px"></div>
+              <div id="temp1"></div><script type="text/javascript" src="data/temp1/load.js"></script><img id="back-to-map-arrow" src="./data/img/back-arrow.png" style="width: 50px;margin-bottom:50px" title="Retour sur la map"/>
+              
     
         <footer>
             <div class='navbar navbar-default navbar-fixed-bottom'>

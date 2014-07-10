@@ -182,7 +182,7 @@ $(document).ready(function($){
         var id = data.id;
         var values = data.values;
         for(i=0;i<values.length;i++){
-            avgs[i] = parseInt(values[i].value);
+            avgs[i] = values[i].value;
             dates[i] = values[i].date;
         }
         console.log(avgs);
