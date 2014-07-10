@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>Widgets dashboard SmartCampus</title>
+        <title>Dashboard SmartCampus</title>
         
         <!-- Jquery librairies -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
@@ -20,7 +20,6 @@
         <script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
         <script type="text/javascript" src="http://www.amcharts.com/lib/3/gauge.js"></script>
         <script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/none.js"></script>
-        <script type="text/javascript" src="../js/ready.js"></script>
     <style type="text/css">
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
@@ -29,74 +28,80 @@
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNCIW5K9JPi9U8ji0iJMdDLjnVIAbKPpU">
     </script>
-    <script type="text/javascript" src="../js/widgets/map-to-building.js">
+    <script type="text/javascript" src="./js/widgets.js">
     </script>
-        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
         
 
          <!-- CSS librairies -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./css/style.css">
-        <link rel="stylesheet" href="./css/jquery-ui.min.css">
+        <!--<link rel="stylesheet" href="./css/jquery-ui.min.css">
         <link rel="stylesheet" href="./css/jquery-ui.structure.min.css">
-        <link rel="stylesheet" href="./css/jquery-ui.theme.min.css">
-         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+        <link rel="stylesheet" href="./css/jquery-ui.theme.min.css">-->
         
         
         
     </head>
     <body>
-      <div class="container">
+      <div class="container" style="margin-bottom:50px">
         <div class="page-header">
             <h1>SmartCampus <small>tableau de bord</small></h1>
           </div>
           <nav>
               <ul class="nav nav-pills ">
                   <li>
-                      <a href="page.php?id=accueil" class="btn btn-default btn-lg">
+                      <a href="index.html" class="btn btn-default btn-lg">
                           <span class="glyphicon glyphicon-home"></span> Accueil
                     </a>
                   </li>
                     <li>
-                        <a href="page.php?id=widgets" class="btn btn-default btn-lg">
+                        <a href="#" class="btn btn-default btn-lg">
                             <span class="glyphicon glyphicon-bell"></span> Alertes
                         </a>
                   </li>
                   <li>
-                        <a href="page.php?id=widgets" class="btn btn-default btn-lg">
+                        <a href="#" class="btn btn-default btn-lg">
                             <span class="glyphicon glyphicon-screenshot"></span> Carte
                         </a>
                   </li><li>
-                        <a href="page.php?id=widgets" class="btn btn-default btn-lg">
+                        <a href="#" class="btn btn-default btn-lg">
                             <span class="glyphicon glyphicon-flash"></span> Energie
                         </a>
                   </li>
                   <li>
-                        <a href="page.php?id=widgets" class="btn btn-default btn-lg">
+                        <a href="#" class="btn btn-default btn-lg">
                             <span class="glyphicon glyphicon-map-marker"></span> Parking
                         </a>
                   </li>
                   <li>
-                        <a href="page.php?id=widgets" class="btn btn-default btn-lg">
+                        <a href="#" class="btn btn-default btn-lg">
                             <span class="glyphicon glyphicon-th-large"></span> RU
                         </a>
                   </li>
                   <li>
-                        <a href="page.php?id=widgets" class="btn btn-default btn-lg">
+                        <a href="#" class="btn btn-default btn-lg">
                             <span class="glyphicon glyphicon-list-alt"></span> Salles
                         </a>
                   </li>
                   <li>
-                        <a href="page.php?id=widgets" class="btn btn-default btn-lg">
+                        <a href="#" class="btn btn-default btn-lg">
                             <span class="glyphicon glyphicon-road"></span> Transport
                         </a>
                   </li>
             </ul>
-          </nav><!--<div class="rows">
-    <div style="margin-bottom:10px" class="col-md-4">Texte</div>
-    <div style="margin-bottom:10px" class="col-md-8">rien</div>
-</div>-->
+          </nav>
+          <div class="rows">
+                <div style="margin-bottom:10px" class="col-md-12">
+                    <h3>Bienvenue sur votre tableau de bord de SmartCampus</h3>
+                </div>
+                <div style="margin-bottom:10px" class="col-md-12">
+                    <h4>En ce moment sur le campus :</h4>
+                </div>
+              <div style="margin-bottom:10px" class="col-md-4" id="chart_pie"></div>
+              <div style="margin-bottom:10px" class="col-md-4" id="chart_column"></div>
+              <div style="margin-bottom:10px" class="col-md-4" id="chart_temp"></div>
+        </div>
           </div>
+    
         <footer>
             <div class='navbar navbar-default navbar-fixed-bottom'>
             <div class="container">

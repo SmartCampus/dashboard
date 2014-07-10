@@ -1,0 +1,14 @@
+{"id":"PARK_V","values":[
+    {"value":"5","date":"11h00"},
+    {"value":"10","date":"11h15"},
+    {"value":"20","date":"11h30"},
+    {"value":"30","date":"11h45"},
+    {"value":"45","date":"12h15"},
+    {"value":"60","date":"12h00"},
+    {"value":"60","date":"12h15"},
+    {"value":"45","date":"12h30"},
+    {"value":"45","date":"12h45"},
+    {"value":"30","date":"13h00"},
+    {"value":"20","date":"13h15"},
+    {"value":"20","date":"13h30"}
+]}
