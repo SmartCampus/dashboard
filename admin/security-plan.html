@@ -4,22 +4,34 @@
         <title>
             Dashboard - Administration
         </title>
+        <!-- Jquery librairies -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
         <!-- Pour bootstrap -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <!-- Bibliotèque D3.js -->
         <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+        <!-- Mes scripts -->
+        <script type="text/javascript" src="js/handling-svg.js"></script>
     </head>
     <body>
         <head>
-            <h1>Tableau de bord - Administrateur</h1>
+            <div class="page-header">
+                <h1>Tableau de bord <small>Administrateur</small></h1>
+            </div>
             <nav>
                 <ul class="nav nav-tabs" role="tablist">
-                <li class="active"><a href="security-map.html">Sécurité</a></li>
-                <li><a href="energy-map.html">Energie</a></li>
+                <li class="active"><a href="security-map.html"><span class="glyphicon glyphicon-lock"></span>  Sécurité</a></li>
+                <li><a href="energy-map.html"><span class="glyphicon glyphicon-flash"></span>  Energie</a></li>
                 </ul>
-
             </nav>
         </head>
+        <div class="container" style="margin : 30px">
+            <div class="row">
+                <div class="col-md-2">col1 : legende + retour vers maps</div>
+                <div class="col-md-8">col2 : plan</div><div id="plan-security"></div>
+                <div class="col-md-2">col3 : liste des alertes</div>
+            </div>
+        </div>
     </body>
 </html>
