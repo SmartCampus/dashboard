@@ -75,7 +75,7 @@ $(document).ready(function($){
                     y = coord[1];
                 }
                 
-                // TODO (3)virer le polygon et gerer position des fenetres + (4)gerer mouseover + (1)legende + (2)list alerte ..... mouais
+                // TODO (3)virer le polygon et gerer position des fenetres + (4)gerer mouseover + (2)list alerte ..... mouais
                 
                  svg.append("image")
                         .attr("xlink:href","./data/img/"+kind+".png")

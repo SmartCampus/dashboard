@@ -11,8 +11,9 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <!-- Bibliotèque D3.js -->
         <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
-        <!-- Mes scripts -->
+        <!-- Mes trucs -->
         <script type="text/javascript" src="js/handling-svg.js"></script>
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <head>
@@ -28,7 +29,14 @@
         </head>
         <div class="container" style="margin : 30px">
             <div class="row">
-                <div class="col-md-2">col1 : legende + retour vers maps</div>
+                <div class="col-md-2">
+                    <h3>Légende :</h3>
+                    <ul>
+                        <li class="list-group-item"><img alt="portes_legende" src="data/img/door.png" class="img-responsive legende"/>Portes</li>
+                        <li class="list-group-item"><img alt="portes_legende" src="data/img/window.png" class="img-responsive legende"/>Fenêtres</li>
+                    </ul>
+                    <img alt="back-security" id="back-security" src="data/img/back.png" class="img-responsive legende" title="Retour sur la carte"/> Retour sur la carte
+                </div>
                 <div class="col-md-8">col2 : plan</div><div id="plan-security"></div>
                 <div class="col-md-2">col3 : liste des alertes</div>
             </div>
