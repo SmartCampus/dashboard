@@ -35,7 +35,7 @@ $(document).ready(function($){
             for(var i=1;i<childs.length;i++){
                 svg.node().appendChild(childs[i]);
             }
-            callback("s_1");
+            callback();
         });
         
     }
@@ -44,19 +44,29 @@ $(document).ready(function($){
      * Fonction qui ajoute un icone sur la salle
      * correspondant à l'id en paramètre
      */
-    function add_icon(id_salle){
+    function add_icon(){
         $.getJSON( "./data/alertes.json", function( data ) {
-            var alertes = data.alertes;
-            for(i=0;i<alertes.length;i++){
-                var kind = alertes[i].kind;
-                var x;
-                var y;
-                var id_to_find = alertes[i].id;
-                var salle = $("#"+id_to_find+">g").children().eq(0);
+            var list_alertes = data.alertes;
+            $("#list-alertes").append("<ul id='ul-alertes'></ul>");
+            var ul = $("#ul-alertes");
+            $("#title-alerte").append(" <span class=\"badge\">"+list_alertes.length+"</span>");
+            var size_x,size_y;
+            for(i=0;i<list_alertes.length;i++){
+                var alertes = list_alertes[i];
+                var id_capteur = alertes.id;
+                var data = alertes.data;
+                var kind = data.kind;
+                var bat = data.bat;
+                var id_salle = data.id_salle;
+                var x,y,size_x,size_y;
+                $(ul).append("<li class='list-group-item'>"+bat+" "+id_salle+" ("+kind+")</li>");
+                var salle = $("#"+id_salle+">g").children().eq(0);
                 var balise = salle.get(0).nodeName;
-                if(balise == "rect"){
-                    var size_x = salle.attr('width')/3;
-                    var size_y = salle.attr('height')*3/4;                   
+                // on affecte les valeurs de x et y selon la forme vectorielle de la salle
+
+                if(balise == "rect"){    
+                    size_x = parseFloat(salle.attr('width'));
+                    size_y = parseFloat(salle.attr('height'));
                     x = parseFloat(salle.attr('x'));
                     y = parseFloat(salle.attr('y'));
                 }
@@ -74,15 +84,48 @@ $(document).ready(function($){
                     x = coord[0];
                     y = coord[1];
                 }
-                
-                // TODO (3)virer le polygon et gerer position des fenetres + (4)gerer mouseover + (2)list alerte ..... mouais
-                
-                 svg.append("image")
-                        .attr("xlink:href","./data/img/"+kind+".png")
-                        .attr('width', 20)
-                        .attr('height', 24)
-                        .attr('x', x)
-                        .attr('y', y);
+                // on corrige les valeurs de x et y selon le type de capteur
+                var value_id = parseInt(id_salle.split("_")[1]);
+                if(value_id < 24){
+                    if(kind == "door"){
+                        y = parseFloat(y) + size_y/2;
+                    }
+                }
+                else if( value_id == 24){
+                }
+                else if(value_id < 30){
+                    if(kind == "window"){
+                        x = parseFloat(x)+size_x/2;
+                    }
+                }
+                else if(value_id < 52){
+                    if(kind == "window"){
+                        y = parseFloat(y)+size_y/2;
+                    }
+                }
+                else if(value_id < 57){
+                }
+                else if(value_id < 63){
+                }
+
+                // TODO (3)virer le polygon et gerer position des fenetres + (4)gerer mouseover + ..... mouais
+                var existing_img = $("#img-"+id_salle);
+                if(existing_img.get(0) == undefined){
+                     svg.append("image")
+                            .attr("xlink:href","./data/img/"+kind+".png")
+                            .attr('width', 20)
+                            .attr('id', 'img-'+id_salle)
+                            .attr('height', 24)
+                            .attr('x', x)
+                            .attr('y', y)
+                            .attr('title','capteur '+id_capteur);
+                }
+                else{
+                    var img = d3.select('#img-'+id_salle);
+                    var title = img.attr('title');
+                    img.attr('title',title+'\ncapteur '+id_capteur);                    
+                }
+                console.log(d3.select("#img-"+id_salle).attr('title'));
             }
         });
     }
