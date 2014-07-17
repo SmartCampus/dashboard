@@ -8,7 +8,7 @@
      }
     },{"id":"door_5",
      "data":{
-         "kind":"window",
+         "kind":"door",
          "bat":"templier 1",
          "floor":4,
          "id_salle":"s_57"
@@ -27,12 +27,33 @@
          "floor":4,
          "id_salle":"s_55"
      }
-     },{"id":"window_5",
+     },{"id":"door_8",
          "data":{
              "kind":"door",
              "bat":"templier 1",
              "floor":4,
-             "id_salle":"s_63"
+             "id_salle":"s_10"
+        }
+    },{"id":"window_6",
+         "data":{
+             "kind":"window",
+             "bat":"templier 1",
+             "floor":4,
+             "id_salle":"s_1"
+        }
+    },{"id":"window_7",
+         "data":{
+             "kind":"window",
+             "bat":"templier 1",
+             "floor":4,
+             "id_salle":"s_1"
+        }
+    },{"id":"window_8",
+         "data":{
+             "kind":"window",
+             "bat":"templier 1",
+             "floor":4,
+             "id_salle":"s_5"
         }
     },{"id":"door_6",
          "data":{

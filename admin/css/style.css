@@ -11,4 +11,11 @@
     color:#d4d4d4;
     text-align: center;
 }
+
+.DocumentList
+{
+    overflow-y:auto;
+    max-height: 300px;
+}
+
     
