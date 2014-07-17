@@ -4,28 +4,42 @@
          "kind":"door",
          "bat":"templier 1",
          "floor":4,
-         "id_salle":"s_1"
+         "id_salle":"s_52"
      }
     },{"id":"door_5",
      "data":{
          "kind":"window",
          "bat":"templier 1",
          "floor":4,
-         "id_salle":"s_28"
+         "id_salle":"s_57"
      }
     },{"id":"window_1",
      "data":{
          "kind":"window",
          "bat":"templier 1",
          "floor":4,
-         "id_salle":"s_32"
+         "id_salle":"s_58"
      }
     },{"id":"window_3",
      "data":{
          "kind":"window",
          "bat":"templier 1",
          "floor":4,
-         "id_salle":"s_32"
+         "id_salle":"s_55"
      }
+     },{"id":"window_5",
+         "data":{
+             "kind":"door",
+             "bat":"templier 1",
+             "floor":4,
+             "id_salle":"s_63"
+        }
+    },{"id":"door_6",
+         "data":{
+             "kind":"door",
+             "bat":"templier 1",
+             "floor":4,
+             "id_salle":"s_24"
+        }
     }]
 }

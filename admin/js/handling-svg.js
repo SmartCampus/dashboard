@@ -92,6 +92,14 @@ $(document).ready(function($){
                     }
                 }
                 else if( value_id == 24){
+                    if(kind == "door"){
+                        x = parseFloat(x)-size_x;
+                        y = parseFloat(y)+size_y/2;
+                    }
+                    else if(kind == "window"){
+                        x = parseFloat(x)-size_x;
+                    }
+                    
                 }
                 else if(value_id < 30){
                     if(kind == "window"){
@@ -104,26 +112,42 @@ $(document).ready(function($){
                     }
                 }
                 else if(value_id < 57){
+                    if(kind == "door"){
+                        x = parseFloat(x) + size_x/2;
+                    }
+                    
                 }
                 else if(value_id < 63){
+                    if(kind == "window"){
+                        x = parseFloat(x) + size_x/2
+                    }
+                }
+                else if(value_id >= 63){
+                    if(kind == "window"){
+                        x = parseFloat(x) - size_x/2;
+                    }
+                    else if(kind == "door"){
+                        x = parseFloat(x) - size_x;
+                        y = parseFloat(y) + size_y*2;
+                    }
                 }
 
                 // TODO (3)virer le polygon et gerer position des fenetres + (4)gerer mouseover + ..... mouais
-                var existing_img = $("#img-"+id_salle);
+                var existing_img = $("#img-"+kind+id_salle);
                 if(existing_img.get(0) == undefined){
                      svg.append("image")
                             .attr("xlink:href","./data/img/"+kind+".png")
                             .attr('width', 20)
-                            .attr('id', 'img-'+id_salle)
+                            .attr('id', 'img-'+kind+id_salle)
                             .attr('height', 24)
                             .attr('x', x)
                             .attr('y', y)
                             .attr('title','capteur '+id_capteur);
                     // info bulles
-                    $("#img-"+id_salle).mouseover(function(){
+                    $("#img-"+kind+id_salle).mouseover(function(){
                     if($(this).attr("title") == "")return false;
                     $('body').append("<span class=\"infobulle\"></span>");
-                        var bulle = $(".infobulle");
+                        var bulle = $(".infobulle:last");
                         bulle.append($(this).attr('title'));
                         var posTop = $(this).offset().top-bulle.height();
                         var posLeft = $(this).offset().left;
@@ -137,8 +161,8 @@ $(document).ready(function($){
                             opacity : 0.99
                         });
                     });
-                    $("#img-"+id_salle).mouseout(function(){
-                        var bulle = $(".infobulle");
+                    $("#img-"+kind+id_salle).mouseout(function(){
+                        var bulle = $(".infobulle:last");
                         bulle.animate({
                             top : bulle.offset().top+10,
                             opacity : 0
@@ -148,7 +172,7 @@ $(document).ready(function($){
                     });
                 }
                 else{
-                    var img = d3.select('#img-'+id_salle);
+                    var img = d3.select('#img-'+kind+id_salle);
                     var title = img.attr('title');
                     img.attr('title',title+'<br/>capteur '+id_capteur);                    
                 }
