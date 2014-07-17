@@ -119,14 +119,42 @@ $(document).ready(function($){
                             .attr('x', x)
                             .attr('y', y)
                             .attr('title','capteur '+id_capteur);
+                    // info bulles
+                    $("#img-"+id_salle).mouseover(function(){
+                    if($(this).attr("title") == "")return false;
+                    $('body').append("<span class=\"infobulle\"></span>");
+                        var bulle = $(".infobulle");
+                        bulle.append($(this).attr('title'));
+                        var posTop = $(this).offset().top-bulle.height();
+                        var posLeft = $(this).offset().left;
+                        bulle.css({
+                            left : posLeft,
+                            top : posTop-10,
+                            opacity : 0
+                        });
+                        bulle.animate({
+                            top : posTop,
+                            opacity : 0.99
+                        });
+                    });
+                    $("#img-"+id_salle).mouseout(function(){
+                        var bulle = $(".infobulle");
+                        bulle.animate({
+                            top : bulle.offset().top+10,
+                            opacity : 0
+                        },500,"linear", function(){
+                            bulle.remove();
+                        });
+                    });
                 }
                 else{
                     var img = d3.select('#img-'+id_salle);
                     var title = img.attr('title');
-                    img.attr('title',title+'\ncapteur '+id_capteur);                    
+                    img.attr('title',title+'<br/>capteur '+id_capteur);                    
                 }
-                console.log(d3.select("#img-"+id_salle).attr('title'));
+                
             }
+            
         });
     }
     
