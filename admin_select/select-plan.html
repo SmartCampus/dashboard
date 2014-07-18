@@ -8,6 +8,11 @@
         <!-- Bootstrap -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <!-- Bibliotèque D3.js -->
+        <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+        
+        <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="js/plan.js"></script>
     </head>
     <body>
         <header>
@@ -15,8 +20,54 @@
         </header>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">checkbox</div>
-                <div class="col-md-8">plan</div>
+                <div class="col-md-4">
+                    <h3>Sélectionnez les éléments à afficher :</h3><br/>
+                    <form role="form">
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="checkbox_bad" class="my_checkbox"><img alt="defe_legende" src="img/bad.png" class="img-responsive legende"/>Capteur défectueux
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="checkbox_heat" class="my_checkbox"><img alt="chal_legende" src="img/test.jpg" class="img-responsive legende"/>Carte de chaleur
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="checkbox_window" class="my_checkbox"><img alt="fenetres_legende" src="img/window.png" class="img-responsive legende"/>Fenêtres
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="checkbox_light" class="my_checkbox"><img alt="lum_legende" src="img/light-on.png" class="img-responsive legende"/>Lumières
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="checkbox_door" class="my_checkbox"><img alt="portes_legende" src="img/door-close.png" class="img-responsive legende"/>Portes
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="checkbox_motion" class="my_checkbox"><img alt="presence_legende" src="img/test.jpg" class="img-responsive legende"/>Présence
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"  id="checkbox_temp" class="my_checkbox"><img alt="temp_legende" src="img/temp.png" class="img-responsive legende"/>Températures
+                                </label>
+                            </div>
+                             <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"  id="checkbox_all">Tous
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-8"><h3>Plan du bâtiment :</h3><div id="plan-select"></div></div>
             </div>
         </div>
     </body>
