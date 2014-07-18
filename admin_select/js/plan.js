@@ -48,6 +48,12 @@ $(document).ready(function($){
     /* Portes */
     $("#checkbox_door").change(function(){
         uncheck_all_box($(this));
+        if($(this).prop("checked")){
+            $(".door").show();
+        }
+        else{
+            $(".door").hide();
+        }            
     });
     //TODO
     /* Présence */
@@ -97,10 +103,196 @@ $(document).ready(function($){
         
     }
     
-    function put_sensors(){}
+    function put_sensors_on_map(){
+        $.getJSON( "data/sensors.json", function( data ) {
+            var list_sensors = data.sensors;
+            for(i=0;i<list_sensors.length;i++){
+                var kind = list_sensors[i].kind;
+                var bat = list_sensors[i].bat;
+                var status = list_sensors[i].value;
+                var salle = list_sensors[i].salle;
+                var salle_svg = $("#"+salle+">g").children().eq(0);
+                var balise = salle_svg.get(0).nodeName;              
+                var x,y,size_x,size_y;
+                // on affecte les valeurs de x et y selon la forme vectorielle de la salle
+
+                if(balise == "rect"){    
+                    size_x = parseFloat(salle_svg.attr('width'));
+                    size_y = parseFloat(salle_svg.attr('height'));
+                    x = parseFloat(salle_svg.attr('x'));
+                    y = parseFloat(salle_svg.attr('y'));
+                }
+                else if(balise == "path"){
+                    var points = (salle_svg.attr("d")).split("-");
+                    var coord = points[0].split(",");
+                    // pour les portes
+                    x = coord[0].substring(1);
+                    y = coord[1].substring(0,coord[1].length-2);
+                }
+                else if(balise == "polygon"){
+                    var points = (salle_svg.attr("points")).split(" ");
+                    var coord = points[0].split(",");
+                    // pour les portes
+                    x = coord[0];
+                    y = coord[1];
+                }
+                // on corrige les valeurs de x et y selon le type de capteur
+                var value_id = parseInt(salle.split("_")[1]);
+                if(value_id == 12){
+                    if(kind == "door"){
+                        x = parseFloat(x) - size_x;
+                        y = parseFloat(y) + size_y/2;
+                    }
+                }
+                else if(value_id == 13){
+                    if(kind == "door"){
+                        x = parseFloat(x) - size_x*3/4;
+                        y = parseFloat(y) + size_y*3/4;
+                    }
+                }
+                else if(value_id == 15){
+                    if(kind == "door"){
+                        x = parseFloat(x) - size_x/6;
+                        y = parseFloat(y) + size_y*6/4;
+                    }
+                }
+                else if(value_id < 24){
+                    if(kind == "door"){
+                        y = parseFloat(y) + size_y/2;
+                    }
+                }
+                else if( value_id == 24){
+                    if(kind == "door"){
+                        x = parseFloat(x)-size_x*2;
+                        y = parseFloat(y)+size_y/2;
+                    }
+                    else if(kind == "window"){
+                        x = parseFloat(x)-size_x;
+                    }
+                    
+                }
+                else if(value_id < 29){
+                    if(kind == "window"){
+                        x = parseFloat(x)+size_x/2;
+                    }
+                }
+                else if(value_id == 29){
+                    if(kind == "door"){
+                        x = parseFloat(x) - size_x;
+                    }
+                }
+                else if(value_id == 36){
+                    if(kind == "door"){
+                        x = parseFloat(x)-size_x*5/4;
+                        y = parseFloat(y)+size_y*3.5;
+                    }
+                }
+                else if(value_id == 39){
+                    if(kind == "door"){
+                        x = parseFloat(x)-size_x*2/3;
+                        y = parseFloat(y);
+                    }
+                }
+                else if(value_id == 41){
+                    if(kind == "door"){
+                        x = parseFloat(x)-size_x*3/4;
+                        y = parseFloat(y)-size_y/2;
+                    }
+                }
+                else if(value_id < 51){
+                    if(kind == "window"){
+                        y = parseFloat(y)+size_y/2;
+                    }
+                }
+                else if(value_id == 54){
+                    if(kind == "door"){
+                        y = parseFloat(y);
+                        x = parseFloat(x)-size_x/2;
+                    }
+                }
+                else if(value_id == 59){
+                    if(kind == "door"){
+                        y = parseFloat(y);
+                        x = parseFloat(x)-size_x;
+                    }
+                }
+                else if(value_id < 57){
+                    if(kind == "door"){
+                        x = parseFloat(x) + size_x/2;
+                    }
+                    
+                }
+                
+                else if(value_id < 63){
+                    if(kind == "window"){
+                        x = parseFloat(x) + size_x/2
+                    }
+                }
+                else if(value_id < 66){
+                    if(kind == "window"){
+                        x = parseFloat(x) - size_x/2;
+                    }
+                    else if(kind == "door"){
+                        x = parseFloat(x)-size_x/2;
+                        y = parseFloat(y);
+                    }
+                }
+                
+                /*
+                 * On insère les bonnes images pour chaque capteur 
+                 * ainsi que les events dynamiques qui vont bien
+                 */
+                var existing_img = $("#img-"+kind+salle);
+                if(existing_img.get(0) == undefined){
+                     svg.append("image")
+                            .attr("xlink:href","./img/"+kind+"-"+status+".png")
+                            .attr('width', 20)
+                            .attr('id', 'img-'+kind+salle)
+                            .attr('height', 24)
+                            .attr('x', x)
+                            .attr('y', y)
+                            .attr('title','capteur '+kind+' | batiment '+bat+' | salle '+salle+' | status '+status)
+                            .attr('class',kind);
+                    // info bulles
+                    $("#img-"+kind+salle).mouseover(function(){
+                        if($(this).attr("title") == "")return false;
+                        $('body').append("<span class=\"infobulle\"></span>");
+                            var bulle = $(".infobulle:last");
+                            bulle.append($(this).attr('title'));
+                            var posTop = $(this).offset().top-bulle.height()*2;
+                            var posLeft = $(this).offset().left;
+                            bulle.css({
+                                left : posLeft,
+                                top : posTop-10,
+                                opacity : 0
+                            });
+                            bulle.animate({
+                                top : posTop,
+                                opacity : 0.99
+                            });
+                    });
+                    $("#img-"+kind+salle).mouseout(function(){
+                        var bulle = $(".infobulle:last");
+                        bulle.animate({
+                            top : bulle.offset().top+10,
+                            opacity : 0
+                        },500,"linear", function(){
+                            bulle.remove();
+                        });
+                    });
+                }
+                else{
+                    var img = d3.select('#img-'+kind+salle);
+                    var title = img.attr('title');
+                    img.attr('title',title+'<br/>capteur '+kind+' | batiment '+bat+' | salle '+salle+' | status '+status);
+                }
+            }
+            //$("."+kind).hide();
+        });
+    }
     
     $("#plan-select").ready(function(){
-        load_svg("data/plan_T1_4e.svg","plan-select",put_sensors);
+        load_svg("data/plan_T1_4e.svg","plan-select",put_sensors_on_map);
     });
     
     
