@@ -12,9 +12,11 @@ $(document).ready(function($){
         $('.my_checkbox').each(function(){
             if(checked){
                 this.checked = true;
+                $("."+$(this).attr('id').split('_')[1]).show();
             }
             else{
                 this.checked = false;
+                $("."+$(this).attr('id').split('_')[1]).hide();
             }
         });
     });
@@ -287,7 +289,7 @@ $(document).ready(function($){
                     img.attr('title',title+'<br/>capteur '+kind+' | batiment '+bat+' | salle '+salle+' | status '+status);
                 }
             }
-            //$("."+kind).hide();
+            $("."+kind).hide();
         });
     }
     
