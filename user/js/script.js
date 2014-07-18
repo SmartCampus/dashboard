@@ -60,59 +60,73 @@ $(document).ready(function($){
     ########            Widget moyennes (barres)                   #######
     ########                                                       #######
     ######################################################################*/
-    
-    $.getJSON('./data/moyenne-attente.json', function(data) {
-        var avgs = [];
-        var dates = [];
-        console.log(data);
-        var id = data.id;
-        var values = data.values;
-        for(i=0;i<values.length;i++){
-            avgs[i] = values[i].value;
-            dates[i] = values[i].date;
-        }
-        console.log(avgs);
-        
-        
-        $('#moyenne-attente').highcharts({
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: 'Temps moyen d\'attente au RU'
-            },
-            subtitle: {
-                text: 'Source: SmartCampus'
-            },
-            xAxis: {
-                categories: dates
-            },
-            yAxis: {
-                min: 0,
+    var select = $("#select-day");
+    $(select).change(function(){
+        var day = $(this).val();
+        update_avg(day);
+    });
+    function update_avg(day){
+        $.getJSON('./data/moyenne-attente.json', function(data) {
+            var avgs = [];
+            var dates = [];
+            var id = data.id;
+            var values;
+            switch(parseInt(day)){
+                    case 1:values = data.day_1;break;
+                    case 2:values = data.day_2;break;
+                    case 3:values = data.day_3;break;
+                    case 4:values = data.day_4;break;
+                    case 5:values = data.day_5;break;
+                    default:values = data.day_1;break;
+            }
+            for(i=0;i<values.length;i++){
+                avgs[i] = values[i].value;
+                dates[i] = values[i].date;
+            }
+
+
+            $('#moyenne-attente').highcharts({
+                chart: {
+                    type: 'column'
+                },
                 title: {
-                    text: 'attente (minutes)'
-                }
-            },
-            tooltip: {
-                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                    '<td style="padding:0"><b>{point.y:.1f} min</b></td></tr>',
-                footerFormat: '</table>',
-                shared: true,
-                useHTML: true
-            },
-            plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0
-                }
-            },
-            series: [{
-                name: 'Temps d\'attente',
-                data: avgs
-    
-            }]
+                    text: 'Temps moyen d\'attente au RU'
+                },
+                subtitle: {
+                    text: 'Source: SmartCampus'
+                },
+                xAxis: {
+                    categories: dates
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'attente (minutes)'
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y:.1f} min</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: 'Temps d\'attente',
+                    data: avgs
+
+                }]
+            });
         });
-	});
+    }
+    update_avg(0);
+    
     
 });
