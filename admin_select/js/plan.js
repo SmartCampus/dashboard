@@ -7,77 +7,48 @@ $(document).ready(function($){
     ############################################
     */
     
-    /* Select All */
+    /* la checkbox 'tous' permet de selectionner tous les 
+     * autres checkboxs et d'afficher les elements pour chacune
+     */
     $("#checkbox_all").click(function(){
         var checked = $(this).prop('checked');
         $('.my_checkbox').each(function(){
+            kind = $(this).attr('id').split('_')[1];
             if(checked){
                 this.checked = true;
-                $("."+$(this).attr('id').split('_')[1]).show();
+                put_sensors(kind,4);
             }
             else{
                 this.checked = false;
-                $("."+$(this).attr('id').split('_')[1]).hide();
+                 unput_sensors(kind);
             }
         });
     });
     
+    /* fonction qui decoche la case 'tous' si elle 
+     * coché, fonction appelé que si l'on décoche une
+     * autre checkbox
+     */
     function uncheck_all_box(box){
         if(!box.prop("checked")){
             $("#checkbox_all").attr("checked",false);
         }
     }
     
-    /* Capteurs défectueux */
-    $("#checkbox_bad").change(function(){
+    /* affiche/enlève les capteurs correspondant
+     * à la checkbox cochée/décochée
+     */
+    $('.my_checkbox').change(function(){
         uncheck_all_box($(this));
-    });
-    //TODO
-    /* Carte de chaleur */
-    $("#checkbox_heat").change(function(){
-        uncheck_all_box($(this));
-    });
-    //TODO
-    /* Fenêtres */
-    $("#checkbox_window").change(function(){
-        uncheck_all_box($(this));
-    });
-    //TODO
-    /* Lumières */
-    $("#checkbox_light").change(function(){
-        uncheck_all_box($(this));
+        kind = $(this).attr('id').split('_')[1];
         if($(this).prop("checked")){
-            $(".light").show();
+            put_sensors(kind,$( "input:checked" ).length);
         }
         else{
-            $(".light").hide();
+            unput_sensors(kind);
         }
-    });
-    //TODO
-    /* Portes */
-    $("#checkbox_door").change(function(){
-        uncheck_all_box($(this));
-        if((n= $( "input:checked" ).length) > 3){
-            console.log(n);
         
-        }if($(this).prop("checked")){
-            put_sensors();
-        }
-        else{
-            unput_sensors("door");
-        }            
     });
-    //TODO
-    /* Présence */
-    $("#checkbox_motion").change(function(){
-        uncheck_all_box($(this));
-    });
-    //TODO
-    /* Température */
-    $("#checkbox_temp").change(function(){
-        uncheck_all_box($(this));
-    });
-    //TODO
     
     /* #########################################
     #####                                   ####
@@ -114,18 +85,41 @@ $(document).ready(function($){
         
     }
     
-    function unput_sensors(kind,n){
-        d3.select('svg').selectAll("."+kind).remove();
+    
+    function unput_sensors(kind){
+        $.getJSON( "data/sensors.json", function( data ) {
+            var sensors = data.sensors;
+            for(i=0;i<sensors.length;i++){
+                var salle = sensors[i].salle;
+                function room_is_full(){
+                var array_icons = $("#"+salle+">g>image");
+                var n = 0;
+                array_icons.each(function(){
+                    n++;
+                });
+                if((n-1)>1) return true;
+                return false;
+                }
+                if(room_is_full()){
+                    // TODO remove element + remove circle + recreate circle ^^
+                }
+                else{
+                    $('.img-icons').show();
+                    d3.select('svg').selectAll(".group").remove();
+                }
+                d3.select('svg').selectAll("."+kind).remove();
+                }            
+        });
+        
     }
     
-    function put_sensors(kind,n){
+    //TODO repositionner capteur
+    // TODO title tooltip sur text
+    function put_sensors(kind_wanted,n){
+        
         $.getJSON( "data/sensors.json", function( data ) {
             var list_sensors = data.sensors;
             var svg_node = d3.select('body').select('svg');
-            var first_sensor = svg_node.append('g').attr("id","first_sensor");
-            var second_sensor = svg_node.append('g').attr("id","second_sensor");
-            var third_sensor = svg_node.append('g').attr("id","third_sensor");
-            var all_sensor = svg_node.append('g').attr("id","all_sensor");
             for(i=0;i<list_sensors.length;i++){
                 var kind = list_sensors[i].kind;
                 var bat = list_sensors[i].bat;
@@ -144,28 +138,107 @@ $(document).ready(function($){
                     x = parseFloat(salle_svg.attr('x'));
                     y = parseFloat(salle_svg.attr('y'));
                 }
-                /*
-                else if(balise == "path"){
-                    var points = (salle_svg.attr("d")).split("-");
-                    var coord = points[0].split(",");
-                    // pour les portes
-                    x = coord[0].substring(1);
-                    y = coord[1].substring(0,coord[1].length-2);
-                }
-                else if(balise == "polygon"){
-                    var points = (salle_svg.attr("points")).split(" ");
-                    var coord = points[0].split(",");
-                    // pour les portes
-                    x = coord[0];
-                    y = coord[1];
-                }
                 // on corrige les valeurs de x et y selon le type de capteur
-                var value_id = parseInt(salle.split("_")[1]);*/
-                if(kind == "door"){
-                    /*
-                     * On insère les bonnes images pour chaque capteur 
-                     * ainsi que les events dynamiques qui vont bien
-                     */
+                var value_id = parseInt(salle.split("_")[1]);
+                
+                var n = 0;
+                if(kind == kind_wanted){
+                    if(room_is_full()){
+                        insert_icon();
+                        insert_icon_group(n);
+                    }
+                    else{
+                        insert_icon();
+                    }
+                }
+                
+                /* fonction qui dit si
+                 * la salle a atteint le 
+                 * nombre maximum de capteurs
+                 */
+                function room_is_full(){
+                    var array_icons = $("#"+salle+">g>image");
+                    n = 0;
+                    array_icons.each(function(){
+                        n++;
+                    });
+                    if(n>1) return true;
+                    return false;
+                }
+                
+                /*
+                 * On insère/remplace les capteur
+                 * en les groupant sur un seul
+                 * icone, affichant la liste de 
+                 * tous les capteurs dans tooltip
+                 */
+                function insert_icon_group(n){
+                    var array_icons = $("#"+salle+">g>image");
+                    var title = "";
+                    array_icons.each(function(){
+                        title = title + $(this).eq(0).attr('title')+'<br/>';
+                        $(this).hide();
+                    });
+                    var existing_circle = $("#circle-"+kind+salle);
+                    if(existing_circle.get(0) == undefined){
+                         node_to_insert.append("circle")
+                                .attr('r', 10)
+                                .attr('id', 'circle-'+kind+salle)
+                                .attr('cx', x+size_x/2)
+                                .attr('cy', y+size_y/2)
+                                .attr('title',title)
+                                .attr('class','group')
+                                .style('stroke','black')
+                                .style('fill','red')
+                                .style('fill-opacity',0.6);
+                        node_to_insert.append("text")
+                                .attr('x', x+size_x/2-5)
+                                .attr('y', y+size_y/2+5)
+                                .attr('fill','black')
+                                .text(n+1)
+                                .attr('class','group');
+                        // info bulles
+                        $("#circle-"+kind+salle).mouseover(function(){
+                            if($(this).attr("title") == "")return false;
+                            $('body').append("<span class=\"infobulle\"></span>");
+                                var bulle = $(".infobulle:last");
+                                bulle.append($(this).attr('title'));
+                                var posTop = $(this).offset().top-bulle.height()*2;
+                                var posLeft = $(this).offset().left;
+                                bulle.css({
+                                    left : posLeft,
+                                    top : posTop-10,
+                                    opacity : 0
+                                });
+                                bulle.animate({
+                                    top : posTop,
+                                    opacity : 0.99
+                                });
+                        });
+                        $("#circle-"+kind+salle).mouseout(function(){
+                            var bulle = $(".infobulle:last");
+                            bulle.animate({
+                                top : bulle.offset().top+10,
+                                opacity : 0
+                            },500,"linear", function(){
+                                bulle.remove();
+                            });
+                        });
+                    }
+                    else{
+                        var img = d3.select('#circle-'+kind+salle);
+                        var title = img.attr('title');
+                        img.attr('title',title+'<br/>capteur '+kind+' | batiment '+bat+' | salle '+salle+' | status '+status);
+                    }
+                }
+                
+                
+                /*
+                 * On insère les bonnes images pour chaque capteur 
+                 * ainsi que les events dynamiques qui vont bien
+                 */
+                function insert_icon(){
+                    
                     var existing_img = $("#img-"+kind+salle);
                     if(existing_img.get(0) == undefined){
                          node_to_insert.append("image")
@@ -175,8 +248,8 @@ $(document).ready(function($){
                                 .attr('height', 24)
                                 .attr('x', x)
                                 .attr('y', y)
-                                .attr('title','capteur '+kind+' | batiment '+bat+' | salle '+salle+' | status '+status)
-                                .attr('class',kind);
+                                .attr('title','<img alt="img-capteur" src="./img/'+kind+"-"+status+'.png" style="width:20px"/>capteur '+kind+' | batiment '+bat+' | salle '+salle+' | status '+status)
+                                .attr('class',kind+' img-icons');
                         // info bulles
                         $("#img-"+kind+salle).mouseover(function(){
                             if($(this).attr("title") == "")return false;
@@ -210,9 +283,9 @@ $(document).ready(function($){
                         var title = img.attr('title');
                         img.attr('title',title+'<br/>capteur '+kind+' | batiment '+bat+' | salle '+salle+' | status '+status);
                     }
+                    
                 }
             }
-            $("."+kind).hide();
         });
     }
     
