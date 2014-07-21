@@ -4,36 +4,48 @@ $(document).ready(function($){
      * pour représenter le temps d'attente
      */
     $.getJSON( "./data/temps.json", function( data ){
-        $("#title-time-left").append("Temps d'attente actuel : "+data.value+" min(s)");
-        var chart = AmCharts.makeChart("time-left", {
+        $("#title-time-left").append("Attente actuelle : <p id='number-time-left'>"+data.value+" mins</p>");
+       var chart = AmCharts.makeChart("time-left", {
+           "titles": [
+                {
+                    "text": "Heure à laquelle vous mangerez : ",
+                    "size": 13
+                }
+            ],
             "type": "gauge",
             "theme": "none",
-            "startDuration": 0.5,
-            "marginTop":20,
-            "marginBottom":50,	
+            "startDuration": 0.3,
+            "marginTop":1,
+            "marginBottom":180,	
             "axes": [{
                 "axisAlpha": 0.3,
                 "endAngle": 360,
-                "endValue": 60,
+                "endValue": 12,
                 "minorTickInterval": 0.2,
                 "showFirstLabel": false,
                 "startAngle": 0,
                 "axisThickness": 1,
-                "valueInterval": 10
+                "valueInterval": 1
             }],
-            // les aiguilles
             "arrows": [{
-                "radius": "60%",
+                "radius": "50%",
                 "innerRadius": 0,
                 "clockWiseOnly": true,
                 "nailRadius":10,
                 "nailAlpha": 1
             }, {
                 "nailRadius": 0,
-                "radius": "90%",
-                "startWidth": 10,
+                "radius": "80%",
+                "startWidth": 6,
                 "innerRadius": 0,
                 "clockWiseOnly": true
+            }, {
+                "color": "#CC0000",
+                "nailRadius": 4,
+                "startWidth": 3,
+                "innerRadius": 0,
+                "clockWiseOnly": true,
+                "nailAlpha": 1
             }],
             exportConfig:{	  
               menuItems: [{
@@ -42,15 +54,24 @@ $(document).ready(function($){
               }]  
             }
         });
-        setInterval(updateClock,1000);
+        // update each second
+        setInterval(updateClock, 1000);
 
 
-        // set la valeur de la grande aiguille sur la valeur actuelle du temps restant
+        // update clock
         function updateClock() {
-            // get current time left
-                 var time = data.value;
-                 // set time
-                chart.arrows[1].setValue(time);
+            // get current date
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+
+            // set hours
+            chart.arrows[0].setValue(hours + minutes / 60);
+            // set minutes
+            chart.arrows[1].setValue((12 * ((minutes+data.value) + seconds / 60) / 60));
+            // set seconds
+            chart.arrows[2].setValue(12 * date.getSeconds() / 60);
         }
     });
     
