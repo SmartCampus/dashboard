@@ -2,7 +2,7 @@ SmartCampus Dashboard!
 =====================
 
 
-Voici le readme pour le dashboard du projet **SmartCampus**[^smartcampus]. Vous retrouverez ici les informations concernant les données nécessaires au bon fonctionnement des différentes dashboards mais également l'intention recherchée par chacune d'entre elle.
+Voici le readme pour le dashboard du projet **SmartCampus**. Vous retrouverez ici les informations concernant les données nécessaires au bon fonctionnement des différentes dashboards mais également l'intention recherchée par chacune d'entre elle.
 
 ----------
 
@@ -14,7 +14,8 @@ La liste suivante regroupe l'ensemble des dashboard créées pour **SmartCampus*
 
 > **Administration :**
 >
-> - Sécurité
+> - [Sécurité](#-sécurité)
+> - [Energie](#-energie)
 
 
 
@@ -22,10 +23,46 @@ La liste suivante regroupe l'ensemble des dashboard créées pour **SmartCampus*
 > 
 > **Utilisateur** (enseignant) :
 >
-> - [Restaurant universitaire](#restaurant-universitaire)
+> - [Restaurant universitaire](#-restaurant-universitaire)
 
 
-## <i class="icon-glass"></i> Restaurant Universitaire
+## Sécurité
+
+### Intention recherchée
+Afficher les problèmes de sécurité sur un plan d'un bâtiment, c'est-à-dire les portes et les fenêtres ouvertes.
+Les capteurs sont affichés sur le plan et la liste complète des alertes de sécurité sont résumés dans une liste
+
+### Données nécessaires
+Fichier JSON contenant la liste des alertes de sécurité :
+> {"id":"alertes",
+>  "alertes":[
+>   {"id":`id_capteur`,
+>    "data":{"kind":`door`ou`window`,
+>            "bat":`batiment`,
+>            "floor":`etage`,
+>            "id_salle":`salle`}}]
+
+
+
+## Energie
+
+### Intention recherchée
+Afficher les problèmes de sécurité sur un plan d'un bâtiment, c'est-à-dire les pointes de chaleur et les lumières allumées.
+Les capteurs sont affichés sur le plan et la liste complète des alertes d'énergie sont résumés dans une liste.
+
+### Données nécessaires
+Fichier JSON contenant la liste des alertes d'énergie :
+> {"id":"alertes",
+>  "alertes":[
+>   {"id":`id_capteur`,
+>    "data":{"kind":`temp`ou`light`,
+>            "bat":`batiment`,
+>            "floor":`etage`,
+>            "id_salle":`salle`}}]
+
+
+
+## Restaurant Universitaire
 
 ### Intention recherchée
 - Afficher le menu du jour
@@ -43,6 +80,3 @@ La liste suivante regroupe l'ensemble des dashboard créées pour **SmartCampus*
 .....
 "day_5":[{"value":`valeur`,"date":"11h00"},{"value":`valeur`,"date":"11h15"},...]}
 
-
-
-  [^smartcampus]: **SmartCampus** est un projet consistant au déployement d'uensemble de capteurs sur le campus Sophia Tech pour le rendre "intelligent".
