@@ -1,4 +1,5 @@
 $(document).ready(function($){
+    //TODO refactoring + max capteur / salle (pas ensemble) 
     
     /* #########################################
     #####                                   ####
@@ -16,7 +17,7 @@ $(document).ready(function($){
             kind = $(this).attr('id').split('_')[1];
             if(checked){
                 this.checked = true;
-                put_sensors(kind,4);
+                put_sensors(kind);
             }
             else{
                 this.checked = false;
@@ -86,36 +87,42 @@ $(document).ready(function($){
     }
     
     
+    /*
+     * Fonction qui supprime tous
+     * les capteurs de type kind sur 
+     * le plan
+     */
     function unput_sensors(kind){
         $.getJSON( "data/sensors.json", function( data ) {
             var sensors = data.sensors;
             for(i=0;i<sensors.length;i++){
                 var salle = sensors[i].salle;
                 function room_is_full(){
-                var array_icons = $("#"+salle+">g>image");
-                var n = 0;
-                array_icons.each(function(){
-                    n++;
-                });
-                if((n-1)>1) return true;
-                return false;
+                    var array_icons = $("#"+salle+">g>image");
+                    var n = 0;
+                    array_icons.each(function(){
+                        n++;
+                    });
+                    if((n-1)>1) return true;
+                    return false;
                 }
+                d3.select('svg').selectAll("."+kind).remove();
+                d3.select('svg').selectAll(".group").remove();
                 if(room_is_full()){
-                    // TODO remove element + remove circle + recreate circle ^^
+                    put_sensors("recreate");
                 }
                 else{
                     $('.img-icons').show();
-                    d3.select('svg').selectAll(".group").remove();
                 }
-                d3.select('svg').selectAll("."+kind).remove();
-                }            
+                
+            }
+            relocate();
         });
         
     }
     
-    //TODO repositionner capteur
-    // TODO title tooltip sur text
-    function put_sensors(kind_wanted,n){
+    
+    function put_sensors(kind_wanted){
         
         $.getJSON( "data/sensors.json", function( data ) {
             var list_sensors = data.sensors;
@@ -142,10 +149,13 @@ $(document).ready(function($){
                 var value_id = parseInt(salle.split("_")[1]);
                 
                 var n = 0;
-                if(kind == kind_wanted){
+                if(kind_wanted == "recreate"){
+                    insert_icon_group();
+                }
+                else if(kind == kind_wanted){
                     if(room_is_full()){
                         insert_icon();
-                        insert_icon_group(n);
+                        insert_icon_group();
                     }
                     else{
                         insert_icon();
@@ -167,12 +177,13 @@ $(document).ready(function($){
                 }
                 
                 /*
-                 * On insère/remplace les capteur
+                 * On remplace l'ensemble des capteur
                  * en les groupant sur un seul
                  * icone, affichant la liste de 
                  * tous les capteurs dans tooltip
+                 * masque les autres capteurs
                  */
-                function insert_icon_group(n){
+                function insert_icon_group(){
                     var array_icons = $("#"+salle+">g>image");
                     var title = "";
                     array_icons.each(function(){
@@ -181,6 +192,13 @@ $(document).ready(function($){
                     });
                     var existing_circle = $("#circle-"+kind+salle);
                     if(existing_circle.get(0) == undefined){
+                        node_to_insert.append("text")
+                                .attr('x', x+size_x/2-5)
+                                .attr('y', y+size_y/2+5)
+                                .attr('fill','black')
+                                .text(n+1)
+                                .attr('class','group')
+                                .attr('title',title);
                          node_to_insert.append("circle")
                                 .attr('r', 10)
                                 .attr('id', 'circle-'+kind+salle)
@@ -189,14 +207,9 @@ $(document).ready(function($){
                                 .attr('title',title)
                                 .attr('class','group')
                                 .style('stroke','black')
-                                .style('fill','red')
+                                .style('fill','blue')
                                 .style('fill-opacity',0.6);
-                        node_to_insert.append("text")
-                                .attr('x', x+size_x/2-5)
-                                .attr('y', y+size_y/2+5)
-                                .attr('fill','black')
-                                .text(n+1)
-                                .attr('class','group');
+                        
                         // info bulles
                         $("#circle-"+kind+salle).mouseover(function(){
                             if($(this).attr("title") == "")return false;
@@ -285,6 +298,45 @@ $(document).ready(function($){
                     }
                     
                 }
+            }
+            relocate();
+        });
+    }
+    /*
+     * Repositionne deux capteur dans une salle
+     * pour un meilleur affichage
+     */
+    function relocate(){
+        $.getJSON( "data/sensors.json", function( data ) {
+            var sensors = data.sensors;
+            for(i=0;i<sensors.length;i++){
+                var salle = sensors[i].salle;
+                var size = 0;
+                var images = $("#"+salle+">g>image");
+                images.each(function(){
+                    size++;
+                });
+                if(size == 2){
+                    console.log("relocate");
+                    var my_salle = $("#"+salle+">g>rect");
+                    var salle_id = parseInt(salle.split("_")[1]);
+                    var x_base = parseFloat($(my_salle[0]).eq(0).attr('x'));
+                    var y_base = parseFloat($(my_salle[0]).eq(0).attr('y'));
+                    var x_size = parseFloat($(my_salle[0]).eq(0).attr('width'));
+                    var y_size = parseFloat($(my_salle[0]).eq(0).attr('height'));
+                    /* la position des capteurs dépend de la position de la salle sur le plan */
+                    if((salle_id == 14) || (salle_id == 40) || (salle_id>23 && salle_id<29) || (salle_id>51)){
+                        $(images[1]).eq(0).attr('x',x_base + x_size/2);
+                        $(images[1]).eq(0).attr('y',y_base); 
+                    }
+                    else{
+                        $(images[1]).eq(0).attr('x',x_base);
+                        $(images[1]).eq(0).attr('y',y_base + y_size/2);                    
+                    }
+                    $(images[0]).eq(0).attr('x',x_base);
+                    $(images[0]).eq(0).attr('y',y_base);
+                }
+                
             }
         });
     }
