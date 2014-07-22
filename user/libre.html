@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+    <head>
+        <title>SmartCampus - Dashboard</title>
+        <!-- Jquery librairies -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
+        <!-- Bibliotèque D3.js -->
+        <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+        <!-- Pour bootstrap -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <!-- mes trucs -->
+        <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="./js/handling-svg.js"></script>
+        <meta charset="UTF-8">
+        <style>
+            #time-left{
+                width: 100%;
+                height: 500px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="page-header"><h1>Tableau de bord <small>Enseignant</small></h1></div>
+            <nav>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li><a href="#"><span class="glyphicon glyphicon-home"></span>  Accueil</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-map-marker"></span>  Parking</a></li>
+                    <li><a href="ru.html"><span class="glyphicon glyphicon-cutlery"></span>  Restaurant Universitaire</a></li>
+                    <li class="active"><a href="#"><span class="glyphicon glyphicon-th-large"></span>  Salles libres</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-road"></span>  Transport</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Légende :</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <svg id='legend-libres' width=40 height=30><rect x=0 y=0 width=40 height=30 fill='green' fill-opacity=0.7></rect></svg> Salles libres
+                        </li>
+                        <li class="list-group-item">
+                            <svg id='legend-occupes'width=40 height=30><rect x=0 y=0 width=40 height=30 fill='red' fill-opacity=0.7></rect></svg> Salles occupées
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-7">
+                    <h3>Plan du bâtiment :</h3>
+                    <div id="plan-libre"></div>
+                    <script type="text/jscript">
+                        $("#plan-libre").ready(function(){
+                            load_svg("data/plan_T1_4e.svg","plan-libre");
+                        });
+                    </script>
+                </div>
+                <div class="col-md-2"><h3>Voir sur la carte :</h3></div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -14,8 +14,8 @@ La liste suivante regroupe l'ensemble des dashboard créées pour **SmartCampus*
 
 > **Administration :**
 >
-> - [Sécurité](#-sécurité)
-> - [Energie](#-energie)
+> - [Sécurité](#sécurité)
+> - [Energie](#energie)
 
 
 
@@ -23,7 +23,7 @@ La liste suivante regroupe l'ensemble des dashboard créées pour **SmartCampus*
 > 
 > **Utilisateur** (enseignant) :
 >
-> - [Restaurant universitaire](#-restaurant-universitaire)
+> - [Restaurant universitaire](#restaurant-universitaire)
 
 
 ## Sécurité
@@ -72,8 +72,10 @@ Fichier JSON contenant la liste des alertes d'énergie :
 ### Données nécessaires
 #### Menu
 - Menu du jour (JSON)
+
 #### Temps actuel
 - JSON : {"id":"actual-waiting","value":`valeur`}
+
 #### Temps moyen
 - JSON : {"id":"avg-waiting",
           "day_1":[{"value":`valeur`,"date":"11h00"},{"value":`valeur`,"date":"11h15"},...],
