@@ -20,8 +20,13 @@
         </header>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <h3>Sélectionnez les éléments à afficher :</h3><br/>
+                <div class="col-md-4"><h3>Sélectionnez les éléments à afficher :</h3></div>
+                <div class="col-md-8"><h3>Plan du bâtiment :</h3></div>
+            </div>
+            <div class="row">
+                
+                    
+                <div class="col-md-2">
                     <form role="form">
                         <div class="form-group">
                             <div class="checkbox">
@@ -44,6 +49,12 @@
                                     <input type="checkbox" id="checkbox_light" class="my_checkbox"><img alt="lum_legende" src="img/light-true.png" class="img-responsive legende"/>Lumières
                                 </label>
                             </div>
+                        </div>
+                    </form>
+                    </div>
+                <div class="col-md-2">
+                    <form role="form">
+                        <div class="form-group">
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" id="checkbox_door" class="my_checkbox"><img alt="portes_legende" src="img/door-true.png" class="img-responsive legende"/>Portes
@@ -66,8 +77,9 @@
                             </div>
                         </div>
                     </form>
-                </div>
-                <div class="col-md-8"><h3>Plan du bâtiment :</h3><div id="plan-select"></div></div>
+                    </div>
+                
+                <div class="col-md-8"><div id="plan-select"></div></div>
             </div>
         </div>
     </body>

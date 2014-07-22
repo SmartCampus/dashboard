@@ -317,7 +317,6 @@ $(document).ready(function($){
                     size++;
                 });
                 if(size == 2){
-                    console.log("relocate");
                     var my_salle = $("#"+salle+">g>rect");
                     var salle_id = parseInt(salle.split("_")[1]);
                     var x_base = parseFloat($(my_salle[0]).eq(0).attr('x'));
