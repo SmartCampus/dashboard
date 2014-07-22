@@ -64,7 +64,7 @@ $(document).ready(function($){
         /*#############################################################
         ###   Declarer/creer la balise svg pour le dessin vectoriel ###
         ###############################################################*/
-        svg = d3.select('body').select('#'+id).append('svg').attr('width',900).attr('height',450);
+        svg = d3.select('body').select('#'+id).append('svg').attr('width',750).attr('height',350);
 
 
 
@@ -114,7 +114,6 @@ $(document).ready(function($){
                 else{
                     $('.img-icons').show();
                 }
-                
             }
             relocate();
         });
@@ -154,6 +153,7 @@ $(document).ready(function($){
                 }
                 else if(kind == kind_wanted){
                     if(room_is_full()){
+                        // trop de capteurs à afficher -> on regroupe
                         insert_icon();
                         insert_icon_group();
                     }
@@ -186,6 +186,7 @@ $(document).ready(function($){
                 function insert_icon_group(){
                     var array_icons = $("#"+salle+">g>image");
                     var title = "";
+                    /* on récupère les titles de tous les autres capteurs de la salle */
                     array_icons.each(function(){
                         title = title + $(this).eq(0).attr('title')+'<br/>';
                         $(this).hide();
@@ -210,33 +211,7 @@ $(document).ready(function($){
                                 .style('fill','blue')
                                 .style('fill-opacity',0.6);
                         
-                        // info bulles
-                        $("#circle-"+kind+salle).mouseover(function(){
-                            if($(this).attr("title") == "")return false;
-                            $('body').append("<span class=\"infobulle\"></span>");
-                                var bulle = $(".infobulle:last");
-                                bulle.append($(this).attr('title'));
-                                var posTop = $(this).offset().top-bulle.height()*2;
-                                var posLeft = $(this).offset().left;
-                                bulle.css({
-                                    left : posLeft,
-                                    top : posTop-10,
-                                    opacity : 0
-                                });
-                                bulle.animate({
-                                    top : posTop,
-                                    opacity : 0.99
-                                });
-                        });
-                        $("#circle-"+kind+salle).mouseout(function(){
-                            var bulle = $(".infobulle:last");
-                            bulle.animate({
-                                top : bulle.offset().top+10,
-                                opacity : 0
-                            },500,"linear", function(){
-                                bulle.remove();
-                            });
-                        });
+                        init_tooltip("#circle-"+kind+salle);
                     }
                     else{
                         var img = d3.select('#circle-'+kind+salle);
@@ -264,32 +239,7 @@ $(document).ready(function($){
                                 .attr('title','<img alt="img-capteur" src="./img/'+kind+"-"+status+'.png" style="width:20px"/>capteur '+kind+' | batiment '+bat+' | salle '+salle+' | status '+status)
                                 .attr('class',kind+' img-icons');
                         // info bulles
-                        $("#img-"+kind+salle).mouseover(function(){
-                            if($(this).attr("title") == "")return false;
-                            $('body').append("<span class=\"infobulle\"></span>");
-                                var bulle = $(".infobulle:last");
-                                bulle.append($(this).attr('title'));
-                                var posTop = $(this).offset().top-bulle.height()*2;
-                                var posLeft = $(this).offset().left;
-                                bulle.css({
-                                    left : posLeft,
-                                    top : posTop-10,
-                                    opacity : 0
-                                });
-                                bulle.animate({
-                                    top : posTop,
-                                    opacity : 0.99
-                                });
-                        });
-                        $("#img-"+kind+salle).mouseout(function(){
-                            var bulle = $(".infobulle:last");
-                            bulle.animate({
-                                top : bulle.offset().top+10,
-                                opacity : 0
-                            },500,"linear", function(){
-                                bulle.remove();
-                            });
-                        });
+                        init_tooltip("#img-"+kind+salle);
                     }
                     else{
                         var img = d3.select('#img-'+kind+salle);
@@ -316,7 +266,7 @@ $(document).ready(function($){
                 images.each(function(){
                     size++;
                 });
-                if(size == 2){
+                if(size <= 2){
                     var my_salle = $("#"+salle+">g>rect");
                     var salle_id = parseInt(salle.split("_")[1]);
                     var x_base = parseFloat($(my_salle[0]).eq(0).attr('x'));
@@ -334,9 +284,52 @@ $(document).ready(function($){
                     }
                     $(images[0]).eq(0).attr('x',x_base);
                     $(images[0]).eq(0).attr('y',y_base);
+                    if(salle_id == 29 || salle_id == 39){
+                        $(images[0]).eq(0).attr('x',x_base + x_size/3);
+                        $(images[0]).eq(0).attr('y',y_base + y_size/3);
+                        $(images[1]).eq(0).attr('x',x_base + x_size/2);
+                        $(images[1]).eq(0).attr('y',y_base + y_size*2/3);
+                    }
+                    if(salle_id == 13){
+                        $(images[1]).eq(0).attr('x',x_base + x_size/3);
+                        $(images[1]).eq(0).attr('y',y_base + y_size/3);
+                    }
+                    if(salle_id == 54){
+                        $(images[0]).eq(0).attr('x',x_base + x_size/4);
+                    }
                 }
                 
             }
+        });
+    }
+    
+    /* Génère les infobulles pour les capteurs et les groupement de capteurs */
+    function init_tooltip(id){
+        $(id).mouseover(function(){
+            if($(this).attr("title") == "")return false;
+            $('body').append("<span class=\"infobulle\"></span>");
+                var bulle = $(".infobulle:last");
+                bulle.append($(this).attr('title'));
+                var posTop = $(this).offset().top-bulle.height()*2;
+                var posLeft = $(this).offset().left;
+                bulle.css({
+                    left : posLeft,
+                    top : posTop-10,
+                    opacity : 0
+                });
+                bulle.animate({
+                    top : posTop,
+                    opacity : 0.99
+                });
+        });
+        $(id).mouseout(function(){
+            var bulle = $(".infobulle:last");
+            bulle.animate({
+                top : bulle.offset().top+10,
+                opacity : 0
+            },500,"linear", function(){
+                bulle.remove();
+            });
         });
     }
     
