@@ -23,8 +23,8 @@
             </div>
             <nav>
                 <ul class="nav nav-tabs" role="tablist">
-                <li class="active"><a href="security-map.html"><span class="glyphicon glyphicon-lock"></span>  Sécurité</a></li>
-                <li><a href="energy-map.html"><span class="glyphicon glyphicon-flash"></span>  Energie</a></li>
+                <li class="active"><a href="security-plan.html"><span class="glyphicon glyphicon-lock"></span>  Sécurité</a></li>
+                <li><a href="energy-plan.html"><span class="glyphicon glyphicon-flash"></span>  Energie</a></li>
                 </ul>
             </nav>
         </header>
@@ -33,12 +33,18 @@
                 <div class="col-md-2">
                     <h3>Légende :</h3>
                     <ul>
-                        <li class="list-group-item"><img alt="portes_legende" src="img/door.png" class="img-responsive legende"/>Portes</li>
-                        <li class="list-group-item"><img alt="portes_legende" src="img/window.png" class="img-responsive legende"/>Fenêtres</li>
+                        <li class="list-group-item"><img alt="portes_legende" src="img/door.png" class="img-responsive legende"/>Portes ouvertes</li>
+                        <li class="list-group-item"><img alt="portes_legende" src="img/window.png" class="img-responsive legende"/>Fenêtres ouvertes</li>
                     </ul>
                     <img alt="back-security" id="back-security" src="img/back.png" class="img-responsive legende" title="Retour sur la carte"/> Retour sur la carte
                 </div>
-                <div class="col-md-7"><h3>Plan</h3><div id="plan-security"></div></div>
+                <div class="col-md-7"><h3>Plan</h3><div id="plan-security"></div>
+                    <script type="text/javascript">
+                        $("#plan-security").ready(function(){
+                            load_svg("data/plan_T1_4e.svg","plan-security","data/alertes-security.json",put_sensors);
+                        });
+                    </script>
+                </div>
                 <div class="col-md-3"><h3 id="title-alerte">Liste des alertes</h3><div class="DocumentList" id="list-alertes"></div></div>
             </div>
         </div>

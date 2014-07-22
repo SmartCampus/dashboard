@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            Dashboard - Administration
+        </title>
+        <!-- Jquery librairies -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
+        <!-- Pour bootstrap -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <!-- Bibliotèque D3.js -->
+        <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+        <!-- Mes trucs -->
+        <script type="text/javascript" src="js/handling-svg.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header>
+            <div class="page-header">
+                <h1>Tableau de bord <small>Administrateur</small></h1>
+            </div>
+            <nav>
+                <ul class="nav nav-tabs" role="tablist">
+                <li><a href="security-plan.html"><span class="glyphicon glyphicon-lock"></span>  Sécurité</a></li>
+                <li class="active"><a href="energy-plan.html"><span class="glyphicon glyphicon-flash"></span>  Energie</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container" style="margin : 30px">
+            <div class="row">
+                <div class="col-md-2">
+                    <h3>Légende :</h3>
+                    <ul>
+                        <li class="list-group-item"><img alt="portes_legende" src="img/temp.png" class="img-responsive legende"/>Température anormales</li>
+                        <li class="list-group-item"><img alt="portes_legende" src="img/light.png" class="img-responsive legende"/>Lumières allumées</li>
+                    </ul>
+                    <img alt="back-security" id="back-security" src="img/back.png" class="img-responsive legende" title="Retour sur la carte"/> Retour sur la carte
+                </div>
+                <div class="col-md-7"><h3>Plan</h3><div id="plan-energy"></div>
+                    <script type="text/javascript">
+                        $("#plan-security").ready(function(){
+                            load_svg("data/plan_T1_4e.svg","plan-energy","data/alertes-energy.json",put_sensors);
+                        });
+                    </script>
+                </div>
+                <div class="col-md-3"><h3 id="title-alerte">Liste des alertes</h3><div class="DocumentList" id="list-alertes"></div></div>
+            </div>
+        </div>
+    </body>
+</html>
