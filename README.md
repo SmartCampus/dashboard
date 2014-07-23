@@ -24,6 +24,7 @@ La liste suivante regroupe l'ensemble des dashboard créées pour **SmartCampus*
 > **Utilisateur** (enseignant) :
 >
 > - [Restaurant universitaire](#restaurant-universitaire)
+> - [Salles libres](#salles-libres)
 
 
 ## Sécurité
@@ -77,8 +78,18 @@ Fichier JSON contenant la liste des alertes d'énergie :
 - JSON : {"id":"actual-waiting","value":`valeur`}
 
 #### Temps moyen
-- JSON : {"id":"avg-waiting",
-          "day_1":[{"value":`valeur`,"date":"11h00"},{"value":`valeur`,"date":"11h15"},...],
-.....
-"day_5":[{"value":`valeur`,"date":"11h00"},{"value":`valeur`,"date":"11h15"},...]}
+> JSON : {"id":"avg-waiting",
+>         "day_1":[{"value":`valeur`,"date":"11h00"},{"value":`valeur`,"date":"11h15"},...],
+>.....
+>"day_5":[{"value":`valeur`,"date":"11h00"},{"value":`valeur`,"date":"11h15"},...]}
+
+## Salles libres
+
+### Intention recherchée
+Afficher le bâtiment (étage) dont le nombre de salles libres est le plus grand
+
+### Données nécessaires
+> JSON :  {"id":"salles","salles":[
+>                       {"id_salle":`id`,
+>                        "value":`true`ou`false`}]}
 
