@@ -245,7 +245,7 @@ function insert_icon_group(kind,status,bat,salle,x,y,size_x,size_y,node_to_inser
 function insert_icon(kind,true_status,salle,bat,x,y,node_to_insert){
     var status = true_status;
     var existing_img = $("#img-"+kind+salle);
-    if(kind == "temp"){
+    if(kind == "temp" || kind=="bad"){
         status = "";
     }
     if(existing_img.get(0) == undefined){

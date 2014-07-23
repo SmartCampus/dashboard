@@ -14,13 +14,14 @@ $(document).ready(function($){
         var checked = $(this).prop('checked');
         $('.my_checkbox').each(function(){
             kind = $(this).attr('id').split('_')[1];
+            var already_checked = $(this).prop('checked');
             if(checked){
                 this.checked = true;
-                put_sensors(kind,"data/sensors.json");
+                if(!already_checked)put_sensors(kind,"data/sensors.json");
             }
             else{
                 this.checked = false;
-                 unput_sensors(kind,"data/sensors.json");
+                unput_sensors(kind,"data/sensors.json");
             }
         });
     });
