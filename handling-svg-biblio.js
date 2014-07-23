@@ -23,7 +23,7 @@ function init_tooltip(id){
         $('body').append("<span class=\"infobulle\"></span>");
             var bulle = $(".infobulle:last");
             bulle.append($(this).attr('title'));
-            var posTop = $(this).offset().top-bulle.height()*2;
+            var posTop = $(this).offset().top+bulle.height();
             var posLeft = $(this).offset().left;
             bulle.css({
                 left : posLeft,
@@ -79,26 +79,31 @@ function load_svg(url,id,url_json,callback){
  * les capteurs de type kind sur 
  * le plan svg
  */
-function unput_sensors(kind,url_json){
+function unput_sensors(kind_wanted,url_json){
     $.getJSON( url_json, function( data ) {
         var sensors = data.sensors;
         for(i=0;i<sensors.length;i++){
+            var kind = sensors[i].kind;
             var salle = sensors[i].salle;
-            function room_is_full(){
-                var array_icons = $("#"+salle+">g>image");
-                var n = 0;
-                array_icons.each(function(){
-                    n++;
-                });
-                if((n-1)>1) return true;
-                return false;
+            var status = sensors[i].status;
+            var bat = sensors[i].bat;
+            var node_to_insert = d3.select('body').select('svg').select("#"+salle+">g");
+            var salle_svg = $("#"+salle+">g").children().eq(0);
+            var balise = salle_svg.get(0).nodeName;              
+            var x,y,size_x,size_y;
+            if(balise == "rect"){    
+                size_x = parseFloat(salle_svg.attr('width'));
+                size_y = parseFloat(salle_svg.attr('height'));
+                x = parseFloat(salle_svg.attr('x'));
+                y = parseFloat(salle_svg.attr('y'));
             }
-            d3.select('svg').selectAll("."+kind).remove();
-            d3.select('svg').selectAll(".group").remove();
-            if(room_is_full()){
-                put_sensors("recreate");
+            d3.select('svg').selectAll("."+kind_wanted).remove();
+            var n;
+            if((n=room_is_full_remove(salle,0)) != false){
+                insert_icon_group(kind,status,bat,salle,x,y,size_x,size_y,node_to_insert,n);
             }
             else{
+                d3.select('svg').selectAll(".group").remove();
                 $('.img-icons').show();
             }
         }
@@ -136,14 +141,11 @@ function put_sensors(kind_wanted,url_json){
                 y = parseFloat(salle_svg.attr('y'));
             }
             var n = 0;
-            if(kind_wanted == "recreate"){
-                insert_icon_group();
-            }
-            else if(kind == kind_wanted){
-                if(room_is_full(salle)){
+            if(kind == kind_wanted){
+                if((n= room_is_full(salle)) != false){
                     // trop de capteurs à afficher -> on regroupe
                     insert_icon(kind,status,salle,bat,x,y,node_to_insert);
-                    insert_icon_group(kind,status,bat,salle,x,y,size_x,size_y,node_to_insert);
+                    insert_icon_group(kind,status,bat,salle,x,y,size_x,size_y,node_to_insert,n);
                 }
                 else{
                     insert_icon(kind,status,salle,bat,x,y,node_to_insert);
@@ -158,15 +160,27 @@ function put_sensors(kind_wanted,url_json){
  * la salle a atteint le 
  * nombre maximum de capteurs
  * @param salle la salle à vérifier
- * @return true or false
+ * @return n le nombre d'élément dans la salle ou false
  */
 function room_is_full(salle){
+    var array_icons = $("#"+salle+">g>image");
+    var n = 0;
+    array_icons.each(function(){
+        n++;
+    });
+    if(n>1) return n;
+    return false;
+}
+
+function room_is_full_remove(salle){
     var array_icons = $("#"+salle+">g>image");
     n = 0;
     array_icons.each(function(){
         n++;
     });
-    if(n>1) return true;
+    if((n-1)>1){
+        return n-1;
+    }
     return false;
 }
 
@@ -184,7 +198,7 @@ function room_is_full(salle){
  * @param size_y la hauteur de la salle
  * @param node_to_insert le noeud correspondant à la salle (svg)
  */
-function insert_icon_group(kind,status,bat,salle,x,y,size_x,size_y,node_to_insert){
+function insert_icon_group(kind,status,bat,salle,x,y,size_x,size_y,node_to_insert,n){
     var array_icons = $("#"+salle+">g>image");
     var title = "";
     /* on récupère les titles de tous les autres capteurs de la salle */
@@ -193,32 +207,29 @@ function insert_icon_group(kind,status,bat,salle,x,y,size_x,size_y,node_to_inser
         $(this).hide();
     });
     var existing_circle = $("#circle-"+salle);
-    if(existing_circle.get(0) == undefined){
-        node_to_insert.append("text")
-                .attr('x', x+size_x/2-5)
-                .attr('y', y+size_y/2+5)
-                .attr('fill','black')
-                .text(n+1)
-                .attr('class','group')
-                .attr('title',title);
-         node_to_insert.append("circle")
-                .attr('r', 10)
-                .attr('id', 'circle-'+salle)
-                .attr('cx', x+size_x/2)
-                .attr('cy', y+size_y/2)
-                .attr('title',title)
-                .attr('class','group')
-                .style('stroke','black')
-                .style('fill','blue')
-                .style('fill-opacity',0.6);
-
-        init_tooltip("#circle-"+salle);
+    if(existing_circle.get(0) != undefined){
+        existing_circle.remove();
+        $("#text-"+salle).remove();
     }
-    else{
-        var img = d3.select('#circle-'+salle);
-        var title = img.attr('title');
-        img.attr('title',title+'<br/>capteur '+kind+' | batiment '+bat+' | salle '+salle+' | status '+status);
-    }
+    node_to_insert.append("text")
+            .attr('x', x+size_x/2-5)
+            .attr('y', y+size_y/2+5)
+            .attr('fill','black')
+            .text(n+1)
+            .attr('class','group')
+            .attr('title',title)
+            .attr('id','text-'+salle);
+     node_to_insert.append("circle")
+            .attr('r', 10)
+            .attr('id', 'circle-'+salle)
+            .attr('cx', x+size_x/2)
+            .attr('cy', y+size_y/2)
+            .attr('title',title)
+            .attr('class','group')
+            .style('stroke','black')
+            .style('fill','blue')
+            .style('fill-opacity',0.6);
+    init_tooltip("#circle-"+salle);
 }
 
 /*
@@ -231,9 +242,12 @@ function insert_icon_group(kind,status,bat,salle,x,y,size_x,size_y,node_to_inser
  * @param y la position y de la salle
  * @param node_to_insert le noeud correspondant à la salle (svg)
  */
-function insert_icon(kind,status,salle,bat,x,y,node_to_insert){
-
+function insert_icon(kind,true_status,salle,bat,x,y,node_to_insert){
+    var status = true_status;
     var existing_img = $("#img-"+kind+salle);
+    if(kind == "temp"){
+        status = "";
+    }
     if(existing_img.get(0) == undefined){
          node_to_insert.append("image")
                 .attr("xlink:href","./img/"+kind+"-"+status+".png")
@@ -242,7 +256,7 @@ function insert_icon(kind,status,salle,bat,x,y,node_to_insert){
                 .attr('height', 24)
                 .attr('x', x)
                 .attr('y', y)
-                .attr('title','<img alt="img-capteur" src="./img/'+kind+"-"+status+'.png" style="width:20px"/>capteur '+kind+' | batiment '+bat+' | salle '+salle+' | status '+status)
+                .attr('title','<img alt="img-capteur" src="./img/'+kind+"-"+status+'.png" style="width:20px"/>capteur '+kind+' | batiment '+bat+' | salle '+salle+' | status '+true_status)
                 .attr('class',kind+' img-icons');
         // info bulles
         init_tooltip("#img-"+kind+salle);
