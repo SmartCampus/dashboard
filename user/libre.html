@@ -39,10 +39,10 @@
                     <h3>Légende :</h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <svg id='legend-libres' width=40 height=30><rect x=0 y=0 width=40 height=30 fill='green' fill-opacity=0.7></rect></svg> Salles libres
+                            <svg id='legend-libres' width=40 height=30><rect x=0 y=0 width=40 height=30 fill='green'></rect></svg> Salles libres
                         </li>
                         <li class="list-group-item">
-                            <svg id='legend-occupes'width=40 height=30><rect x=0 y=0 width=40 height=30 fill='red' fill-opacity=0.7></rect></svg> Salles occupées
+                            <svg id='legend-occupes'width=40 height=30><rect x=0 y=0 width=40 height=30 fill='red'></rect></svg> Salles occupées
                         </li>
                     </ul>
                 </div>
@@ -51,7 +51,7 @@
                     <div id="plan-libre"></div>
                     <script type="text/jscript">
                         $("#plan-libre").ready(function(){
-                            load_svg("data/plan_T1_4e.svg","plan-libre");
+                            load_svg("data/plan_T1_4e.svg","plan-libre",update_rooms);
                         });
                     </script>
                 </div>
