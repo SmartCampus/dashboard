@@ -1,4 +1,7 @@
 $(document).ready(function($){
+    init_heatmap();
+    
+    var heatmap;
     
     /* #########################################
     #####                                   ####
@@ -50,4 +53,73 @@ $(document).ready(function($){
         }
         
     });
+    
+    $('#checkbox_heat').change(function(){
+        if($(this).prop("checked")){
+            show_heatmap(heatmap);
+        }
+        else{
+            hide_heatmap(heatmap);
+        }
+    });
+    
+    function init_heatmap(){
+        $.getJSON('data/sensors.json',function(data){
+            var sensors = data.sensors;
+            var data = [];
+            
+            for(i=0;i<sensors.length;i++){
+                var kind = sensors[i].kind;
+                if(kind == "temp"){
+                    var salle_svg = $("#"+sensors[i].salle+">g").children().eq(0);
+
+                    var balise = salle_svg.get(0).nodeName;              
+                    var x_tmp,y_tmp,size_x,size_y;
+                    // on affecte les valeurs de x et y selon la forme vectorielle de la salle
+
+                    if(balise == "rect"){    
+                        size_x = parseFloat(salle_svg.attr('width'));
+                        size_y = parseFloat(salle_svg.attr('height'));
+                        x_tmp = parseFloat(salle_svg.attr('x'));
+                        y_tmp = parseFloat(salle_svg.attr('y'));
+                    }
+                    data.push({
+                        x : x_tmp + size_x/2,
+                        y : y_tmp + size_y/2,
+                        count : sensors[i].value
+                    });
+                }            
+            }
+            // heatmap configuration
+            var config = {
+                element: document.getElementById("plan-select"),
+                radius: 40,
+                opacity: 50,
+                legend: {
+                    position: 'br',
+                    title: 'Température en °C'
+                }
+            };
+
+            //creates and initializes the heatmap
+            var heatmap = h337.create(config);
+
+            // let's get some data
+            var data = {
+                max: 45,
+                data: data
+            };
+
+            heatmap.store.setDataSet(data);
+            hide_heatmap();
+        });
+        
+    }
+    
+    function hide_heatmap(){
+        $('canvas').hide();
+    }
+    function show_heatmap(){
+        $('canvas').show();
+    }
 });
