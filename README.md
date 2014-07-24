@@ -34,14 +34,15 @@ Afficher les problèmes de sécurité sur un plan d'un bâtiment, c'est-à-dire 
 Les capteurs sont affichés sur le plan et la liste complète des alertes de sécurité sont résumés dans une liste
 
 ### Données nécessaires
-Fichier JSON contenant la liste des alertes de sécurité :
+Fichier JSON contenant la liste des alertes :
 > {"id":"alertes",
->  "alertes":[
+>  "sensors":[
 >   {"id":`id_capteur`,
->    "data":{"kind":`door`ou`window`,
+>    "kind":`door`ou`window`,
 >            "bat":`batiment`,
+>            "value":`true`or`false`,
 >            "floor":`etage`,
->            "id_salle":`salle`}}]
+>            "id_salle":`salle`}]
 
 
 
@@ -52,14 +53,7 @@ Afficher les problèmes de sécurité sur un plan d'un bâtiment, c'est-à-dire 
 Les capteurs sont affichés sur le plan et la liste complète des alertes d'énergie sont résumés dans une liste.
 
 ### Données nécessaires
-Fichier JSON contenant la liste des alertes d'énergie :
-> {"id":"alertes",
->  "alertes":[
->   {"id":`id_capteur`,
->    "data":{"kind":`temp`ou`light`,
->            "bat":`batiment`,
->            "floor":`etage`,
->            "id_salle":`salle`}}]
+Fichier JSON contenant la liste des alertes idem que [Sécurité](#sécurité) (avec `light` et `temp` pour l'attribut `kind`
 
 
 
