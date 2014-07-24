@@ -1,4 +1,6 @@
 $(document).ready(function($){
+    var legend = { temp:"Température en °C",
+                  other:"Présence capteur = 1"}
     $('#form_radio').hide();
     var heatmap;
     
@@ -23,10 +25,11 @@ $(document).ready(function($){
             }
             else{
                 this.checked = false;
-                unput_sensors(kind,"data/sensors.json");
+                clear_icons();
             }
         });
     });
+    
     
     /*
      * Active ou désactive l'affichage par
@@ -34,6 +37,17 @@ $(document).ready(function($){
      */
     $("#myonoffswitch").click(function(){
         var checked = $(this).prop("checked");
+        if(checked){
+            $('#checkbox_all').prop("checked",false);
+            $('.my_checkbox').each(function(){
+                var kind = $(this).attr('id').split('_')[1];
+                this.checked = false;
+                clear_icons();  
+                $('.my_radio').each(function(){
+                    this.checked = false;
+                });
+            });
+        }
         $('.choice').each(function(){
             var id = $(this).attr('id');
             var parent = $(this).parent();
@@ -42,7 +56,7 @@ $(document).ready(function($){
                 $("#form_check").hide();
             }
             else{
-                $('canvas').remove();
+                remove_canvas();
                 $("#form_radio").hide();
                 $("#form_check").show();
 
@@ -90,6 +104,7 @@ $(document).ready(function($){
             var sensors = data.sensors;
             var data = [];
             var max = 45;
+            var title = legend["other"];
             for(i=0;i<sensors.length;i++){
                 var kind = sensors[i].kind;
                 if(kind == kind_wanted){
@@ -118,6 +133,7 @@ $(document).ready(function($){
                     }
                     else{
                         value = actual_value;
+                        title = legend["temp"];
                     }
                     console.log(value);
                     data.push({
@@ -134,7 +150,7 @@ $(document).ready(function($){
                 opacity: 50,
                 legend: {
                     position: 'br',
-                    title: 'Température en °C'
+                    title: title
                 }
             };
 

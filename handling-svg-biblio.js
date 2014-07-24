@@ -47,6 +47,17 @@ function init_tooltip(id){
 }
 
 /*
+ * Fonction qui vide le plan
+ * svg de tous les icones de 
+ * de capteurs
+ */
+function clear_icons(){
+    $("image").remove();
+    $("circle").remove();
+    $("text").remove();
+}
+
+/*
  * Fonction qui charge un ficher svg
  * et l'insère dans une code html
  * @param url l'url du fichier svg à charger
