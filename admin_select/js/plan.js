@@ -41,6 +41,25 @@ $(document).ready(function($){
         });
     });
     
+    $("#myonoffswitch").click(function(){
+        var checked = $(this).prop("checked");
+        $('.my_checkbox').each(function(){
+            var id = $(this).attr('id');
+            var my_class = $(this).attr('class');
+            var parent = $(this).parent();
+            $(this).remove();
+            if(checked){
+                $(parent).prepend("<input type='radio' name='group-select' class='"+my_class+"' id='"+id+"'>");
+                $("#checkbox_all").parent().hide();
+            }
+            else{
+                $(parent).prepend("<input type='checkbox' class='"+my_class+"' id='"+id+"'>");
+                $("#checkbox_all").parent().show();
+
+            }
+        });
+    });
+    
     /* fonction qui decoche la case 'tous' si elle 
      * coché, fonction appelé que si l'on décoche une
      * autre checkbox
