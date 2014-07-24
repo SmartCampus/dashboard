@@ -18,13 +18,25 @@ $(document).ready(function($){
         $('.my_checkbox').each(function(){
             kind = $(this).attr('id').split('_')[1];
             var already_checked = $(this).prop('checked');
-            if(checked){
-                this.checked = true;
-                if(!already_checked)put_sensors(kind,"data/sensors.json");
+            if(kind == "heat"){
+                if(checked){
+                    this.checked = true;
+                    show_heatmap();
+                }
+                else{
+                    this.checked = false;
+                    hide_heatmap();
+                }
             }
             else{
-                this.checked = false;
-                unput_sensors(kind,"data/sensors.json");
+                if(checked){
+                    this.checked = true;
+                    if(!already_checked)put_sensors(kind,"data/sensors.json");
+                }
+                else{
+                    this.checked = false;
+                    unput_sensors(kind,"data/sensors.json");
+                }
             }
         });
     });
@@ -118,8 +130,11 @@ $(document).ready(function($){
     
     function hide_heatmap(){
         $('canvas').hide();
+        $("#plan-select>div").hide();
     }
     function show_heatmap(){
         $('canvas').show();
+        $("#plan-select>div").show();
     }
+    
 });

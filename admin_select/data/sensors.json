@@ -2225,7 +2225,7 @@
     },
     {"id":"temp_47",
      "kind":"temp",
-     "value":27,
+     "value":42,
      "bat":"templier 1",
      "floor":4,
      "salle":"s_47",
@@ -2321,7 +2321,7 @@
     },
     {"id":"temp_60",
      "kind":"temp",
-     "value":27,
+     "value":32,
      "bat":"templier 1",
      "floor":4,
      "salle":"s_60",
@@ -2343,28 +2343,12 @@
      "salle":"s_65",
      "location":"N"
     },
-    {"id":"temp_66",
-     "kind":"temp",
-     "value":27,
-     "bat":"templier 1",
-     "floor":4,
-     "salle":"s_66",
-     "location":"N"
-    },
     {"id":"temp_67",
      "kind":"temp",
      "value":27,
      "bat":"templier 1",
      "floor":4,
      "salle":"s_67",
-     "location":"N"
-    },
-    {"id":"temp_68",
-     "kind":"temp",
-     "value":27,
-     "bat":"templier 1",
-     "floor":4,
-     "salle":"s_68",
      "location":"N"
     }
 ]}
