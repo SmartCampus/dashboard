@@ -105,7 +105,7 @@ $(document).ready(function($){
             // heatmap configuration
             var config = {
                 element: document.getElementById("plan-select"),
-                radius: 40,
+                radius: 35,
                 opacity: 50,
                 legend: {
                     position: 'br',
