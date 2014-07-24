@@ -54,7 +54,7 @@ function init_tooltip(id){
  * @param url_json l'url du fichier json à utiliser pour la fonction callback
  * @param callback la fonction callback
  */
-function load_svg(url,id,url_json,callback){
+function load_svg(url,id,url_json,callback,arg1,arg2){
     /* Declarer/creer la balise svg pour le dessin vectoriel */
     svg = d3.select('body').select('#'+id).append('svg').attr('width',750).attr('height',350);
     
@@ -70,7 +70,10 @@ function load_svg(url,id,url_json,callback){
         for(var i=1;i<childs.length;i++){
             svg.node().appendChild(childs[i]);
         }
-        if(callback != undefined && url_json != undefined)callback(url_json);
+        if(callback != undefined && url_json != undefined){
+            callback(arg1,url_json);
+            callback(arg2,url_json);
+        }
     });
 }
 

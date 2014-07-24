@@ -12,8 +12,9 @@
         <!-- Bibliotèque D3.js -->
         <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
         <!-- Mes trucs -->
-        <script type="text/javascript" src="js/handling-svg.js"></script>
+        <script type="text/javascript" src="../handling-svg-biblio.js"></script>
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../handling-svg-biblio.css">
         <meta charset="UTF-8">
     </head>
     <body>
@@ -33,15 +34,17 @@
                 <div class="col-md-2">
                     <h3>Légende :</h3>
                     <ul>
-                        <li class="list-group-item"><img alt="portes_legende" src="img/door.png" class="img-responsive legende"/>Portes ouvertes</li>
-                        <li class="list-group-item"><img alt="portes_legende" src="img/window.png" class="img-responsive legende"/>Fenêtres ouvertes</li>
+                        <li class="list-group-item"><img alt="portes_legende" src="img/door-false.png" class="img-responsive legende"/>Portes ouvertes</li>
+                        <li class="list-group-item"><img alt="portes_legende" src="img/window-false.png" class="img-responsive legende"/>Fenêtres ouvertes</li>
                     </ul>
                     <img alt="back-security" id="back-security" src="img/back.png" class="img-responsive legende" title="Retour sur la carte"/> Retour sur la carte
                 </div>
                 <div class="col-md-7"><h3>Plan</h3><div id="plan-security"></div>
+                    <script type="text/javascript" src="js/script.js"></script>
                     <script type="text/javascript">
                         $("#plan-security").ready(function(){
-                            load_svg("data/plan_T1_4e.svg","plan-security","data/alertes-security.json",put_sensors);
+                            load_svg("data/plan_T1_4e.svg","plan-security","data/alertes.json",put_sensors,"door","window");
+                            display_list_warning("security");
                         });
                     </script>
                 </div>

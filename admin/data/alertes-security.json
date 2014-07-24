@@ -1,4 +1,4 @@
-{"id":"alertes","alertes":[
+{"id":"alertes","sensors":[
     {"id":"door_1",
      "data":{
          "kind":"door",
