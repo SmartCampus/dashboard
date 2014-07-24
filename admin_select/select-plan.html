@@ -37,27 +37,22 @@
                 
                     
                 
-                    <form role="form">
+                    <form role="form" id="form_check">
                         <div class="col-md-2">
                             <div class="form-group">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" id="checkbox_bad" class="my_checkbox"><img alt="defe_legende" src="img/bad-.png" class="img-responsive legende"/>Capteur défectueux
+                                        <input type="checkbox" id="checkbox_bad" class="my_checkbox choice"><img alt="defe_legende" src="img/bad-.png" class="img-responsive legende"/>Capteur défectueux
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" id="checkbox_heat" class="my_checkbox"><img alt="chal_legende" src="img/heatmap.png" class="img-responsive legende"/>Carte de chaleur
+                                        <input type="checkbox" id="checkbox_window" class="my_checkbox choice"><img alt="fenetres_legende" src="img/window-true.png" class="img-responsive legende"/>Fenêtres
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" id="checkbox_window" class="my_checkbox"><img alt="fenetres_legende" src="img/window-true.png" class="img-responsive legende"/>Fenêtres
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="checkbox_light" class="my_checkbox"><img alt="lum_legende" src="img/light-true.png" class="img-responsive legende"/>Lumières
+                                        <input type="checkbox" id="checkbox_light" class="my_checkbox choice"><img alt="lum_legende" src="img/light-true.png" class="img-responsive legende"/>Lumières
                                     </label>
                                 </div>
                             </div>
@@ -66,22 +61,62 @@
                             <div class="form-group">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" id="checkbox_door" class="my_checkbox"><img alt="portes_legende" src="img/door-true.png" class="img-responsive legende"/>Portes
+                                        <input type="checkbox" id="checkbox_door" class="my_checkbox choice"><img alt="portes_legende" src="img/door-true.png" class="img-responsive legende"/>Portes
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" id="checkbox_motion" class="my_checkbox"><img alt="presence_legende" src="img/motion-true.png" class="img-responsive legende"/>Présence
+                                        <input type="checkbox" id="checkbox_motion" class="my_checkbox choice"><img alt="presence_legende" src="img/motion-true.png" class="img-responsive legende"/>Présence
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox"  id="checkbox_temp" class="my_checkbox"><img alt="temp_legende" src="img/temp-.png" class="img-responsive legende"/>Températures
+                                        <input type="checkbox"  id="checkbox_temp" class="my_checkbox choice"><img alt="temp_legende" src="img/temp-.png" class="img-responsive legende"/>Températures
                                     </label>
                                 </div>
                                  <div class="checkbox">
                                     <label>
                                         <input type="checkbox"  id="checkbox_all">Tous
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                <form role="form" id="form_radio">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="group-select" id="radio_bad" class="my_radio choice"><img alt="defe_legende" src="img/bad-.png" class="img-responsive legende"/>Capteur défectueux
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="group-select" id="radio_window" class="my_radio choice"><img alt="fenetres_legende" src="img/window-true.png" class="img-responsive legende"/>Fenêtres
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="group-select" id="radio_light" class="my_radio choice"><img alt="lum_legende" src="img/light-true.png" class="img-responsive legende"/>Lumières
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="group-select" id="radio_door" class="my_radio choice"><img alt="portes_legende" src="img/door-true.png" class="img-responsive legende"/>Portes
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="group-select" id="radio_motion" class="my_radio choice"><img alt="presence_legende" src="img/motion-true.png" class="img-responsive legende"/>Présence
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="group-select"  id="radio_temp" class="my_radio choice"><img alt="temp_legende" src="img/temp-.png" class="img-responsive legende"/>Températures
                                     </label>
                                 </div>
                             </div>

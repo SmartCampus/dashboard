@@ -1,6 +1,5 @@
 $(document).ready(function($){
-    init_heatmap();
-    
+    $('#form_radio').hide();
     var heatmap;
     
     /* #########################################
@@ -18,43 +17,34 @@ $(document).ready(function($){
         $('.my_checkbox').each(function(){
             kind = $(this).attr('id').split('_')[1];
             var already_checked = $(this).prop('checked');
-            if(kind == "heat"){
-                if(checked){
-                    this.checked = true;
-                    show_heatmap();
-                }
-                else{
-                    this.checked = false;
-                    hide_heatmap();
-                }
+            if(checked){
+                this.checked = true;
+                if(!already_checked)put_sensors(kind,"data/sensors.json");
             }
             else{
-                if(checked){
-                    this.checked = true;
-                    if(!already_checked)put_sensors(kind,"data/sensors.json");
-                }
-                else{
-                    this.checked = false;
-                    unput_sensors(kind,"data/sensors.json");
-                }
+                this.checked = false;
+                unput_sensors(kind,"data/sensors.json");
             }
         });
     });
     
+    /*
+     * Active ou désactive l'affichage par
+     * carte de chaleur
+     */
     $("#myonoffswitch").click(function(){
         var checked = $(this).prop("checked");
-        $('.my_checkbox').each(function(){
+        $('.choice').each(function(){
             var id = $(this).attr('id');
-            var my_class = $(this).attr('class');
             var parent = $(this).parent();
-            $(this).remove();
             if(checked){
-                $(parent).prepend("<input type='radio' name='group-select' class='"+my_class+"' id='"+id+"'>");
-                $("#checkbox_all").parent().hide();
+                $("#form_radio").show();
+                $("#form_check").hide();
             }
             else{
-                $(parent).prepend("<input type='checkbox' class='"+my_class+"' id='"+id+"'>");
-                $("#checkbox_all").parent().show();
+                $('canvas').remove();
+                $("#form_radio").hide();
+                $("#form_check").show();
 
             }
         });
@@ -74,8 +64,8 @@ $(document).ready(function($){
      * à la checkbox cochée/décochée
      */
     $('.my_checkbox').change(function(){
+        var kind = $(this).attr('id').split('_')[1];
         uncheck_all_box($(this));
-        kind = $(this).attr('id').split('_')[1];
         if($(this).prop("checked")){
             put_sensors(kind,"data/sensors.json");
         }
@@ -85,23 +75,24 @@ $(document).ready(function($){
         
     });
     
-    $('#checkbox_heat').change(function(){
+    $('.my_radio').change(function(){
+        var kind = $(this).attr('id').split('_')[1];
         if($(this).prop("checked")){
-            show_heatmap(heatmap);
-        }
-        else{
-            hide_heatmap(heatmap);
+            remove_canvas();
+            init_heatmap(kind);
+            // TODO revoir fonction init avec kind + desactiver capteur sur switch
         }
     });
     
-    function init_heatmap(){
+    
+    function init_heatmap(kind_wanted,heatmap){
         $.getJSON('data/sensors.json',function(data){
             var sensors = data.sensors;
             var data = [];
-            
+            var max = 45;
             for(i=0;i<sensors.length;i++){
                 var kind = sensors[i].kind;
-                if(kind == "temp"){
+                if(kind == kind_wanted){
                     var salle_svg = $("#"+sensors[i].salle+">g").children().eq(0);
 
                     var balise = salle_svg.get(0).nodeName;              
@@ -114,10 +105,25 @@ $(document).ready(function($){
                         x_tmp = parseFloat(salle_svg.attr('x'));
                         y_tmp = parseFloat(salle_svg.attr('y'));
                     }
+                    var value;
+                    var actual_value = sensors[i].value;
+                    if(kind_wanted != "temp"){
+                        if(actual_value){
+                            value = 1;
+                        }
+                        else{
+                            value = 0;
+                        }
+                        max = 1;
+                    }
+                    else{
+                        value = actual_value;
+                    }
+                    console.log(value);
                     data.push({
                         x : x_tmp + size_x/2,
                         y : y_tmp + size_y/2,
-                        count : sensors[i].value
+                        count : value
                     });
                 }            
             }
@@ -133,27 +139,21 @@ $(document).ready(function($){
             };
 
             //creates and initializes the heatmap
-            var heatmap = h337.create(config);
+            heatmap = h337.create(config);
 
             // let's get some data
             var data = {
-                max: 45,
+                max: max,
                 data: data
             };
 
             heatmap.store.setDataSet(data);
-            hide_heatmap();
         });
         
-    }
-    
-    function hide_heatmap(){
-        $('canvas').hide();
-        $("#plan-select>div").hide();
-    }
-    function show_heatmap(){
-        $('canvas').show();
-        $("#plan-select>div").show();
+    }    
+    function remove_canvas(){
+        $('canvas').remove();
+        $("#plan-select>div").remove();
     }
     
 });
