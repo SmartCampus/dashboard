@@ -7,7 +7,7 @@
 */
 
 
-function load_svg(url,id,callback){
+function load_svg2(url,id,callback){
 
     /*#############################################################
     ###   Declarer/creer la balise svg pour le dessin vectoriel ###
@@ -20,8 +20,7 @@ function load_svg(url,id,callback){
     ###   Chargement du plan (format svg) et insertion          ###
     ###    dans la balise svg prealablement cree                ### 
     ###############################################################*/
-    d3.xml("data/plan_T1_4e.svg","image/svg+xml",function(xml){
-        console.log(xml.getElementsByTagName("svg")[0]);
+    d3.xml(url,"image/svg+xml",function(xml){
         // on recupere le node 'svg' du xml recupere
         var svgNode = xml.getElementsByTagName("svg")[0];
 
@@ -31,12 +30,12 @@ function load_svg(url,id,callback){
         for(var i=1;i<childs.length;i++){
             svg.node().appendChild(childs[i]);
         }
-        callback("data/salles.json");
+        callback("","data/salles.json");
     });
 
 }
 
-function update_rooms(url_json){
+function update_free_rooms(url_json){
     $.getJSON(url_json,function( data ){
         var salles = data.salles;
         var svg_node = d3.select('body').select('#plan-svg');
@@ -51,7 +50,8 @@ function update_rooms(url_json){
         }
     });
 }
-/* Génère les infobulles pour les capteurs et les groupement de capteurs */
+/*
+/* Génère les infobulles pour les capteurs et les groupement de capteurs *
 function init_tooltip(id){
     $(id).mouseover(function(){
         if($(this).attr("title") == "")return false;
@@ -79,4 +79,4 @@ function init_tooltip(id){
             bulle.remove();
         });
     });
-}
+}*/

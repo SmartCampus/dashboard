@@ -21,19 +21,19 @@ function init_tooltip(id){
     $(id).mouseover(function(){
         if($(this).attr("title") == "")return false;
         $('body').append("<span class=\"infobulle\"></span>");
-            var bulle = $(".infobulle:last");
-            bulle.append($(this).attr('title'));
-            var posTop = $(this).offset().top+bulle.height();
-            var posLeft = $(this).offset().left;
-            bulle.css({
-                left : posLeft,
-                top : posTop-10,
-                opacity : 0
-            });
-            bulle.animate({
-                top : posTop,
-                opacity : 0.99
-            });
+        var bulle = $(".infobulle:last");
+        bulle.append($(this).attr('title'));
+        var posTop = $(this).offset().top+bulle.height();
+        var posLeft = $(this).offset().left;
+        bulle.css({
+            left : posLeft,
+            top : posTop-10,
+            opacity : 0
+        });
+        bulle.animate({
+            top : posTop,
+            opacity : 0.99
+        });
     });
     $(id).mouseout(function(){
         var bulle = $(".infobulle:last");
@@ -82,8 +82,11 @@ function load_svg(url,id,url_json,callback,arg1,arg2){
             svg.node().appendChild(childs[i]);
         }
         if(callback != undefined && url_json != undefined){
-            callback(arg1,url_json);
-            callback(arg2,url_json);
+            if(arg1 == undefined && arg2 == undefined)callback(url_json);
+            else{
+                callback(arg1,url_json);
+                callback(arg2,url_json);
+            }
         }
     });
 }
@@ -330,6 +333,22 @@ function relocate(url_json){
                 }
             }
 
+        }
+    });
+}
+
+function update_free_rooms(url_json){
+    $.getJSON(url_json,function( data ){
+        var salles = data.salles;
+        var svg_node = d3.select('body').select('#plan-svg');
+        for(i=0;i<salles.length;i++){
+            var value = salles[i].value;
+            var id_salle = salles[i].id_salle;
+            var salle_svg = d3.select('body').select("#"+id_salle+">g>rect");
+            var color = (value)?'green':'red';
+            var status = (value)?'libre':'occupée';
+            salle_svg.style('fill',color).attr('title',"Salle "+id_salle+" "+status).attr('id','salle_'+id_salle);
+            init_tooltip('#salle_'+id_salle);
         }
     });
 }
