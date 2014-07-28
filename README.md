@@ -14,20 +14,23 @@ La liste suivante regroupe l'ensemble des dashboard créées pour **SmartCampus*
 
 > **Administration :**
 >
-> - [Sécurité](#sécurité)
-> - [Energie](#energie)
-
-
-
+> - [Sécurité (plan)](#sécurité-plan)
+> - [Energie (plan)](#energie-plan)
+>
 > **Administration** (selection) :
+> - [Bâtiment](#bâtiment-sélection)
 > 
 > **Utilisateur** (enseignant) :
 >
+> - [Parkings](#parkings)
 > - [Restaurant universitaire](#restaurant-universitaire)
 > - [Salles libres](#salles-libres)
 
 
-## Sécurité
+----------
+
+
+## Sécurité plan
 
 ### Intention recherchée
 Afficher les problèmes de sécurité sur un plan d'un bâtiment, c'est-à-dire les portes et les fenêtres ouvertes.
@@ -35,18 +38,24 @@ Les capteurs sont affichés sur le plan et la liste complète des alertes de sé
 
 ### Données nécessaires
 Fichier JSON contenant la liste des alertes :
-> {"id":"alertes",
->  "sensors":[
->   {"id":`id_capteur`,
->    "kind":`door`ou`window`,
->            "bat":`batiment`,
->            "value":`true`or`false`,
->            "floor":`etage`,
->            "id_salle":`salle`}]
+```json
+// Exemple de json attendu :
+{"id":"alertes",
+  "sensors":[
+   {"id":"door_24"
+    "kind":"door",
+            "bat":"templier 2",
+            "value":true,
+            "floor":2,
+            "id_salle":"s_32"}
+            ]
+}
+```
+
+----------
 
 
-
-## Energie
+## Energie plan
 
 ### Intention recherchée
 Afficher les problèmes de sécurité sur un plan d'un bâtiment, c'est-à-dire les pointes de chaleur et les lumières allumées.
@@ -55,6 +64,53 @@ Les capteurs sont affichés sur le plan et la liste complète des alertes d'éne
 ### Données nécessaires
 Fichier JSON contenant la liste des alertes idem que [Sécurité](#sécurité) (avec `light` et `temp` pour l'attribut `kind`
 
+
+----------
+
+##Bâtiment (sélection)
+### Intention recherchée
+Afficher un plan vierge et proposer à l'utilisateur (administrateur) de choisir quelles types de données il souhaite voir apparaître sur ce plan. Il y a deux types de visualisations possibles : on représente chaque capteur par un icone ou alors on combine l'ensemble des capteurs d'un même type pour afficher une représentation de ce dit type sous forme de carte de chaleur.
+
+### Données nécessaires
+Ici l'ensemble des données sur tous les capteurs du bâtiments affiché sont nécessaires, donc :
+>- le type de capteur
+- sa position dans le campus (bâtiment)
+- l'étage du bâtiment
+- la salle
+- la position dans la salle
+- sa valeur
+
+----------
+
+
+## Parkings
+
+### Intention recherchée
+Afficher les places restantes (ainsi que le taux de remplissage) des parkings auquels l'utilisateur (enseignant) a une priorité d'accès.
+Afficher des statistiques sur les parkings : le taux de remplissage de chaque parking selon l'heure d'arrivée et le jour de la semaine.
+
+### Données nécessaires
+Un fichier JSON contenant les valeurs actuelles sur les parkings et un autre contenant un historique (pour les statistiques).
+```json
+// Exemple de json attendu, les (...) remplacent des valeurs
+{"id":"avg-occupation","parkings":
+    {"P1":[
+         {"day_1":[    
+            {"value":5,"date":"7h00"},
+            (...)
+            {"value":5,"date":"19h00"}
+            ]},
+        (...)
+        {"day_5":[    
+            {"value":5,"date":"7h00"},
+            (...)
+            {"value":5,"date":"19h00"}
+            ]}
+]}}
+```
+
+
+----------
 
 
 ## Restaurant Universitaire
@@ -69,13 +125,26 @@ Fichier JSON contenant la liste des alertes idem que [Sécurité](#sécurité) (
 - Menu du jour (JSON)
 
 #### Temps actuel
-- JSON : {"id":"actual-waiting","value":`valeur`}
+```json
+//Exemple de json attendu
+{"id":"actual-waiting","value":32}
+```
 
 #### Temps moyen
-> JSON : {"id":"avg-waiting",
->         "day_1":[{"value":`valeur`,"date":"11h00"},{"value":`valeur`,"date":"11h15"},...],
->.....
->"day_5":[{"value":`valeur`,"date":"11h00"},{"value":`valeur`,"date":"11h15"},...]}
+```json
+//Exemple de json attendu :
+{"id":"avg-waiting",
+        "day_1":[{"value":`valeur`,"date":"11h00"},
+                 {"value":`valeur`,"date":"11h15"},(...)],
+        (...)
+        "day_5":[{"value":`valeur`,"date":"11h00"},
+                 {"value":`valeur`,"date":"11h15"},(...)]
+}
+```
+
+
+----------
+
 
 ## Salles libres
 
@@ -83,7 +152,11 @@ Fichier JSON contenant la liste des alertes idem que [Sécurité](#sécurité) (
 Afficher le bâtiment (étage) dont le nombre de salles libres est le plus grand
 
 ### Données nécessaires
-> JSON :  {"id":"salles","salles":[
->                       {"id_salle":`id`,
->                        "value":`true`ou`false`}]}
-
+```json
+// Exemple de json attendu :
+{"id":"salles","salles":[
+                         {"id_salle":`id`,
+                          "value":true}
+                        ]
+}
+```
