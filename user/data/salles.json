@@ -1,5 +1,5 @@
 {"id":"salles",
- "salles":[
+ "sensors":[
      {"id_salle":"s_1",
       "value":true},
      {"id_salle":"s_2",
