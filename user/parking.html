@@ -42,7 +42,7 @@
         <div class="container">
             <div class="row" style="margin-top:5px">
                 <div class="col-md-4 col-md-offset-1">
-                    <h3>Occupation actuelle des parkings :</h3>
+                    <h3>Occupation actuelle des parkings</h3>
                     <div id="gauge-park1" style="height:150px"></div>
                     <div id="gauge-park2" style="height:150px"></div>
                     <div id="gauge-park3" style="height:150px"></div>
@@ -51,11 +51,20 @@
                         init_gauge_park("gauge-park1",15,"P3");
                         init_gauge_park("gauge-park2",60,"P4");
                         init_gauge_park("gauge-park3",85,"P5");
+                        update_avg("data/moyenne-occupation.json","stat-park",0,"Taux d'occupation","occupation (%)","Taux d'occupation moyen des parkings","%");
                     </script>
                 </div>
                 <div class="col-md-6 col-md-offset-1">
-                    <h3>Occupation moyennes :</h3>
                     <div id="stat-park"></div>
+                    <div>
+                        Jour de la semaine : <select id="select-day-waiting">
+                            <option name="lundi" value=1>Lundi</option>
+                            <option name="mardi" value=2>Mardi</option>
+                            <option name="mercredi" value=3>Mercredi</option>
+                            <option name="jeudi" value=4>Jeudi</option>
+                            <option name="vendredi" value=5>Vendredi</option>
+                        </select>
+                    </div>
                 </div>
                     
                     

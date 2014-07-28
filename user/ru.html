@@ -32,7 +32,7 @@
             <nav>
                 <ul class="nav nav-tabs" role="tablist">
                     <li><a href="#"><span class="glyphicon glyphicon-home"></span>  Accueil</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-map-marker"></span>  Parking</a></li>
+                    <li><a href="parking.html"><span class="glyphicon glyphicon-map-marker"></span>  Parking</a></li>
                     <li class="active"><a href="ru.html"><span class="glyphicon glyphicon-cutlery"></span>  Restaurant Universitaire</a></li>
                     <li><a href="libre.html"><span class="glyphicon glyphicon-th-large"></span>  Salles libres</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-road"></span>  Transport</a></li>
@@ -60,11 +60,14 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3"><h3 id="title-time-left"></h3><div id="time-left"></div></div>
+                <div class="col-md-3"><h3 id="title-time-left"></h3>
+                    <div id="time-left"></div>
+                    
+                </div>
                 <div class="col-md-4">
                     <div id="moyenne-attente"></div>
                     <div>
-                        Jour de la semaine : <select id="select-day">
+                        Jour de la semaine : <select id="select-day-occupation">
                             <option name="lundi" value=1>Lundi</option>
                             <option name="mardi" value=2>Mardi</option>
                             <option name="mercredi" value=3>Mercredi</option>
@@ -73,6 +76,11 @@
                         </select>
                     </div>
                 </div>
+                <script>
+                        display_clock("time-left","Heure à laquelle vous mangerez :","data/temps.json");
+                        update_avg("data/moyenne-attente.json","moyenne-attente",0,"Temps d'attente","attente (minutes)","Temps moyen d'attente au RU",'min');
+                        
+                    </script>
             </div>
         </div>
     </body>

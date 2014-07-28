@@ -1,8 +1,13 @@
 $(document).ready(function($){
-    var select = $("#select-day");
-    $(select).change(function(){
+    var select_waiting = $("#select-day-waiting");
+    $(select_waiting).change(function(){
         var day = $(this).val();
-        update_avg("data/moyenne-attente.json","moyenne-attente",day,"Temps d'attente","attente (minutes)","Temps moyen d'attente au RU");
+        update_avg("data/moyenne-attente.json","moyenne-attente",day,"Temps d'attente","attente (minutes)","Temps moyen d'attente au RU","min");
+    });
+    var select_occupation = $("#select-day-waiting");
+    $(select_occupation).change(function(){
+        var day = $(this).val();
+        update_avg("data/moyenne-occupation.json","stat-park",day,"Taux d'occupation","occupation (%)","Taux d'occupation moyen des parkings","%");
     });
 });
 
@@ -92,7 +97,7 @@ function display_clock(id,title,url){
 ########                                                       #######
 ######################################################################*/
 
-function update_avg(url,id_div,day,x_legende,y_legende,title){
+function update_avg(url,id_div,day,x_legende,y_legende,title,unit){
     $.getJSON(url, function(data) {
         var avgs = [];
         var dates = [];
@@ -110,12 +115,12 @@ function update_avg(url,id_div,day,x_legende,y_legende,title){
             avgs[i] = values[i].value;
             dates[i] = values[i].date;
         }
-        set_values_charts(id_div,dates,avgs,x_legende,y_legende,title);
+        set_values_charts(id_div,dates,avgs,x_legende,y_legende,title,unit);
         
     });
 }
 
-function set_values_charts(id,dates,avgs,x_legende,y_legende,title){
+function set_values_charts(id,dates,avgs,x_legende,y_legende,title,unit){
     $("#"+id).highcharts({
         chart: {
             type: 'column'
@@ -138,7 +143,7 @@ function set_values_charts(id,dates,avgs,x_legende,y_legende,title){
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} min</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.1f} '+unit+'</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
