@@ -40,17 +40,28 @@
             </nav>
         </header>
         <div class="container">
+            <h3>Occupation actuelle des parkings</h3>
             <div class="row" style="margin-top:5px">
-                <div class="col-md-4 col-md-offset-1">
-                    <h3>Occupation actuelle des parkings</h3>
-                    <div id="gauge-park1" style="height:150px"></div>
-                    <div id="gauge-park2" style="height:150px"></div>
-                    <div id="gauge-park3" style="height:150px"></div>
+                <div class="col-md-2">
+                    <div id="title-park1" style="height:130px">
+                        <h4>Parking P3</h4> <div class="value_park"><span  id="value_p1"></span> place(s)</div>
+                    </div>
+                    <div id="title-park2" style="height:130px">
+                        <h4>Parking P4</h4> <div class="value_park"><span  id="value_p2"></span> place(s)</div>
+                    </div>
+                    <div id="title-park3" style="height:130px">
+                        <h4>Parking P5</h4> <div class="value_park"><span id="value_p3"></span> place(s)</div>
+                    </div>
+                </div>
+                <div class="col-md-2" style="margin-top:15px">
+                    <div id="gauge-park1" style="height:130px"></div>
+                    <div id="gauge-park2" style="height:130px"></div>
+                    <div id="gauge-park3" style="height:130px"></div>
                     <div id="plus-button"><img alt="plus_img" id="plus_img" src="img/plus.png"/></div>
                     <script>
-                        init_gauge_park("gauge-park1",15,"P3");
-                        init_gauge_park("gauge-park2",60,"P4");
-                        init_gauge_park("gauge-park3",85,"P5");
+                        init_gauge_park("gauge-park1",15,30,"value_p1");
+                        init_gauge_park("gauge-park2",60,140,"value_p2");
+                        init_gauge_park("gauge-park3",80,85,"value_p3");
                         update_avg("data/moyenne-occupation.json","stat-park",0,"Taux d'occupation","occupation (%)","Taux d'occupation moyen des parkings","%");
                     </script>
                 </div>
@@ -66,7 +77,6 @@
                         </select>
                     </div>
                 </div>
-                    
                     
             </div>
         </div>

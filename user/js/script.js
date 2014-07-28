@@ -31,7 +31,7 @@ function display_clock(id,title,url){
             "marginTop":1,
             "marginBottom":180,	
             "axes": [{
-                "axisAlpha": 0.3,
+                "axisAlpha": 0.8,
                 "endAngle": 360,
                 "endValue": 12,
                 "minorTickInterval": 0.2,
@@ -141,7 +141,7 @@ function set_values_charts(id,dates,avgs,x_legende,y_legende,title,unit){
             }
         },
         tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            headerFormat: '<span class="title-gauge" style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                 '<td style="padding:0"><b>{point.y:.1f} '+unit+'</b></td></tr>',
             footerFormat: '</table>',
@@ -164,21 +164,16 @@ function set_values_charts(id,dates,avgs,x_legende,y_legende,title,unit){
 
 
 
-function init_gauge_park(id,value,parking){
+function init_gauge_park(id,value,max,id_title){
+    document.getElementById(id_title).innerHTML = max-value;
     var gaugeChart = AmCharts.makeChart(id, {
-        "titles": [
-            {
-                "text": "Parking "+parking,
-                "size": 13
-            }
-        ],
         "type": "gauge",
         "theme": "none",    
         "axes": [{
-            "axisThickness":1,
-             "axisAlpha":0.2,
+            "axisThickness":20,
+             "axisAlpha":0.3,
              "tickAlpha":0.2,
-             "valueInterval":20,
+             "valueInterval":100,
             "bands": [{
                 "color": "#84b761",
                 "endValue": 45,
@@ -201,7 +196,7 @@ function init_gauge_park(id,value,parking){
                 "startValue": 95
             }],
             "bottomText": "0 %",
-            "bottomTextYOffset": -20,
+            "bottomTextYOffset": 0,
             "endValue": 100
         }],
         "arrows": [{
@@ -216,8 +211,9 @@ function init_gauge_park(id,value,parking){
 
      // set random value
     function setValue() {
-        gaugeChart.arrows[0].setValue(value);
-        gaugeChart.axes[0].setBottomText(value + " %");
+        var taux = Math.round((value/max)*10000)/100;
+        gaugeChart.arrows[0].setValue(taux);
+        gaugeChart.axes[0].setBottomText(taux + " %");
         clearTimeout();
     }
 }
