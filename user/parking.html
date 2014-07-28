@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>SmartCampus - Dashboard</title>
         <!-- Jquery librairies -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
@@ -18,7 +19,6 @@
         <!-- mes trucs -->
         <link rel="stylesheet" href="css/style.css">
         <script type="text/javascript" src="js/script.js"></script>
-        <meta charset="UTF-8">
         <style>
             #time-left{
                 width: 100%;
@@ -62,18 +62,26 @@
                         init_gauge_park("gauge-park1",15,30,"value_p1");
                         init_gauge_park("gauge-park2",60,140,"value_p2");
                         init_gauge_park("gauge-park3",80,85,"value_p3");
-                        update_avg("data/moyenne-occupation.json","stat-park",0,"Taux d'occupation","occupation (%)","Taux d'occupation moyen des parkings","%");
+                        update_avg("data/moyenne-occupation.json","stat-park",1,"Taux d'occupation","occupation (%)","Taux d'occupation moyen des parkings","%",2);
                     </script>
                 </div>
                 <div class="col-md-6 col-md-offset-1">
                     <div id="stat-park"></div>
                     <div>
-                        Jour de la semaine : <select id="select-day-waiting">
-                            <option name="lundi" value=1>Lundi</option>
-                            <option name="mardi" value=2>Mardi</option>
-                            <option name="mercredi" value=3>Mercredi</option>
-                            <option name="jeudi" value=4>Jeudi</option>
-                            <option name="vendredi" value=5>Vendredi</option>
+                        Jour de la semaine : <select id="select-day-occupation">
+                            <option value=1>Lundi</option>
+                            <option value=2>Mardi</option>
+                            <option value=3>Mercredi</option>
+                            <option value=4>Jeudi</option>
+                            <option value=5>Vendredi</option>
+                        </select>
+                            Parking : <select id="select-parking">
+                            <option value=1>Parking P1</option>
+                            <option value=2>Parking P2</option>
+                            <option value=3>Parking P3</option>
+                            <option value=4>Parking P4</option>
+                            <option value=5>Parking P5</option>
+                            <option value=6>Parking P6</option>
                         </select>
                     </div>
                 </div>

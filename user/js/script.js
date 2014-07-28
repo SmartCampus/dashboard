@@ -4,10 +4,17 @@ $(document).ready(function($){
         var day = $(this).val();
         update_avg("data/moyenne-attente.json","moyenne-attente",day,"Temps d'attente","attente (minutes)","Temps moyen d'attente au RU","min");
     });
-    var select_occupation = $("#select-day-waiting");
+    var select_occupation = $("#select-day-occupation");
+    var select_parking = $("#select-parking");
     $(select_occupation).change(function(){
         var day = $(this).val();
-        update_avg("data/moyenne-occupation.json","stat-park",day,"Taux d'occupation","occupation (%)","Taux d'occupation moyen des parkings","%");
+        var parking = parseInt($(select_parking).val());
+        update_avg("data/moyenne-occupation.json","stat-park",day,"Taux d'occupation","occupation (%)","Taux d'occupation moyen des parkings","%",parking);
+    });
+    $(select_parking).change(function(){
+        var parking = $(this).val();
+        var day = parseInt($(select_occupation).val());
+        update_avg("data/moyenne-occupation.json","stat-park",day,"Taux d'occupation","occupation (%)","Taux d'occupation moyen des parkings","%",parking);
     });
 });
 
@@ -97,20 +104,38 @@ function display_clock(id,title,url){
 ########                                                       #######
 ######################################################################*/
 
-function update_avg(url,id_div,day,x_legende,y_legende,title,unit){
+function update_avg(url,id_div,day,x_legende,y_legende,title,unit,parking){
     $.getJSON(url, function(data) {
+        console.log(url+" "+id_div+" "+day+" "+x_legende+" "+y_legende+" "+title+" "+unit+" "+parking)
         var avgs = [];
         var dates = [];
         var id = data.id;
         var values;
-        switch(parseInt(day)){
-                case 1:values = data.day_1;break;
-                case 2:values = data.day_2;break;
-                case 3:values = data.day_3;break;
-                case 4:values = data.day_4;break;
-                case 5:values = data.day_5;break;
-                default:values = data.day_1;break;
+        var all_values;
+        if(parking == undefined){
+            all_values = data;
         }
+        else{
+            switch(parseInt(parking)){
+                    case 1:all_values = data.parkings.P1[day-1];break;
+                    case 2:all_values = data.parkings.P2[day-1];break;
+                    case 3:all_values = data.parkings.P3[day-1];break;
+                    case 4:all_values = data.parkings.P4[day-1];break;
+                    case 5:all_values = data.parkings.P5[day-1];break;
+                    case 6:all_values = data.parkings.P6[day-1];break;
+                    default:all_values = data.parkings.P1[day];break;
+            }
+        }
+        console.log(all_values);
+        switch(parseInt(day)){
+            case 1:values = all_values.day_1;break;
+            case 2:values = all_values.day_2;break;
+            case 3:values = all_values.day_3;break;
+            case 4:values = all_values.day_4;break;
+            case 5:values = all_values.day_5;break;
+            default:values = all_values.day_1;break;
+        }
+        
         for(i=0;i<values.length;i++){
             avgs[i] = values[i].value;
             dates[i] = values[i].date;
@@ -200,11 +225,11 @@ function init_gauge_park(id,value,max,id_title){
             "endValue": 100
         }],
         "arrows": [{
-            "color":"#046380",
-            "nailRadius": 4,
-            "startWidth": 6,
+            "color":"#8CC6D7",
+            "nailRadius": 10,
+            "startWidth": 20,
             "innerRadius": 0,
-            "borderAlpha":1
+            "borderAlpha":0
         }]
     });
     setTimeout(setValue, 1000);
