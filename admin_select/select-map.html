@@ -11,10 +11,10 @@
         <!-- Bibliotèque D3.js -->
         <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
         
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNCIW5K9JPi9U8ji0iJMdDLjnVIAbKPpU"></script>
+        
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="../svg_bibli/handling-svg-biblio.css">
-        <script type="text/javascript" src="../svg_bibli/handling-svg-biblio.js"></script>
-        <script type="text/javascript" src="js/plan.js"></script>
+        <script type="text/javascript" src="js/map.js"></script>
     </head>
     <body>
         <header>
@@ -23,7 +23,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4"><h3>Sélectionnez les éléments à afficher :</h3></div>
-                <div class="col-md-8"><h3>Plan du bâtiment :</h3></div>
+                <div class="col-md-8"><h3>Carte du campus :</h3></div>
             </div>
             Carte de chaleur :
             <div class="onoffswitch">
@@ -34,6 +34,9 @@
                 </label>
             </div> 
             <div class="row">
+                
+                    
+                
                     <form role="form" id="form_check">
                         <div class="col-md-2">
                             <div class="form-group">
@@ -119,15 +122,13 @@
                             </div>
                         </div>
                     </form>
-                <div class="col-md-8">
-                    <div id="plan-select" style="width:730px;padding:0;height:350px;cursor:pointer;position:relative;"></div>
+                
+                <div class="col-md-8" id="maps-div">
                     <script type="text/javascript">
-                        load_svg("data/plan_T1_4e.svg","plan-select");
+                        google.maps.event.addDomListener(window, 'load', initialize);
                     </script>
-                    <script type="text/javascript" src="js/heatmap.js"></script>
                 </div>
             </div>
-             <a href="select-map.html"><img alt="back-security" id="back-security" src="img/back.png" class="img-responsive legende" title="Retour sur la carte"/> Retour sur la carte</a>
         </div>
     </body>
 </html>
