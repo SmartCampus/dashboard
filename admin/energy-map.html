@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            Dashboard - Administration
+        </title>
+        <!-- Jquery librairies -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
+        <!-- Pour bootstrap -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <!-- Bibliotèque D3.js -->
+        <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNCIW5K9JPi9U8ji0iJMdDLjnVIAbKPpU"></script>
+        <!-- Mes trucs -->
+        <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="../maps_bibli/maps_bibli.js"></script>
+        <script type="text/javascript" src="js/map.js"></script>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header>
+            <div class="page-header">
+                <h1>Tableau de bord <small>Administrateur</small></h1>
+            </div>
+            <nav>
+                <ul class="nav nav-tabs" role="tablist">
+                <li><a href="security-map.html"><span class="glyphicon glyphicon-lock"></span>  Sécurité</a></li>
+                <li class="active"><a href="energy-map.html"><span class="glyphicon glyphicon-flash"></span>  Energie</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container" style="margin : 30px">
+            <div class="row">
+                <div class="col-md-2">
+                    <h3>Légende :</h3>
+                    <ul>
+                        <li class="list-group-item"><img alt="portes_legende" src="img/temp-.png" class="img-responsive legende"/>Température anormales</li>
+                        <li class="list-group-item"><img alt="portes_legende" src="img/light-true.png" class="img-responsive legende"/>Lumières allumées</li>
+                    </ul>
+                </div>
+                <div class="col-md-8 col-md-offset-1" id="maps-div">
+                <script>
+                     /* Info bulle by maps */
+                        var infowindow = [
+                                new google.maps.InfoWindow({
+                                      content: "IUT"
+                                  }),new google.maps.InfoWindow({
+                                      content: "Forum"
+                                  }),new google.maps.InfoWindow({
+                                      content: "<a href='energy-plan.html'>Templier 1</a>"
+                                  }),new google.maps.InfoWindow({
+                                      content: "Templier 2 (sud)"
+                                  }),new google.maps.InfoWindow({
+                                      content: "Templier 2 (barette haute)"
+                                  }),new google.maps.InfoWindow({
+                                      content: "Templier 2 (barrette basse)"
+                                  })
+                        ];
+                    load_and_launch("data/markers.json",put_marker,"light");
+                    load_and_launch("data/markers.json",put_marker,"temp");
+                </script>
+                </div>
+                    
+            </div>
+        </div>
+    </body>
+</html>

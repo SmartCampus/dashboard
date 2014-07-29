@@ -14,7 +14,8 @@
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNCIW5K9JPi9U8ji0iJMdDLjnVIAbKPpU"></script>
         <!-- Mes trucs -->
         <link rel="stylesheet" href="css/style.css">
-        <script type="text/javascript" src="js/maps.js"></script>
+        <script type="text/javascript" src="../maps_bibli/maps_bibli.js"></script>
+        <script type="text/javascript" src="js/map.js"></script>
         <meta charset="UTF-8">
     </head>
     <body>
@@ -24,14 +25,43 @@
             </div>
             <nav>
                 <ul class="nav nav-tabs" role="tablist">
-                <li class="active"><a href="security-plan.html"><span class="glyphicon glyphicon-lock"></span>  Sécurité</a></li>
-                <li><a href="energy-plan.html"><span class="glyphicon glyphicon-flash"></span>  Energie</a></li>
+                <li class="active"><a href="security-map.html"><span class="glyphicon glyphicon-lock"></span>  Sécurité</a></li>
+                <li><a href="energy-map.html"><span class="glyphicon glyphicon-flash"></span>  Energie</a></li>
                 </ul>
             </nav>
         </header>
         <div class="container" style="margin : 30px">
             <div class="row">
-                <div class="col-md-8 col-md-offset-1" id="maps-div"></div>
+                <div class="col-md-2">
+                    <h3>Légende :</h3>
+                    <ul>
+                        <li class="list-group-item"><img alt="portes_legende" src="img/door-false.png" class="img-responsive legende"/>Portes ouvertes</li>
+                        <li class="list-group-item"><img alt="portes_legende" src="img/window-false.png" class="img-responsive legende"/>Fenêtres ouvertes</li>
+                    </ul>
+                </div>
+                <div class="col-md-8 col-md-offset-1" id="maps-div">
+                    <script>
+                         /* Info bulle by maps */
+                        var infowindow = [
+                                new google.maps.InfoWindow({
+                                      content: "IUT"
+                                  }),new google.maps.InfoWindow({
+                                      content: "Forum"
+                                  }),new google.maps.InfoWindow({
+                                      content: "<a href='security-plan.html'>Templier 1</a>"
+                                  }),new google.maps.InfoWindow({
+                                      content: "Templier 2 (sud)"
+                                  }),new google.maps.InfoWindow({
+                                      content: "Templier 2 (barette haute)"
+                                  }),new google.maps.InfoWindow({
+                                      content: "Templier 2 (barrette basse)"
+                                  })
+                        ];
+
+                        load_and_launch("data/markers.json",put_marker,"door");
+                        load_and_launch("data/markers.json",put_marker,"window");
+                    </script>
+                </div>
                     
             </div>
         </div>
