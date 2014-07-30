@@ -2,7 +2,7 @@
     {"id":"door_1",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_1",
      "location":"N"
@@ -10,7 +10,7 @@
     {"id":"door_2",
      "kind":"door",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_2",
      "location":"N"
@@ -18,7 +18,7 @@
     {"id":"door_3",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_3",
      "location":"N"
@@ -26,7 +26,7 @@
     {"id":"door_4",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_4",
      "location":"N"
@@ -34,7 +34,7 @@
     {"id":"door_5",
      "kind":"door",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_5",
      "location":"N"
@@ -42,7 +42,7 @@
     {"id":"door_6",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_6",
      "location":"N"
@@ -50,7 +50,7 @@
     {"id":"door_7",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_7",
      "location":"N"
@@ -58,7 +58,7 @@
     {"id":"door_8",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_8",
      "location":"N"
@@ -66,7 +66,7 @@
     {"id":"door_9",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_9",
      "location":"N"
@@ -74,7 +74,7 @@
     {"id":"door_10",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_10",
      "location":"N"
@@ -82,7 +82,7 @@
     {"id":"door_11",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_11",
      "location":"N"
@@ -90,7 +90,7 @@
     {"id":"door_12",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_12",
      "location":"N"
@@ -98,7 +98,7 @@
     {"id":"door_13",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_13",
      "location":"N"
@@ -106,7 +106,7 @@
     {"id":"door_14",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_14",
      "location":"N"
@@ -114,7 +114,7 @@
     {"id":"door_15",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_15",
      "location":"N"
@@ -122,7 +122,7 @@
     {"id":"door_16",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_16",
      "location":"N"
@@ -130,7 +130,7 @@
     {"id":"door_17",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_17",
      "location":"N"
@@ -138,7 +138,7 @@
     {"id":"door_18",
      "kind":"bad",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_18",
      "location":"N"
@@ -146,7 +146,7 @@
     {"id":"door_19",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_19",
      "location":"N"
@@ -154,7 +154,7 @@
     {"id":"door_20",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_20",
      "location":"N"
@@ -162,7 +162,7 @@
     {"id":"door_21",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_21",
      "location":"N"
@@ -170,7 +170,7 @@
     {"id":"door_22",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_22",
      "location":"N"
@@ -178,7 +178,7 @@
     {"id":"door_23",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_23",
      "location":"N"
@@ -186,7 +186,7 @@
     {"id":"door_24",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_24",
      "location":"N"
@@ -194,7 +194,7 @@
     {"id":"door_25",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_25",
      "location":"N"
@@ -202,7 +202,7 @@
     {"id":"door_26",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_26",
      "location":"N"
@@ -210,7 +210,7 @@
     {"id":"door_27",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_27",
      "location":"N"
@@ -218,7 +218,7 @@
     {"id":"door_28",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_28",
      "location":"N"
@@ -226,7 +226,7 @@
     {"id":"door_29",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_29",
      "location":"N"
@@ -234,7 +234,7 @@
     {"id":"door_30",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_30",
      "location":"N"
@@ -242,7 +242,7 @@
     {"id":"door_31",
      "kind":"bad",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_31",
      "location":"N"
@@ -250,7 +250,7 @@
     {"id":"door_32",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_32",
      "location":"N"
@@ -258,7 +258,7 @@
     {"id":"door_33",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_33",
      "location":"N"
@@ -266,7 +266,7 @@
     {"id":"door_34",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_34",
      "location":"N"
@@ -274,7 +274,7 @@
     {"id":"door_35",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_35",
      "location":"N"
@@ -282,7 +282,7 @@
     {"id":"door_36",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_36",
      "location":"N"
@@ -290,7 +290,7 @@
     {"id":"door_37",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_37",
      "location":"N"
@@ -298,7 +298,7 @@
     {"id":"door_38",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_38",
      "location":"N"
@@ -306,7 +306,7 @@
     {"id":"door_39",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_39",
      "location":"N"
@@ -314,7 +314,7 @@
     {"id":"door_40",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_40",
      "location":"N"
@@ -322,7 +322,7 @@
     {"id":"door_41",
      "kind":"bad",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_41",
      "location":"N"
@@ -330,7 +330,7 @@
     {"id":"door_42",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_42",
      "location":"N"
@@ -338,7 +338,7 @@
     {"id":"door_43",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_43",
      "location":"N"
@@ -346,7 +346,7 @@
     {"id":"door_44",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_44",
      "location":"N"
@@ -354,7 +354,7 @@
     {"id":"door_45",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_45",
      "location":"N"
@@ -362,7 +362,7 @@
     {"id":"door_46",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_46",
      "location":"N"
@@ -370,7 +370,7 @@
     {"id":"door_47",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_47",
      "location":"N"
@@ -378,7 +378,7 @@
     {"id":"door_48",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_48",
      "location":"N"
@@ -386,7 +386,7 @@
     {"id":"door_49",
      "kind":"door",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_49",
      "location":"N"
@@ -394,7 +394,7 @@
     {"id":"door_50",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_50",
      "location":"N"
@@ -402,7 +402,7 @@
     {"id":"door_51",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_51",
      "location":"N"
@@ -410,7 +410,7 @@
     {"id":"door_52",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_52",
      "location":"N"
@@ -418,7 +418,7 @@
     {"id":"door_54",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_54",
      "location":"N"
@@ -426,7 +426,7 @@
     {"id":"door_55",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_55",
      "location":"N"
@@ -434,7 +434,7 @@
     {"id":"door_56",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_56",
      "location":"N"
@@ -442,7 +442,7 @@
     {"id":"door_57",
      "kind":"door",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_57",
      "location":"N"
@@ -450,7 +450,7 @@
     {"id":"door_58",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_58",
      "location":"N"
@@ -458,7 +458,7 @@
     {"id":"door_59",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_59",
      "location":"N"
@@ -466,7 +466,7 @@
     {"id":"door_60",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_60",
      "location":"N"
@@ -474,7 +474,7 @@
     {"id":"door_63",
      "kind":"door",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_63",
      "location":"N"
@@ -482,7 +482,7 @@
     {"id":"door_65",
      "kind":"door",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_65",
      "location":"N"
@@ -490,7 +490,7 @@
     {"id":"door_67",
      "kind":"door",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_67",
      "location":"N"
@@ -498,7 +498,7 @@
     {"id":"light_1",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_1",
      "location":"N"
@@ -506,7 +506,7 @@
     {"id":"light_2",
      "kind":"light",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_2",
      "location":"N"
@@ -514,7 +514,7 @@
     {"id":"light_3",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_3",
      "location":"N"
@@ -522,7 +522,7 @@
     {"id":"light_4",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_4",
      "location":"N"
@@ -530,7 +530,7 @@
     {"id":"light_5",
      "kind":"light",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_5",
      "location":"N"
@@ -538,7 +538,7 @@
     {"id":"light_6",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_6",
      "location":"N"
@@ -546,7 +546,7 @@
     {"id":"light_7",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_7",
      "location":"N"
@@ -554,7 +554,7 @@
     {"id":"light_8",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_8",
      "location":"N"
@@ -562,7 +562,7 @@
     {"id":"light_9",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_9",
      "location":"N"
@@ -570,7 +570,7 @@
     {"id":"light_10",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_10",
      "location":"N"
@@ -578,7 +578,7 @@
     {"id":"light_11",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_11",
      "location":"N"
@@ -586,7 +586,7 @@
     {"id":"light_12",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_12",
      "location":"N"
@@ -594,7 +594,7 @@
     {"id":"light_13",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_13",
      "location":"N"
@@ -602,7 +602,7 @@
     {"id":"light_14",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_14",
      "location":"N"
@@ -610,7 +610,7 @@
     {"id":"light_15",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_15",
      "location":"N"
@@ -618,7 +618,7 @@
     {"id":"light_16",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_16",
      "location":"N"
@@ -626,7 +626,7 @@
     {"id":"light_17",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_17",
      "location":"N"
@@ -634,7 +634,7 @@
     {"id":"light_18",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_18",
      "location":"N"
@@ -642,7 +642,7 @@
     {"id":"light_19",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_19",
      "location":"N"
@@ -650,7 +650,7 @@
     {"id":"light_20",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_20",
      "location":"N"
@@ -658,7 +658,7 @@
     {"id":"light_21",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_21",
      "location":"N"
@@ -666,7 +666,7 @@
     {"id":"light_22",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_22",
      "location":"N"
@@ -674,7 +674,7 @@
     {"id":"light_23",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_23",
      "location":"N"
@@ -682,7 +682,7 @@
     {"id":"light_24",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_24",
      "location":"N"
@@ -690,7 +690,7 @@
     {"id":"light_25",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_25",
      "location":"N"
@@ -698,7 +698,7 @@
     {"id":"light_26",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_26",
      "location":"N"
@@ -706,7 +706,7 @@
     {"id":"light_27",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_27",
      "location":"N"
@@ -714,7 +714,7 @@
     {"id":"light_28",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_28",
      "location":"N"
@@ -722,7 +722,7 @@
     {"id":"light_29",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_29",
      "location":"N"
@@ -730,7 +730,7 @@
     {"id":"light_30",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_30",
      "location":"N"
@@ -738,7 +738,7 @@
     {"id":"light_31",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_31",
      "location":"N"
@@ -746,7 +746,7 @@
     {"id":"light_32",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_32",
      "location":"N"
@@ -754,7 +754,7 @@
     {"id":"light_33",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_33",
      "location":"N"
@@ -762,7 +762,7 @@
     {"id":"light_34",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_34",
      "location":"N"
@@ -770,7 +770,7 @@
     {"id":"light_35",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_35",
      "location":"N"
@@ -778,7 +778,7 @@
     {"id":"light_36",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_36",
      "location":"N"
@@ -786,7 +786,7 @@
     {"id":"light_37",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_37",
      "location":"N"
@@ -794,7 +794,7 @@
     {"id":"light_38",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_38",
      "location":"N"
@@ -802,7 +802,7 @@
     {"id":"light_39",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_39",
      "location":"N"
@@ -810,7 +810,7 @@
     {"id":"light_40",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_40",
      "location":"N"
@@ -818,7 +818,7 @@
     {"id":"light_41",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_41",
      "location":"N"
@@ -826,7 +826,7 @@
     {"id":"light_42",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_42",
      "location":"N"
@@ -834,7 +834,7 @@
     {"id":"light_43",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_43",
      "location":"N"
@@ -842,7 +842,7 @@
     {"id":"light_44",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_44",
      "location":"N"
@@ -850,7 +850,7 @@
     {"id":"light_45",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_45",
      "location":"N"
@@ -858,7 +858,7 @@
     {"id":"light_46",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_46",
      "location":"N"
@@ -866,7 +866,7 @@
     {"id":"light_47",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_47",
      "location":"N"
@@ -874,7 +874,7 @@
     {"id":"light_48",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_48",
      "location":"N"
@@ -882,7 +882,7 @@
     {"id":"light_49",
      "kind":"light",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_49",
      "location":"N"
@@ -890,7 +890,7 @@
     {"id":"light_50",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_50",
      "location":"N"
@@ -898,7 +898,7 @@
     {"id":"light_51",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_51",
      "location":"N"
@@ -906,7 +906,7 @@
     {"id":"light_52",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_52",
      "location":"N"
@@ -914,7 +914,7 @@
     {"id":"light_54",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_54",
      "location":"N"
@@ -922,7 +922,7 @@
     {"id":"light_55",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_55",
      "location":"N"
@@ -930,7 +930,7 @@
     {"id":"light_56",
      "kind":"bad",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_56",
      "location":"N"
@@ -938,7 +938,7 @@
     {"id":"light_57",
      "kind":"light",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_57",
      "location":"N"
@@ -946,7 +946,7 @@
     {"id":"light_58",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_58",
      "location":"N"
@@ -954,7 +954,7 @@
     {"id":"light_59",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_59",
      "location":"N"
@@ -962,7 +962,7 @@
     {"id":"light_60",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_60",
      "location":"N"
@@ -970,7 +970,7 @@
     {"id":"light_63",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_63",
      "location":"N"
@@ -978,7 +978,7 @@
     {"id":"light_65",
      "kind":"light",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_65",
      "location":"N"
@@ -986,7 +986,7 @@
     {"id":"light_66",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_66",
      "location":"N"
@@ -994,7 +994,7 @@
     {"id":"light_67",
      "kind":"light",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_67",
      "location":"N"
@@ -1002,7 +1002,7 @@
     {"id":"light_68",
      "kind":"light",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_68",
      "location":"N"
@@ -1010,14 +1010,14 @@
     {"id":"window_1",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_1",
      "location":"N"
     },{"id":"window_1_1",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_1",
      "location":"N"
@@ -1025,7 +1025,7 @@
     {"id":"window_2",
      "kind":"window",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_2",
      "location":"N"
@@ -1033,7 +1033,7 @@
     {"id":"window_3",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_3",
      "location":"N"
@@ -1041,7 +1041,7 @@
     {"id":"window_4",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_4",
      "location":"N"
@@ -1049,7 +1049,7 @@
     {"id":"window_5",
      "kind":"window",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_5",
      "location":"N"
@@ -1057,7 +1057,7 @@
     {"id":"window_6",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_6",
      "location":"N"
@@ -1065,7 +1065,7 @@
     {"id":"window_7",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_7",
      "location":"N"
@@ -1073,7 +1073,7 @@
     {"id":"window_8",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_8",
      "location":"N"
@@ -1081,7 +1081,7 @@
     {"id":"window_9",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_9",
      "location":"N"
@@ -1089,7 +1089,7 @@
     {"id":"window_10",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_10",
      "location":"N"
@@ -1097,7 +1097,7 @@
     {"id":"window_11",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_11",
      "location":"N"
@@ -1105,7 +1105,7 @@
     {"id":"window_12",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_12",
      "location":"N"
@@ -1113,7 +1113,7 @@
     {"id":"window_13",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_13",
      "location":"N"
@@ -1121,7 +1121,7 @@
     {"id":"window_15",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_15",
      "location":"N"
@@ -1129,7 +1129,7 @@
     {"id":"window_16",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_16",
      "location":"N"
@@ -1137,7 +1137,7 @@
     {"id":"window_17",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_17",
      "location":"N"
@@ -1145,7 +1145,7 @@
     {"id":"window_18",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_18",
      "location":"N"
@@ -1153,7 +1153,7 @@
     {"id":"window_19",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_19",
      "location":"N"
@@ -1161,7 +1161,7 @@
     {"id":"window_20",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_20",
      "location":"N"
@@ -1169,7 +1169,7 @@
     {"id":"window_21",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_21",
      "location":"N"
@@ -1177,7 +1177,7 @@
     {"id":"window_22",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_22",
      "location":"N"
@@ -1185,7 +1185,7 @@
     {"id":"window_23",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_23",
      "location":"N"
@@ -1193,7 +1193,7 @@
     {"id":"window_24",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_24",
      "location":"N"
@@ -1201,7 +1201,7 @@
     {"id":"window_25",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_25",
      "location":"N"
@@ -1209,7 +1209,7 @@
     {"id":"window_26",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_26",
      "location":"N"
@@ -1217,7 +1217,7 @@
     {"id":"window_27",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_27",
      "location":"N"
@@ -1225,7 +1225,7 @@
     {"id":"window_28",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_28",
      "location":"N"
@@ -1233,7 +1233,7 @@
     {"id":"window_29",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_29",
      "location":"N"
@@ -1241,7 +1241,7 @@
     {"id":"window_30",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_30",
      "location":"N"
@@ -1249,7 +1249,7 @@
     {"id":"window_31",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_31",
      "location":"N"
@@ -1257,7 +1257,7 @@
     {"id":"window_32",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_32",
      "location":"N"
@@ -1265,7 +1265,7 @@
     {"id":"window_33",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_33",
      "location":"N"
@@ -1273,7 +1273,7 @@
     {"id":"window_34",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_34",
      "location":"N"
@@ -1281,7 +1281,7 @@
     {"id":"window_35",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_35",
      "location":"N"
@@ -1289,7 +1289,7 @@
     {"id":"window_36",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_36",
      "location":"N"
@@ -1297,7 +1297,7 @@
     {"id":"window_37",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_37",
      "location":"N"
@@ -1305,7 +1305,7 @@
     {"id":"window_38",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_38",
      "location":"N"
@@ -1313,7 +1313,7 @@
     {"id":"window_39",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_39",
      "location":"N"
@@ -1321,7 +1321,7 @@
     {"id":"window_41",
      "kind":"bad",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_41",
      "location":"N"
@@ -1329,7 +1329,7 @@
     {"id":"window_42",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_42",
      "location":"N"
@@ -1337,7 +1337,7 @@
     {"id":"window_43",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_43",
      "location":"N"
@@ -1345,7 +1345,7 @@
     {"id":"window_44",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_44",
      "location":"N"
@@ -1353,7 +1353,7 @@
     {"id":"window_45",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_45",
      "location":"N"
@@ -1361,7 +1361,7 @@
     {"id":"window_46",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_46",
      "location":"N"
@@ -1369,7 +1369,7 @@
     {"id":"window_47",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_47",
      "location":"N"
@@ -1377,7 +1377,7 @@
     {"id":"window_48",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_48",
      "location":"N"
@@ -1385,7 +1385,7 @@
     {"id":"window_49",
      "kind":"window",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_49",
      "location":"N"
@@ -1393,7 +1393,7 @@
     {"id":"window_50",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_50",
      "location":"N"
@@ -1401,7 +1401,7 @@
     {"id":"window_51",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_51",
      "location":"N"
@@ -1409,7 +1409,7 @@
     {"id":"window_52",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_52",
      "location":"N"
@@ -1417,7 +1417,7 @@
     {"id":"window_57",
      "kind":"window",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_57",
      "location":"N"
@@ -1425,7 +1425,7 @@
     {"id":"window_58",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_58",
      "location":"N"
@@ -1433,7 +1433,7 @@
     {"id":"window_59",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_59",
      "location":"N"
@@ -1441,7 +1441,7 @@
     {"id":"window_60",
      "kind":"window",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_60",
      "location":"N"
@@ -1449,7 +1449,7 @@
     {"id":"motion_1",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_1",
      "location":"N"
@@ -1457,7 +1457,7 @@
     {"id":"motion_2",
      "kind":"motion",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_2",
      "location":"N"
@@ -1465,7 +1465,7 @@
     {"id":"motion_3",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_3",
      "location":"N"
@@ -1473,7 +1473,7 @@
     {"id":"motion_4",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_4",
      "location":"N"
@@ -1481,7 +1481,7 @@
     {"id":"motion_5",
      "kind":"motion",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_5",
      "location":"N"
@@ -1489,7 +1489,7 @@
     {"id":"motion_6",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_6",
      "location":"N"
@@ -1497,7 +1497,7 @@
     {"id":"motion_7",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_7",
      "location":"N"
@@ -1505,7 +1505,7 @@
     {"id":"motion_8",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_8",
      "location":"N"
@@ -1513,7 +1513,7 @@
     {"id":"motion_9",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_9",
      "location":"N"
@@ -1521,7 +1521,7 @@
     {"id":"motion_10",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_10",
      "location":"N"
@@ -1529,7 +1529,7 @@
     {"id":"motion_11",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_11",
      "location":"N"
@@ -1537,7 +1537,7 @@
     {"id":"motion_12",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_12",
      "location":"N"
@@ -1545,7 +1545,7 @@
     {"id":"motion_13",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_13",
      "location":"N"
@@ -1553,7 +1553,7 @@
     {"id":"motion_15",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_15",
      "location":"N"
@@ -1561,7 +1561,7 @@
     {"id":"motion_16",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_16",
      "location":"N"
@@ -1569,7 +1569,7 @@
     {"id":"motion_17",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_17",
      "location":"N"
@@ -1577,7 +1577,7 @@
     {"id":"motion_18",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_18",
      "location":"N"
@@ -1585,7 +1585,7 @@
     {"id":"motion_19",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_19",
      "location":"N"
@@ -1593,7 +1593,7 @@
     {"id":"motion_20",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_20",
      "location":"N"
@@ -1601,7 +1601,7 @@
     {"id":"motion_21",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_21",
      "location":"N"
@@ -1609,7 +1609,7 @@
     {"id":"motion_22",
      "kind":"bad",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_22",
      "location":"N"
@@ -1617,7 +1617,7 @@
     {"id":"motion_23",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_23",
      "location":"N"
@@ -1625,7 +1625,7 @@
     {"id":"motion_24",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_24",
      "location":"N"
@@ -1633,7 +1633,7 @@
     {"id":"motion_25",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_25",
      "location":"N"
@@ -1641,7 +1641,7 @@
     {"id":"motion_26",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_26",
      "location":"N"
@@ -1649,7 +1649,7 @@
     {"id":"motion_27",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_27",
      "location":"N"
@@ -1657,7 +1657,7 @@
     {"id":"motion_28",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_28",
      "location":"N"
@@ -1665,7 +1665,7 @@
     {"id":"motion_29",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_29",
      "location":"N"
@@ -1673,7 +1673,7 @@
     {"id":"motion_30",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_30",
      "location":"N"
@@ -1681,7 +1681,7 @@
     {"id":"motion_31",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_31",
      "location":"N"
@@ -1689,7 +1689,7 @@
     {"id":"motion_32",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_32",
      "location":"N"
@@ -1697,7 +1697,7 @@
     {"id":"motion_33",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_33",
      "location":"N"
@@ -1705,7 +1705,7 @@
     {"id":"motion_34",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_34",
      "location":"N"
@@ -1713,7 +1713,7 @@
     {"id":"motion_35",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_35",
      "location":"N"
@@ -1721,7 +1721,7 @@
     {"id":"motion_36",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_36",
      "location":"N"
@@ -1729,7 +1729,7 @@
     {"id":"motion_37",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_37",
      "location":"N"
@@ -1737,7 +1737,7 @@
     {"id":"motion_38",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_38",
      "location":"N"
@@ -1745,7 +1745,7 @@
     {"id":"motion_39",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_39",
      "location":"N"
@@ -1753,7 +1753,7 @@
     {"id":"motion_41",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_41",
      "location":"N"
@@ -1761,7 +1761,7 @@
     {"id":"motion_42",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_42",
      "location":"N"
@@ -1769,7 +1769,7 @@
     {"id":"motion_43",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_43",
      "location":"N"
@@ -1777,7 +1777,7 @@
     {"id":"motion_44",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_44",
      "location":"N"
@@ -1785,7 +1785,7 @@
     {"id":"motion_45",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_45",
      "location":"N"
@@ -1793,7 +1793,7 @@
     {"id":"motion_46",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_46",
      "location":"N"
@@ -1801,7 +1801,7 @@
     {"id":"motion_47",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_47",
      "location":"N"
@@ -1809,7 +1809,7 @@
     {"id":"motion_48",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_48",
      "location":"N"
@@ -1817,7 +1817,7 @@
     {"id":"motion_49",
      "kind":"motion",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_49",
      "location":"N"
@@ -1825,7 +1825,7 @@
     {"id":"motion_50",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_50",
      "location":"N"
@@ -1833,7 +1833,7 @@
     {"id":"motion_51",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_51",
      "location":"N"
@@ -1841,7 +1841,7 @@
     {"id":"motion_52",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_52",
      "location":"N"
@@ -1849,7 +1849,7 @@
     {"id":"motion_57",
      "kind":"motion",
      "value":false,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_57",
      "location":"N"
@@ -1857,7 +1857,7 @@
     {"id":"motion_58",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_58",
      "location":"N"
@@ -1865,7 +1865,7 @@
     {"id":"motion_59",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_59",
      "location":"N"
@@ -1873,7 +1873,7 @@
     {"id":"motion_60",
      "kind":"motion",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_60",
      "location":"N"
@@ -1881,7 +1881,7 @@
     {"id":"temp_1",
      "kind":"temp",
      "value":25,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_1",
      "location":"N"
@@ -1889,7 +1889,7 @@
     {"id":"temp_2",
      "kind":"temp",
      "value":21,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_2",
      "location":"N"
@@ -1897,7 +1897,7 @@
     {"id":"temp_3",
      "kind":"temp",
      "value":22,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_3",
      "location":"N"
@@ -1905,7 +1905,7 @@
     {"id":"temp_4",
      "kind":"temp",
      "value":22,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_4",
      "location":"N"
@@ -1913,7 +1913,7 @@
     {"id":"temp_5",
      "kind":"temp",
      "value":24,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_5",
      "location":"N"
@@ -1921,7 +1921,7 @@
     {"id":"temp_6",
      "kind":"temp",
      "value":25,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_6",
      "location":"N"
@@ -1929,7 +1929,7 @@
     {"id":"temp_7",
      "kind":"temp",
      "value":24,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_7",
      "location":"N"
@@ -1937,7 +1937,7 @@
     {"id":"temp_8",
      "kind":"temp",
      "value":23,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_8",
      "location":"N"
@@ -1945,7 +1945,7 @@
     {"id":"temp_9",
      "kind":"temp",
      "value":22,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_9",
      "location":"N"
@@ -1953,7 +1953,7 @@
     {"id":"temp_10",
      "kind":"temp",
      "value":26,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_10",
      "location":"N"
@@ -1961,7 +1961,7 @@
     {"id":"temp_11",
      "kind":"temp",
      "value":25,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_11",
      "location":"N"
@@ -1969,7 +1969,7 @@
     {"id":"temp_12",
      "kind":"temp",
      "value":27,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_12",
      "location":"N"
@@ -1977,7 +1977,7 @@
     {"id":"temp_13",
      "kind":"temp",
      "value":26,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_13",
      "location":"N"
@@ -1985,7 +1985,7 @@
     {"id":"temp_15",
      "kind":"temp",
      "value":25,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_15",
      "location":"N"
@@ -1993,7 +1993,7 @@
     {"id":"temp_16",
      "kind":"temp",
      "value":28,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_16",
      "location":"N"
@@ -2001,7 +2001,7 @@
     {"id":"temp_17",
      "kind":"temp",
      "value":29,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_17",
      "location":"N"
@@ -2009,7 +2009,7 @@
     {"id":"temp_18",
      "kind":"temp",
      "value":27,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_18",
      "location":"N"
@@ -2017,7 +2017,7 @@
     {"id":"temp_19",
      "kind":"temp",
      "value":28,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_19",
      "location":"N"
@@ -2025,7 +2025,7 @@
     {"id":"temp_20",
      "kind":"temp",
      "value":24,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_20",
      "location":"N"
@@ -2033,7 +2033,7 @@
     {"id":"temp_21",
      "kind":"temp",
      "value":24.5,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_21",
      "location":"N"
@@ -2041,7 +2041,7 @@
     {"id":"temp_22",
      "kind":"temp",
      "value":25.5,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_22",
      "location":"N"
@@ -2049,7 +2049,7 @@
     {"id":"temp_23",
      "kind":"temp",
      "value":24,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_23",
      "location":"N"
@@ -2057,7 +2057,7 @@
     {"id":"temp_24",
      "kind":"temp",
      "value":25,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_24",
      "location":"N"
@@ -2065,7 +2065,7 @@
     {"id":"temp_25",
      "kind":"temp",
      "value":25,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_25",
      "location":"N"
@@ -2073,7 +2073,7 @@
     {"id":"temp_26",
      "kind":"temp",
      "value":true,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_26",
      "location":"N"
@@ -2081,7 +2081,7 @@
     {"id":"temp_27",
      "kind":"temp",
      "value":26,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_27",
      "location":"N"
@@ -2089,7 +2089,7 @@
     {"id":"temp_28",
      "kind":"temp",
      "value":24,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_28",
      "location":"N"
@@ -2097,7 +2097,7 @@
     {"id":"temp_29",
      "kind":"temp",
      "value":25,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_29",
      "location":"N"
@@ -2105,7 +2105,7 @@
     {"id":"temp_30",
      "kind":"temp",
      "value":25,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_30",
      "location":"N"
@@ -2113,7 +2113,7 @@
     {"id":"temp_31",
      "kind":"temp",
      "value":28,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_31",
      "location":"N"
@@ -2121,7 +2121,7 @@
     {"id":"temp_32",
      "kind":"temp",
      "value":28,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_32",
      "location":"N"
@@ -2129,7 +2129,7 @@
     {"id":"temp_33",
      "kind":"temp",
      "value":27,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_33",
      "location":"N"
@@ -2137,7 +2137,7 @@
     {"id":"temp_34",
      "kind":"temp",
      "value":26,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_34",
      "location":"N"
@@ -2145,7 +2145,7 @@
     {"id":"temp_35",
      "kind":"temp",
      "value":20,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_35",
      "location":"N"
@@ -2153,7 +2153,7 @@
     {"id":"temp_36",
      "kind":"temp",
      "value":18,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_36",
      "location":"N"
@@ -2161,7 +2161,7 @@
     {"id":"temp_37",
      "kind":"temp",
      "value":23,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_37",
      "location":"N"
@@ -2169,7 +2169,7 @@
     {"id":"temp_38",
      "kind":"temp",
      "value":26,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_38",
      "location":"N"
@@ -2177,7 +2177,7 @@
     {"id":"temp_39",
      "kind":"temp",
      "value":25,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_39",
      "location":"N"
@@ -2185,7 +2185,7 @@
     {"id":"temp_41",
      "kind":"temp",
      "value":25,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_41",
      "location":"N"
@@ -2193,7 +2193,7 @@
     {"id":"temp_42",
      "kind":"temp",
      "value":24,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_42",
      "location":"N"
@@ -2201,7 +2201,7 @@
     {"id":"temp_43",
      "kind":"temp",
      "value":24,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_43",
      "location":"N"
@@ -2209,7 +2209,7 @@
     {"id":"temp_44",
      "kind":"temp",
      "value":27,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_44",
      "location":"N"
@@ -2217,7 +2217,7 @@
     {"id":"temp_45",
      "kind":"temp",
      "value":28,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_45",
      "location":"N"
@@ -2225,7 +2225,7 @@
     {"id":"temp_46",
      "kind":"temp",
      "value":27,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_46",
      "location":"N"
@@ -2233,7 +2233,7 @@
     {"id":"temp_47",
      "kind":"temp",
      "value":42,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_47",
      "location":"N"
@@ -2241,7 +2241,7 @@
     {"id":"temp_48",
      "kind":"temp",
      "value":26,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_48",
      "location":"N"
@@ -2249,7 +2249,7 @@
     {"id":"temp_49",
      "kind":"temp",
      "value":24,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_49",
      "location":"N"
@@ -2257,7 +2257,7 @@
     {"id":"temp_50",
      "kind":"temp",
      "value":25.3,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_50",
      "location":"N"
@@ -2265,7 +2265,7 @@
     {"id":"temp_51",
      "kind":"temp",
      "value":25,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_51",
      "location":"N"
@@ -2273,7 +2273,7 @@
     {"id":"temp_52",
      "kind":"temp",
      "value":40,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_52",
      "location":"N"
@@ -2281,7 +2281,7 @@
     {"id":"temp_54",
      "kind":"temp",
      "value":40,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_54",
      "location":"N"
@@ -2289,7 +2289,7 @@
     {"id":"temp_55",
      "kind":"temp",
      "value":40,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_55",
      "location":"N"
@@ -2297,7 +2297,7 @@
     {"id":"temp_56",
      "kind":"temp",
      "value":40,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_56",
      "location":"N"
@@ -2305,7 +2305,7 @@
     {"id":"temp_57",
      "kind":"temp",
      "value":120,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_57",
      "location":"N"
@@ -2313,7 +2313,7 @@
     {"id":"temp_58",
      "kind":"temp",
      "value":22,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_58",
      "location":"N"
@@ -2321,7 +2321,7 @@
     {"id":"temp_59",
      "kind":"bad",
      "value":28.5,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_59",
      "location":"N"
@@ -2329,7 +2329,7 @@
     {"id":"temp_60",
      "kind":"temp",
      "value":32,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_60",
      "location":"N"
@@ -2337,7 +2337,7 @@
     {"id":"temp_63",
      "kind":"temp",
      "value":27,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_63",
      "location":"N"
@@ -2345,7 +2345,7 @@
     {"id":"temp_65",
      "kind":"temp",
      "value":27,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_65",
      "location":"N"
@@ -2353,7 +2353,7 @@
     {"id":"temp_67",
      "kind":"temp",
      "value":27,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_67",
      "location":"N"

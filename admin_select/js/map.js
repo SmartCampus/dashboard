@@ -54,10 +54,10 @@ $(document).ready(function($){
         var kind = $(this).attr('id').split('_')[1];
         //uncheck_all_box($(this));
         if($(this).prop("checked")){
-            load_and_launch("data/markers.json",put_marker,kind);
+            load_and_launch("data/sensors.json",handle_marker,kind);
         }
         else{
-            load_and_launch("data/sensors.json",unput_marker,kind);
+            //load_and_launch("data/sensors.json",unput_marker,kind);
         }
         
     });
