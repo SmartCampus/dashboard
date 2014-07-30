@@ -57,7 +57,7 @@ $(document).ready(function($){
             load_and_launch("data/sensors.json",handle_marker,kind);
         }
         else{
-            //load_and_launch("data/sensors.json",unput_marker,kind);
+            // TODO
         }
         
     });

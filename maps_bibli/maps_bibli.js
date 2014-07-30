@@ -83,9 +83,9 @@ function insert_all_marker(){
                     map:map,
                     name:bat
                 });
-                //marker.setMap(null);
+                marker.setMap(null);
                 hashmap_marker[bat] = marker;
-                hashmap_tooltip[marker.name] = bat+":";
+                hashmap_tooltip[marker.name] = "<a href='"+bat+"-plan.html'>"+bat+":</a>";
                 google.maps.event.addListener(marker,'click',function(event){
                     tooltip.setContent(hashmap_tooltip[this.name]);
                     tooltip.open(map,this);
@@ -95,14 +95,11 @@ function insert_all_marker(){
        
     });
 }
-function update_info_marker(bat_wanted,kind,number){
+function add_info_marker(bat_wanted,kind,number){
     tooltip.close();
-    console.log("update -> bat="+bat_wanted+" kind="+kind+" number="+number);
     var marker = hashmap_marker[bat_wanted];
-    hashmap_tooltip[bat_wanted]+= "<br/><img class='legende' alt='img' src='img/"+kind+".png'/><span id='number_"+kind+"_"+bat_wanted+"'>"+number+"</span> capteur "+kind;
-    
+    hashmap_tooltip[bat_wanted]+= "<br/><div class='"+kind+"'><img class='legende' alt='img' src='img/"+kind+".png'/><span>"+number+"</span> capteur "+kind+"</div>";
     marker.setMap(map);
-    
 }
 
 function handle_marker(sensors,kind_wanted){
@@ -136,7 +133,7 @@ function handle_marker(sensors,kind_wanted){
         }
     }
     for(i=0;i<list_bat.length;i++){
-        update_info_marker(list_bat[i],kind_wanted,number_sensors[list_bat[i]+'_'+kind_wanted]);
+        add_info_marker(list_bat[i],kind_wanted,number_sensors[list_bat[i]+'_'+kind_wanted]);
     }
 }
 
