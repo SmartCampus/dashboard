@@ -58,7 +58,7 @@ function insert_all_marker(callback_load,callback_handle,callback_do,url,args){
 function add_info_marker(bat_wanted,kind,number){
     tooltip.close();
     var marker = hashmap_marker[bat_wanted];
-    $('#hidden_info_'+bat_wanted).append("<div class='"+kind+"'><img class='legende' alt='img' src='img/"+kind+".png'/><span>"+number+"</span> capteur "+kind+"</div>");
+    $('#hidden_info_'+bat_wanted).append("<div class='"+kind+"'><img class='legende' alt='img' src='img/"+kind+".png'/><span>"+number+"</span> capteur(s) "+kind+"</div>");
     marker.setMap(map);
 }
 
