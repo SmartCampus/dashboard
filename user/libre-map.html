@@ -10,8 +10,10 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <!-- mes trucs -->
-        <link rel="stylesheet" href="../svg_bibli/handling-svg-biblio.css">
-        <script type="text/javascript" src="../svg_bibli/handling-svg-biblio.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNCIW5K9JPi9U8ji0iJMdDLjnVIAbKPpU&libraries=visualization"></script>
+        <script type="text/javascript" src="../maps_bibli/maps_bibli.js"></script>
+        <script type="text/javascript" src="js/libre-map.js"></script>
+        <link rel="stylesheet" href="css/style.css">
         <meta charset="UTF-8">
     </head>
     <body>
@@ -28,28 +30,13 @@
             </nav>
         </header>
         <div class="container">
+            <h3>Bâtiment ayant le plus de salles libres :</h3>
             <div class="row">
+                <div class="col-md-7 col-md-offset-1" id="maps-div">
+                </div>
                 <div class="col-md-3">
-                    <h3>Légende :</h3>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <svg id='legend-libres' width=40 height=30><rect x=0 y=0 width=40 height=30 fill='green'></rect></svg> Salles libres
-                        </li>
-                        <li class="list-group-item">
-                            <svg id='legend-occupes' width=40 height=30><rect x=0 y=0 width=40 height=30 fill='red'></rect></svg> Salles occupées
-                        </li>
-                    </ul>
+                    <a href="libre.html"><img class="legende" alt='back' src="img/back.png"/> Retour au plan</a>
                 </div>
-                <div class="col-md-7">
-                    <h3>Plan du bâtiment :</h3>
-                    <div id="plan-libre"></div>
-                    <script type="text/jscript">
-                        $("#plan-libre").ready(function(){
-                            load_svg("data/plan_T1_4e.svg","plan-libre","data/salles.json",load_and_launch,update_free_rooms);
-                        });
-                    </script>
-                </div>
-                <div class="col-md-2"><h3>Voir sur la carte :</h3><a href="libre-map.html"><img src="img/map.png" class="img-responsive" alt="link-map"></a></div>
             </div>
         </div>
     </body>

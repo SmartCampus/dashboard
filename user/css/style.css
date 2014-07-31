@@ -21,3 +21,11 @@
     font-size: 28px;
     font-size: 28px;
 }
+
+#maps-div{
+    min-height: 400px;
+}
+
+.legende{
+    max-height: 50px;
+}

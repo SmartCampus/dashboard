@@ -57,7 +57,5 @@
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
 }
-#maps-div{
-    min-height: 400px;
-}
+
    
