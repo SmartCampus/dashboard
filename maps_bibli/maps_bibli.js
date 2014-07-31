@@ -130,15 +130,6 @@ function put_bats(map,url,bats,batiments){
         }
     });
 }
-function display_info_window(position,batiment,batiments){
-    var index = batiments.indexOf(batiment);
-    infowindow[index].setPosition(position);
-    infowindow[index].open(map);
-}
-function undisplay_info_window(batiment){
-    var index = batiments.indexOf(batiment);
-    infowindow[index].close(map);
-}
 
 function load_data_heatmap(url,callback,kind){
     $.getJSON(url,function( data ){
