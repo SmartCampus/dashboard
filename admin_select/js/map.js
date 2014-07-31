@@ -35,6 +35,9 @@ $(document).ready(function($){
                 });
             });
         }
+        else{
+            if(heatmap != undefined)heatmap.setMap(null);
+        }
         $('.choice').each(function(){
             var id = $(this).attr('id');
             var parent = $(this).parent();
@@ -50,17 +53,39 @@ $(document).ready(function($){
         });
     });
     
+    /* fonction qui decoche la case 'tous' si elle 
+     * coché, fonction appelé que si l'on décoche une
+     * autre checkbox
+     */
+    function uncheck_all_box(box){
+        if(!box.prop("checked")){
+            $("#checkbox_all").attr("checked",false);
+        }
+    }
+    
     /* affiche/enlève les capteurs correspondant
      * à la checkbox cochée/décochée
      */
     $('.my_checkbox').change(function(){
         var kind = $(this).attr('id').split('_')[1];
-        //uncheck_all_box($(this));
+        uncheck_all_box($(this));
         if($(this).prop("checked")){
             load_and_launch("data/sensors.json",handle_marker,add_info_marker,[kind]);
         }
         else{
             load_and_launch("data/sensors.json",handle_marker,remove_info_marker,[kind]);
+        }
+        
+    });
+    
+    /* affiche/enlève les capteurs correspondant
+     * à la checkbox cochée/décochée
+     */
+    $('.my_radio').change(function(){
+        var kind = $(this).attr('id').split('_')[1];
+        if($(this).prop("checked")){
+            if(heatmap != undefined)heatmap.setMap(null);
+            load_data_heatmap("data/coord_heatmap.json",display_heatmap,kind);
         }
         
     });

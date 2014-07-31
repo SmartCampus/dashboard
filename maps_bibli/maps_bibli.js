@@ -8,6 +8,7 @@ function load_and_launch(url_json,callback_handle,callback_do,kind){
 }
 
 var map;
+var heatmap;
 var json_markers = [];
 var hashmap_marker = new Object();
 var tooltip = new google.maps.InfoWindow();
@@ -27,43 +28,6 @@ function initialize() {
     var bats = [];
    
     put_bats(map,"data/coord_bat.json",bats,batiments);
-}
-
-function put_marker(markers,kind_wanted){
-    var list_markers = [];
-    j=0;
-    for(i=0;i<markers.length;i++){
-        var data = markers[i];
-        var kind = data.kind;
-        if(kind == kind_wanted){
-            var lat = data.lat;
-            var lng = data.lng;
-            var latLng = new google.maps.LatLng(lat,lng);
-            var marker = new google.maps.Marker({
-                position : latLng,
-                map:map,
-                icon : "img/"+kind+".png"
-            });
-            list_markers[j++] = marker;
-        }
-    }
-    json_markers.push({
-        kind : kind_wanted,
-        markers : list_markers
-        
-    });
-}
-
-function unput_marker(markers,kind_wanted){
-    for(var i=0;i<json_markers.length;i++){
-        if(json_markers[i].kind == kind_wanted){
-            var list_markers = json_markers[i].markers;
-            for(var j=0;j<list_markers.length;j++){
-                list_markers[j].setMap(null);
-            }
-        }
-    }
-    
 }
 
 function insert_all_marker(callback_load,callback_handle,callback_do,url,args){
@@ -107,7 +71,6 @@ function remove_info_marker(bat_wanted,kind){
 function handle_marker(sensors,kind_wanted,callback){
     var number_sensors = new Object();
     var list_bat = [];
-    //var list_kind = [];
     for(i=0;i<sensors.length;i++){
         var sensor = sensors[i];
         var bat = sensor.bat;
@@ -164,19 +127,6 @@ function put_bats(map,url,bats,batiments){
             /* on l'ajoute sur la map */
             batiments[i].setMap(map);
 
-            /* on ajoute un listener pour le clic *
-            google.maps.event.addListener(batiments[i], 'click', function (event) {
-            //display the polygon
-                display(this);
-            });*
-            
-            google.maps.event.addListener(batiments[i], 'click', function(event) {
-                display_info_window(event.latLng,this,batiments);
-              });
-            /*google.maps.event.addListener(batiments[i], 'mouseout', function(event) {
-                undisplay_info_window(this);
-              });*/
-
         }
     });
 }
@@ -190,3 +140,32 @@ function undisplay_info_window(batiment){
     infowindow[index].close(map);
 }
 
+function load_data_heatmap(url,callback,kind){
+    $.getJSON(url,function( data ){
+        var coords = data.coords;
+        callback(coords,kind);
+    });
+}
+
+function display_heatmap(coords,kind_wanted){
+    var data_heatmap = [];
+    for(i=0;i<coords.length;i++){
+        var kind = coords[i].kind;
+        if(kind == kind_wanted){
+            var values = coords[i].values;
+            for(j=0;j<values.length;j++){
+                var latLng = values[j];
+                data_heatmap[j] = new google.maps.LatLng(latLng.lat,latLng.lng);
+            }
+            break;
+        }
+                          
+    }
+    var pointArray = new google.maps.MVCArray(data_heatmap);
+
+    heatmap = new google.maps.visualization.HeatmapLayer({
+        data: pointArray
+    });
+
+    heatmap.setMap(map);
+}
