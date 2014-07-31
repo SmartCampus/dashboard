@@ -1,12 +1,8 @@
-function load_and_launch(url_json,callback,arg,callback2){
+function load_and_launch(url_json,callback,callback2,kind){
     $.getJSON( url_json, function( data ){
         var sensors = data.sensors;
-        if(arg != undefined){
-            callback(sensors,arg,callback2);
-        }
-        else{
-            callback(sensors,callback2);
-        }
+        callback(sensors,kind,callback2);
+        
     });
 }
 
