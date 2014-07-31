@@ -1,11 +1,11 @@
-function load_and_launch(url_json,callback,arg){
+function load_and_launch(url_json,callback,arg,callback2){
     $.getJSON( url_json, function( data ){
         var sensors = data.sensors;
         if(arg != undefined){
-            callback(sensors,arg);
+            callback(sensors,arg,callback2);
         }
         else{
-            callback(sensors);
+            callback(sensors,callback2);
         }
     });
 }
@@ -14,7 +14,6 @@ var map;
 var json_markers = [];
 var hashmap_marker = new Object();
 var tooltip = new google.maps.InfoWindow();
-var hashmap_tooltip = new Object();
 
 /* Initialize the map (google) */
 function initialize() {
@@ -83,11 +82,10 @@ function insert_all_marker(){
                     map:map,
                     name:bat
                 });
-                marker.setMap(null);
                 hashmap_marker[bat] = marker;
-                hashmap_tooltip[marker.name] = "<a href='"+bat+"-plan.html'>"+bat+":</a>";
+                $("body").append("<div id='hidden_info_"+bat+"' hidden><a href='"+bat+"-plan.html'>"+bat+":</a><div>");
                 google.maps.event.addListener(marker,'click',function(event){
-                    tooltip.setContent(hashmap_tooltip[this.name]);
+                    tooltip.setContent($("#hidden_info_"+this.name).html());
                     tooltip.open(map,this);
                 });
             }
@@ -98,11 +96,18 @@ function insert_all_marker(){
 function add_info_marker(bat_wanted,kind,number){
     tooltip.close();
     var marker = hashmap_marker[bat_wanted];
-    hashmap_tooltip[bat_wanted]+= "<br/><div class='"+kind+"'><img class='legende' alt='img' src='img/"+kind+".png'/><span>"+number+"</span> capteur "+kind+"</div>";
+    $('#hidden_info_'+bat_wanted).append("<div class='"+kind+"'><img class='legende' alt='img' src='img/"+kind+".png'/><span>"+number+"</span> capteur "+kind+"</div>");
     marker.setMap(map);
 }
 
-function handle_marker(sensors,kind_wanted){
+function remove_info_marker(bat_wanted,kind){
+    tooltip.close();
+    var marker = hashmap_marker[bat_wanted];
+    $('#hidden_info_'+bat_wanted+">."+kind).remove();
+    marker.setMap(map);
+}
+
+function handle_marker(sensors,kind_wanted,callback){
     var number_sensors = new Object();
     var list_bat = [];
     //var list_kind = [];
@@ -133,7 +138,7 @@ function handle_marker(sensors,kind_wanted){
         }
     }
     for(i=0;i<list_bat.length;i++){
-        add_info_marker(list_bat[i],kind_wanted,number_sensors[list_bat[i]+'_'+kind_wanted]);
+        callback(list_bat[i],kind_wanted,number_sensors[list_bat[i]+'_'+kind_wanted]);
     }
 }
 
