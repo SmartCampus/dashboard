@@ -41,28 +41,12 @@
                 </div>
                 <div class="col-md-8 col-md-offset-1" id="maps-div">
                 <script>
-                     /* Info bulle by maps */
-                        var infowindow = [
-                                new google.maps.InfoWindow({
-                                      content: "IUT"
-                                  }),new google.maps.InfoWindow({
-                                      content: "Forum"
-                                  }),new google.maps.InfoWindow({
-                                      content: "<a href='energy-plan.html'>Templier 1</a>"
-                                  }),new google.maps.InfoWindow({
-                                      content: "Templier 2 (sud)"
-                                  }),new google.maps.InfoWindow({
-                                      content: "Templier 2 (barette haute)"
-                                  }),new google.maps.InfoWindow({
-                                      content: "Templier 2 (barrette basse)"
-                                  })
-                        ];
-                    load_and_launch("data/markers.json",put_marker,"light");
-                    load_and_launch("data/markers.json",put_marker,"temp");
+                    insert_all_marker(load_and_launch,handle_marker,add_info_marker,"data/alertes.json",["temp","light"]);
                 </script>
                 </div>
                     
             </div>
         </div>
+        <div id="page_id" hidden>energy</div>
     </body>
 </html>

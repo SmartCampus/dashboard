@@ -2,130 +2,130 @@
     {"id":"temp_1",
      "kind":"temp",
      "value":25.4,
-     "bat":"templier 1",
+     "bat":"temp1",
      "floor":4,
      "salle":"s_52"
      
     },{"id":"temp_5",
          "kind":"temp",
          "value":25.4,
-         "bat":"templier 1",
+         "bat":"temp1",
          "floor":4,
          "salle":"s_57"
      
     },{"id":"light_12",
          "kind":"light",
          "value":true,
-         "bat":"templier 1",
+         "bat":"temp1",
          "floor":4,
          "salle":"s_58"
      
     },{"id":"temp_3",
          "kind":"temp",
          "value":25.4,
-         "bat":"templier 1",
+         "bat":"temp1",
          "floor":4,
          "salle":"s_55"
      },{"id":"temp_8",
         "kind":"temp",
         "value":32,
-        "bat":"templier 1",
+        "bat":"temp1",
         "floor":4,
         "salle":"s_10"
         
     },{"id":"temp_6",
         "kind":"temp",
         "value":8,
-        "bat":"templier 1",
+        "bat":"temp1",
         "floor":4,
         "salle":"s_1"
         
     },{"id":"light_7",
         "kind":"light",
         "value":true,
-        "bat":"templier 1",
+        "bat":"temp1",
         "floor":4,
         "salle":"s_1"
         
     },{"id":"temp_8",
         "kind":"temp",
         "value":30,
-        "bat":"templier 1",
+        "bat":"temp1",
         "floor":4,
         "salle":"s_5"
         
     },{"id":"light_1",
         "kind":"light",
         "value":true,
-        "bat":"templier 1",
+        "bat":"temp1",
         "floor":4,
         "salle":"s_24"
          },{"id":"temp_8",
         "kind":"temp",
         "value":36,
-        "bat":"templier 1",
+        "bat":"temp1",
         "floor":4,
         "salle":"s_24"
         },
     {"id":"door_1",
          "kind":"door",
      "value":false,
-         "bat":"templier 1",
+         "bat":"temp1",
          "floor":4,
          "salle":"s_52"
      
     },{"id":"door_5",
          "kind":"door",
        "value":false,
-         "bat":"templier 1",
+         "bat":"temp1",
          "floor":4,
          "salle":"s_57"
      
     },{"id":"window_1",
          "kind":"window",
         "value":false,
-         "bat":"templier 1",
+         "bat":"temp1",
          "floor":4,
          "salle":"s_58"
      
     },{"id":"window_3",
          "kind":"window",
         "value":false,
-         "bat":"templier 1",
+         "bat":"temp1",
          "floor":4,
          "salle":"s_55"
      },{"id":"door_8",
         "kind":"door",
         "value":false,
-        "bat":"templier 1",
+        "bat":"temp1",
         "floor":4,
         "salle":"s_10"
         
     },{"id":"window_6",
         "kind":"window",
         "value":false,
-        "bat":"templier 1",
+        "bat":"temp1",
         "floor":4,
         "salle":"s_1"
         
     },{"id":"window_7",
         "kind":"window",
         "value":false,
-        "bat":"templier 1",
+        "bat":"temp1",
         "floor":4,
         "salle":"s_1"
         
     },{"id":"window_8",
         "kind":"window",
         "value":false,
-        "bat":"templier 1",
+        "bat":"temp1",
         "floor":4,
         "salle":"s_5"
         
     },{"id":"door_6",
         "kind":"door",
        "value":false,
-        "bat":"templier 1",
+        "bat":"temp1",
         "floor":4,
         "salle":"s_24"
         

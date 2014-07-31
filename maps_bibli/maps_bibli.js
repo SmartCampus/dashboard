@@ -1,8 +1,9 @@
-function load_and_launch(url_json,callback,callback2,kind){
+function load_and_launch(url_json,callback_handle,callback_do,kind){
     $.getJSON( url_json, function( data ){
         var sensors = data.sensors;
-        callback(sensors,kind,callback2);
-        
+        for(k=0;k<kind.length;k++){
+            callback_handle(sensors,kind[k],callback_do);
+        }
     });
 }
 
@@ -26,7 +27,6 @@ function initialize() {
     var bats = [];
    
     put_bats(map,"data/coord_bat.json",bats,batiments);
-    insert_all_marker();
 }
 
 function put_marker(markers,kind_wanted){
@@ -66,7 +66,7 @@ function unput_marker(markers,kind_wanted){
     
 }
 
-function insert_all_marker(){
+function insert_all_marker(callback_load,callback_handle,callback_do,url,args){
     $.getJSON("data/coord_poi.json", function( data ){
         var coords = data.coords;
         for(i=0;i<coords.length;i++){
@@ -79,14 +79,16 @@ function insert_all_marker(){
                     name:bat
                 });
                 hashmap_marker[bat] = marker;
-                $("body").append("<div id='hidden_info_"+bat+"' hidden><a href='"+bat+"-plan.html'>"+bat+":</a><div>");
+                $("body").append("<div id='hidden_info_"+bat+"' hidden><a href='"+bat+"-plan-"+$("#page_id").html()+".html'>"+bat+":</a><div>");
                 google.maps.event.addListener(marker,'click',function(event){
                     tooltip.setContent($("#hidden_info_"+this.name).html());
                     tooltip.open(map,this);
                 });
             }
         }
-       
+        if(callback_load != undefined){
+            callback_load(url,callback_handle,callback_do,args);
+        }
     });
 }
 function add_info_marker(bat_wanted,kind,number){
@@ -100,7 +102,6 @@ function remove_info_marker(bat_wanted,kind){
     tooltip.close();
     var marker = hashmap_marker[bat_wanted];
     $('#hidden_info_'+bat_wanted+">."+kind).remove();
-    marker.setMap(map);
 }
 
 function handle_marker(sensors,kind_wanted,callback){
@@ -119,12 +120,6 @@ function handle_marker(sensors,kind_wanted,callback){
         if(!already)list_bat[list_bat.length] = bat;
         already = false;
         var kind = sensor.kind;
-        /*for(j=0;j<list_kind.length;j++){
-            if(list_kind[j] == kind){
-                already = true;
-            }
-        }
-        if(!already)list_kind[list_kind.length] = kind;*/
         var n = number_sensors[bat+'_'+kind];
         if (n == undefined){
             number_sensors[bat+'_'+kind] = 0;
@@ -185,18 +180,6 @@ function put_bats(map,url,bats,batiments){
         }
     });
 }
-/*$("#temp1>img").click(function(event){
-    var id = event.target.parentNode.id;
-    $("#"+id).hide();
-    $("#map_google").show();
-
-});
-$("#others>img").click(function(event){
-    var id = event.target.parentNode.id;
-    $("#"+id).hide();
-    $("#map_google").show();
-
-});*/
 function display_info_window(position,batiment,batiments){
     var index = batiments.indexOf(batiment);
     infowindow[index].setPosition(position);
@@ -207,18 +190,3 @@ function undisplay_info_window(batiment){
     infowindow[index].close(map);
 }
 
-/* Display building */
-function display(building){
-    if(building != undefined){
-        var id = batiments.indexOf(building);
-        var bat = bats[id];
-        if(bat == "temp1"){
-            $('#map_google').hide();
-            $('#temp1').show();
-        }
-        else{
-            $('#map_google').hide();
-            $('#others').show();
-        }
-    }
-}
