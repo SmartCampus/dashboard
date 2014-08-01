@@ -29,3 +29,11 @@
 .legende{
     max-height: 50px;
 }
+
+.time-left-div{
+    border: 3px solid rgb(149, 206, 255);
+    max-height: 350px;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+    padding: 3px 7px;
+}

@@ -25,18 +25,20 @@ function display_clock(id,title,url){
      */
     $.getJSON(url, function( data ){
         $("#title-time-left").append("Attente actuelle : <p id='number-time-left'>"+data.value+" mins</p>");
+        var legend = new AmCharts.AmLegend();
+        //legend.data = [{title:"first",color:"#CC0000"}];
+        
        var chart = AmCharts.makeChart(id, {
-           "titles": [
+           /*"titles": [
                 {
                     "text": title,
                     "size": 13
                 }
-            ],
+            ],*/
             "type": "gauge",
             "theme": "none",
             "startDuration": 0.3,
-            "marginTop":1,
-            "marginBottom":180,	
+            "marginBottom":210,	
             "axes": [{
                 "axisAlpha": 0.8,
                 "endAngle": 360,
@@ -74,6 +76,7 @@ function display_clock(id,title,url){
               }]  
             }
         });
+        //chart.addLegend(legend);
         // update each second
         setTimeout(updateClock, 1000);
 
