@@ -43,9 +43,9 @@
                 <div class="col-md-7">
                     <h3>Plan du bâtiment :</h3>
                     <div id="plan-libre"></div>
-                    <script type="text/jscript">
+                    <script>
                         $("#plan-libre").ready(function(){
-                            load_svg("data/plan_T1_4e.svg","plan-libre","data/salles.json",load_and_launch,update_free_rooms);
+                            load_svg_jsonurl("data/plan_T1_4e.svg","plan-libre","data/salles.json",load_and_launch,update_free_rooms);
                         });
                     </script>
                 </div>
