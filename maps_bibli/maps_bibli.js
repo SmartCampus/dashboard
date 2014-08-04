@@ -27,11 +27,11 @@ function initialize() {
     var batiments = [];
     var bats = [];
    
-    put_bats(map,"data/coord_bat.json",bats,batiments);
+    put_bats(map,"../common-data/coord_bat.json",bats,batiments);
 }
 
 function insert_all_marker(callback_load,callback_handle,callback_do,url,args){
-    $.getJSON("data/coord_poi.json", function( data ){
+    $.getJSON("../common-data/coord_poi.json", function( data ){
         var coords = data.coords;
         for(i=0;i<coords.length;i++){
             var bat = coords[i].bat;
@@ -40,9 +40,11 @@ function insert_all_marker(callback_load,callback_handle,callback_do,url,args){
                 var marker = new google.maps.Marker({
                     position : latLng,
                     map:map,
+                    animation: google.maps.Animation.DROP,
                     name:bat
                 });
                 hashmap_marker[bat] = marker;
+                hashmap_marker[bat].setMap(null);
                 $("body").append("<div id='hidden_info_"+bat+"' hidden><a href='"+bat+"-plan-"+$("#page_id").html()+".html'>"+bat+":</a><div>");
                 google.maps.event.addListener(marker,'click',function(event){
                     tooltip.setContent($("#hidden_info_"+this.name).html());
@@ -56,8 +58,10 @@ function insert_all_marker(callback_load,callback_handle,callback_do,url,args){
     });
 }
 function add_info_marker(bat_wanted,kind,number){
+    
     tooltip.close();
     var marker = hashmap_marker[bat_wanted];
+    marker.animation = google.maps.Animation.DROP;
     $('#hidden_info_'+bat_wanted).append("<div class='"+kind+"'><img class='legende' alt='img' src='img/"+kind+".png'/><span>"+number+"</span> capteur(s) "+kind+"</div>");
     marker.setMap(map);
 }
@@ -65,7 +69,16 @@ function add_info_marker(bat_wanted,kind,number){
 function remove_info_marker(bat_wanted,kind){
     tooltip.close();
     var marker = hashmap_marker[bat_wanted];
+    marker.animation = google.maps.Animation.DROP;
     $('#hidden_info_'+bat_wanted+">."+kind).remove();
+    var left_infos = check_left_info("hidden_info_"+bat_wanted);
+    if(left_infos>2)marker.setMap(map);
+    else marker.setMap(null);
+}
+
+function check_left_info(id){
+    var element = $("#"+id);
+    return element.children().length;
 }
 
 function handle_marker(sensors,kind_wanted,callback){
@@ -146,17 +159,17 @@ function display_heatmap(coords,kind_wanted){
             var values = coords[i].values;
             for(j=0;j<values.length;j++){
                 var latLng = values[j];
-                data_heatmap[j] = new google.maps.LatLng(latLng.lat,latLng.lng);
+                data_heatmap[j] = {location:new google.maps.LatLng(latLng.lat,latLng.lng),weight:latLng.count};
             }
             break;
-        }
-                          
+        }                
     }
     var pointArray = new google.maps.MVCArray(data_heatmap);
 
     heatmap = new google.maps.visualization.HeatmapLayer({
-        data: pointArray
+        data: data_heatmap
     });
-
+    heatmap.set("maxIntensity",35);
     heatmap.setMap(map);
+    
 }

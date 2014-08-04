@@ -10,8 +10,8 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <!-- mes trucs -->
-        <link rel="stylesheet" href="../svg_bibli/handling-svg-biblio.css">
-        <script type="text/javascript" src="../svg_bibli/handling-svg-biblio.js"></script>
+        <link rel="stylesheet" href="http://SmartCampus.github.io/plan-visualizer/handling-svg-biblio.css">
+        <script type="text/javascript" src="http://SmartCampus.github.io/plan-visualizer/handling-svg-biblio.js"></script>
         <meta charset="UTF-8">
     </head>
     <body>
@@ -45,7 +45,7 @@
                     <div id="plan-libre"></div>
                     <script>
                         $("#plan-libre").ready(function(){
-                            load_svg_jsonurl("data/plan_T1_4e.svg","plan-libre","data/salles.json",load_and_launch,update_free_rooms);
+                            load_svg_jsonurl("../common-data/plan_T1_4e.svg","plan-libre","../common-data/sensors.json",load_and_launch,color_rooms,{"motion":""});
                         });
                     </script>
                 </div>

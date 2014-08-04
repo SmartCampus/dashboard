@@ -20,7 +20,7 @@ $(document).ready(function($){
             var already_checked = $(this).prop('checked');
             if(checked){
                 this.checked = true;
-                if(!already_checked)load_and_launch_urljson("data/sensors.json",put_sensors,kind,"img/"+kind+".png");
+                if(!already_checked)load_and_launch_urljson("../common-data/sensors.json",put_sensors,kind,"img/"+kind+".png");
             }
             else{
                 this.checked = false;
@@ -80,10 +80,10 @@ $(document).ready(function($){
         var kind = $(this).attr('id').split('_')[1];
         uncheck_all_box($(this));
         if($(this).prop("checked")){
-            load_and_launch_urljson("data/sensors.json",put_sensors,kind,"img/"+kind+".png");
+            load_and_launch_urljson("../common-data/sensors.json",put_sensors,kind,"img/"+kind+".png");
         }
         else{
-            load_and_launch_urljson("data/sensors.json",unput_sensors,kind,"img/"+kind+".png");
+            load_and_launch_urljson("../common-data/sensors.json",unput_sensors,kind,"img/"+kind+".png");
         }
         
     });
@@ -92,7 +92,7 @@ $(document).ready(function($){
         var kind = $(this).attr('id').split('_')[1];
         if($(this).prop("checked")){
             remove_canvas();
-            load_data_heatmap_urljson("data/sensors.json",kind);
+            load_data_heatmap_urljson("../common-data/sensors.json",kind);
         }
     });
     

@@ -31,7 +31,7 @@ $(document).ready(function($){
                 
                 $('.my_radio').each(function(){
                     this.checked = false;
-                    load_and_launch("data/sensors.json",handle_marker,remove_info_marker,[kind]);
+                    load_and_launch("../common-data/sensors.json",handle_marker,remove_info_marker,[kind]);
                 });
             });
         }
@@ -70,10 +70,10 @@ $(document).ready(function($){
         var kind = $(this).attr('id').split('_')[1];
         uncheck_all_box($(this));
         if($(this).prop("checked")){
-            load_and_launch("data/sensors.json",handle_marker,add_info_marker,[kind]);
+            load_and_launch("../common-data/sensors.json",handle_marker,add_info_marker,[kind]);
         }
         else{
-            load_and_launch("data/sensors.json",handle_marker,remove_info_marker,[kind]);
+            load_and_launch("../common-data/sensors.json",handle_marker,remove_info_marker,[kind]);
         }
         
     });
@@ -85,7 +85,7 @@ $(document).ready(function($){
         var kind = $(this).attr('id').split('_')[1];
         if($(this).prop("checked")){
             if(heatmap != undefined)heatmap.setMap(null);
-            load_data_heatmap("data/coord_heatmap.json",display_heatmap,kind);
+            load_data_heatmap("../common-data/coord_heatmap.json",display_heatmap,kind);
         }
         
     });
@@ -100,11 +100,11 @@ $(document).ready(function($){
             var already_checked = $(this).prop('checked');
             if(checked){
                 this.checked = true;
-                if(!already_checked)load_and_launch("data/sensors.json",handle_marker,add_info_marker,[kind]);
+                if(!already_checked)load_and_launch("../common-data/sensors.json",handle_marker,add_info_marker,[kind]);
             }
             else{
                 this.checked = false;
-                load_and_launch("data/sensors.json",handle_marker,remove_info_marker,[kind]);
+                load_and_launch("../common-data/sensors.json",handle_marker,remove_info_marker,[kind]);
             }
         });
     });
