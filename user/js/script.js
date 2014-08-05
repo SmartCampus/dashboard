@@ -18,7 +18,64 @@ $(document).ready(function($){
     });
 });
 
-function display_clock(id,title,url){
+function display_pie_park(id,occuped){
+    /* ###################################################################
+    ########                                                       #######
+    ########            Widget Pie chart                           #######
+    ########                                                       #######
+    ######################################################################*/
+    
+    // Radialize the colors
+    Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function(color) {
+        return {
+            radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
+            stops: [
+                [0, color],
+                [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+            ]
+        };
+    });
+
+    // Build the chart
+    $('#'+id).highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: 'Occupation actuelle des parkings'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                minSize : 150,
+                allowPointSelect: true,
+                cursor: 'pointer'
+                /*dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    },
+                    connectorColor: 'silver'
+                }*/
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Park share',
+            data: [
+                ['Libre',   100-occuped],
+                ['Occupé',  occuped]
+            ]
+        }]
+    });
+}
+
+function display_clock(id,url){
     /**
      * Partie concernant l'horloge
      * pour représenter le temps d'attente
@@ -26,15 +83,8 @@ function display_clock(id,title,url){
     $.getJSON(url, function( data ){
         $("#title-time-left").append("Attente actuelle : <p id='number-time-left'>"+data.value+" mins</p>");
         var legend = new AmCharts.AmLegend();
-        //legend.data = [{title:"first",color:"#CC0000"}];
         
        var chart = AmCharts.makeChart(id, {
-           /*"titles": [
-                {
-                    "text": title,
-                    "size": 13
-                }
-            ],*/
             "type": "gauge",
             "theme": "none",
             "startDuration": 0.3,

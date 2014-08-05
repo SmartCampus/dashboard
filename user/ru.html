@@ -31,7 +31,7 @@
             <div class="page-header"><h1>Tableau de bord <small>Enseignant</small></h1></div>
             <nav>
                 <ul class="nav nav-tabs" role="tablist">
-                    <li><a href="#"><span class="glyphicon glyphicon-home"></span>  Accueil</a></li>
+                    <li><a href="accueil.html"><span class="glyphicon glyphicon-home"></span>  Accueil</a></li>
                     <li><a href="parking.html"><span class="glyphicon glyphicon-map-marker"></span>  Parking</a></li>
                     <li class="active"><a href="ru.html"><span class="glyphicon glyphicon-cutlery"></span>  Restaurant Universitaire</a></li>
                     <li><a href="libre.html"><span class="glyphicon glyphicon-th-large"></span>  Salles libres</a></li>
@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <script>
-                        display_clock("time-left","Heure à laquelle vous mangerez :","data/temps.json");
+                        display_clock("time-left","data/temps.json");
                         update_avg("data/moyenne-attente.json","moyenne-attente",0,"Temps d'attente","attente (minutes)","Temps moyen d'attente au RU",'min');
                         
                     </script>
