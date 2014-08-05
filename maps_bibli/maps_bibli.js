@@ -18,8 +18,9 @@ function initialize() {
     
     /* Options de la map */
     var mapOptions = {
-          center: new google.maps.LatLng(43.615796, 7.071655),
-          zoom: 17
+        center: new google.maps.LatLng(43.615796, 7.071655),
+        zoom: 17,
+        disableDefaultUI : true
     };
      /* la map */
     map = new google.maps.Map(document.getElementById("maps-div"),mapOptions);

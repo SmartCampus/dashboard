@@ -33,19 +33,12 @@
         </header>
         <div class="container" style="margin : 30px">
             <div class="row">
-                <div class="col-md-2">
-                    <h3>Légende :</h3>
-                    <ul>
-                        <li class="list-group-item"><img alt="portes_legende" src="img/temp-.png" class="img-responsive legende"/>Température anormales</li>
-                        <li class="list-group-item"><img alt="portes_legende" src="img/light-true.png" class="img-responsive legende"/>Lumières allumées</li>
-                    </ul>
-                </div>
-                <div class="col-md-7" id="maps-div">
+                <div class="col-md-7 col-md-offset-1" id="maps-div">
                 <script>
                     insert_all_marker(load_and_launch,handle_marker,add_info_marker,"data/alertes.json",["temp","light"]);
                 </script>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <h3 id="title-alerte">Liste des alertes</h3>
                     <div class="DocumentList" id="list-alertes"></div>
                     <script>
