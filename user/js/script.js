@@ -159,7 +159,6 @@ function display_clock(id,url){
 
 function update_avg(url,id_div,day,x_legende,y_legende,title,unit,parking){
     $.getJSON(url, function(data) {
-        console.log(url+" "+id_div+" "+day+" "+x_legende+" "+y_legende+" "+title+" "+unit+" "+parking)
         var avgs = [];
         var dates = [];
         var id = data.id;
@@ -179,7 +178,6 @@ function update_avg(url,id_div,day,x_legende,y_legende,title,unit,parking){
                     default:all_values = data.parkings.P1[day];break;
             }
         }
-        console.log(all_values);
         switch(parseInt(day)){
             case 1:values = all_values.day_1;break;
             case 2:values = all_values.day_2;break;
