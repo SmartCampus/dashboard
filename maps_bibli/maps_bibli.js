@@ -1,3 +1,13 @@
+/* Variables globales */
+//la map google
+var map;
+//le layer gmaps représentant une heatmap
+var heatmap;
+var json_markers = [];
+var hashmap_marker = new Object();
+var tooltip = new google.maps.InfoWindow();
+
+
 function load_and_launch(url_json,callback_handle,callback_do,kind){
     $.getJSON( url_json, function( data ){
         var sensors = data.sensors;
@@ -7,30 +17,39 @@ function load_and_launch(url_json,callback_handle,callback_do,kind){
     });
 }
 
-var map;
-var heatmap;
-var json_markers = [];
-var hashmap_marker = new Object();
-var tooltip = new google.maps.InfoWindow();
+
 
 /* Initialize the map (google) */
 function initialize() {
     
     /* Options de la map */
     var mapOptions = {
+        /* coordonnées du centre du campus */
         center: new google.maps.LatLng(43.615796, 7.071655),
         zoom: 17,
         disableDefaultUI : true
     };
      /* la map */
     map = new google.maps.Map(document.getElementById("maps-div"),mapOptions);
-
+    
+    // liste des objets polygons de gmaps representant les batiments
     var batiments = [];
+    // liste des coordonnees gmaps des batiments
     var bats = [];
-   
+    // on met les batiments sur la map
     put_bats(map,"../common-data/coord_bat.json",bats,batiments);
 }
 
+/**
+ * Fonction qui initialise tous les
+ * markers (objets gmaps) correspondant
+ * aux centres des bâtiments
+ * @param callback_load la fonction callback de chargement du fichier json
+ * @param callback_handle la fonction qui traite les données
+ * @param callback_do la fonction callback qui execute les données
+ * @param url l'url du json à charger
+ * @param args un tableau d'arguements
+ */
 function insert_all_marker(callback_load,callback_handle,callback_do,url,args){
     $.getJSON("../common-data/coord_poi.json", function( data ){
         var coords = data.coords;
@@ -58,8 +77,14 @@ function insert_all_marker(callback_load,callback_handle,callback_do,url,args){
         }
     });
 }
+/**
+ * Fonction qui ajoute les infos
+ * sur une type de capteur
+ * @param bat_wanted le batiment sur lequel l'info est mise a jour
+ * @param kind le type de capteur concerné
+ * @param number le nombre de capteur du type kind
+ */
 function add_info_marker(bat_wanted,kind,number){
-    
     tooltip.close();
     var marker = hashmap_marker[bat_wanted];
     marker.animation = google.maps.Animation.DROP;
@@ -68,6 +93,12 @@ function add_info_marker(bat_wanted,kind,number){
     marker.setMap(map);
 }
 
+/**
+ * Fonction qui supprime les infos
+ * sur un type de capteur
+ * @param bat_wanted le bâtiment sur le lequel l'info est mise a jour
+ * @param kind le type de capteur concerné
+ */
 function remove_info_marker(bat_wanted,kind){
     tooltip.close();
     var marker = hashmap_marker[bat_wanted];
@@ -78,11 +109,21 @@ function remove_info_marker(bat_wanted,kind){
     else marker.setMap(null);
 }
 
+/**
+* Fonction qui renvoi le nombre
+* d'info restants affiché
+* @param id l'id correspondant à l'élément html où sont stockées les infos
+* @return le nombre d'éléments html dans l'élément id
+*/
 function check_left_info(id){
     var element = $("#"+id);
     return element.children().length;
 }
 
+
+/**
+ * Fonction 
+ */
 function handle_marker(sensors,kind_wanted,callback){
     var number_sensors = new Object();
     var list_bat = [];
@@ -145,7 +186,13 @@ function put_bats(map,url,bats,batiments){
         }
     });
 }
-
+/**
+ * Fonction qui charge des données depuis
+ * un fichier JSON
+ * @param url l'adresse du fichier json
+ * @param callback la fonction a appeler apres chargement
+ * @param kind le parametre de la fonction callback
+ */
 function load_data_heatmap(url,callback,kind){
     $.getJSON(url,function( data ){
         var coords = data.coords;
@@ -153,6 +200,11 @@ function load_data_heatmap(url,callback,kind){
     });
 }
 
+/** Fonction qui affiche une carte de chaleur
+ * grâce à la lib intégrée de gmaps
+ * @param un json contenant les coordonnées des points et leur pondération
+ * @param kind_wanted le type de heatmap que l'on souhaite afficher (le type de capteur pris en compte)
+ */
 function display_heatmap(coords,kind_wanted){
     var data_heatmap = [];
     for(i=0;i<coords.length;i++){
