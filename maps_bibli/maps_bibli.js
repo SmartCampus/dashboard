@@ -63,7 +63,8 @@ function add_info_marker(bat_wanted,kind,number){
     tooltip.close();
     var marker = hashmap_marker[bat_wanted];
     marker.animation = google.maps.Animation.DROP;
-    $('#hidden_info_'+bat_wanted).append("<div class='"+kind+"'><img class='legende' alt='img' src='img/"+kind+".png'/><span>"+number+"</span> capteur(s) "+kind+"</div>");
+    var element_to_insert = $('#hidden_info_'+bat_wanted).children()[0];
+    $(element_to_insert).append("<div class='"+kind+"'><img class='legende' alt='img' src='img/"+kind+".png'/><span>"+number+"</span> capteur(s) "+kind+"</div>");
     marker.setMap(map);
 }
 
@@ -71,9 +72,9 @@ function remove_info_marker(bat_wanted,kind){
     tooltip.close();
     var marker = hashmap_marker[bat_wanted];
     marker.animation = google.maps.Animation.DROP;
-    $('#hidden_info_'+bat_wanted+">."+kind).remove();
-    var left_infos = check_left_info("hidden_info_"+bat_wanted);
-    if(left_infos>2)marker.setMap(map);
+    $('#hidden_info_'+bat_wanted+">a>."+kind).remove();
+    var left_infos = check_left_info("hidden_info_"+bat_wanted+">a");
+    if(left_infos>0)marker.setMap(map);
     else marker.setMap(null);
 }
 
