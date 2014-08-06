@@ -7,17 +7,15 @@ Voici le readme pour le dashboard du projet **SmartCampus**. Vous retrouverez ic
 ----------
 
 
-Liste des dashboards :
+Liste des visualisations :
 ---------
 
-La liste suivante regroupe l'ensemble des dashboard créées pour **SmartCampus**:
+La liste suivante regroupe l'ensemble des visualisations créées pour **SmartCampus**:
 
 > **Administration :**
 >
-> - [Sécurité (map)](#sécurité-map)
-> - [Sécurité (plan)](#sécurité-plan)
-> - [Energie (map)](#energie-map)
-> - [Energie (plan)](#energie-plan)
+> - [Sécurité](#sécurité)
+> - [Energie](#energie)
 >
 > **Administration** (selection) :
 
@@ -33,11 +31,13 @@ La liste suivante regroupe l'ensemble des dashboard créées pour **SmartCampus*
 
 
 ----------
-## Sécurité map
+## Sécurité
 ## Intention
-Je suis administrateur de **SmartCampus** et m'occupe de la sécurité sur le campus. Je peux voir d'un coup d'oeil les problèmes de sécurité sur la carte du campus, une fois que j'ai identifié ces problèmes de façon globale, je peux les regarder en détails de 2 manières :
-- je regarde la liste des alertes présenté également sur la même page (liste plus détaillée sur le type d'alerte, la position du problème, etc)
-- je peux aller sur une autre page qui me visualisera le plan du bâtiment que j'ai sélectionné (voir [Sécurité plan](#sécurité-plan)).
+Je suis m'occupe de la gestion de l'énergie sur le campus. Les alertes de sécurité concerne les portes et fenêtres oubliées.
+Je veux voir une information globales sur les problèmes de sécurité.
+(Option) Pour cela si le nombre d'alertes n'est pas trop important je peux voir une liste de celles-ci les résumant. Une fois que j'ai identifié les problèmes sur cette liste je peux passer à l'étape suivante.
+Si le nombre d'alerte est trop importante, je visualise directement les alertes par bâtiments en cliquant sur ceux-ci.
+Une fois que j'ai choisi l'endroit où je souhaite plus de détails, je peux aller vers une autre page qui m'affichera le plan du bâtiment selectionné. Sur cette page je peux soit regarde la liste des alertes présentes afin de planifier ma journée (si cette liste n'est pas trop grande) et ensuite je visualise sur le plan la position des alertes afin de connaître la position du problème et d'y intervenir.
 
 ### Données nécessaires
 Fichier JSON contenant la liste des alertes :
@@ -55,39 +55,15 @@ Fichier JSON contenant la liste des alertes :
 }
 ```
 
-
 ----------
-
-
-## Sécurité plan
+## Energie
 ### Intention
-
-Je suis administrateur de **SmartCampus** et m'occupe de la sécurité sur le campus. Je peux voir d'un coup d'oeil les problèmes de sécurité sur un plan (plan d'architecte) d'un étage d'un bâtiment. Lorsque j'ai identifié les problèmes, je peux voir leurs détails sur une liste détaillée présente sur la même page.
-
-### Données nécessaires
-Idem que pour [Sécurité map](#sécurité-map)
-
-----------
-## Energie map
-### Intention
-Je suis administrateur de **SmartCampus** et m'occupe de la gestion de l'énergie sur le campus. Je peux voir d'un coup d'oeil sur la carte du campus les problèmes concernant l'énergie (problème de température ou lampe allumée inutilement). Une fois que j'ai identifié les problèmes je peux voir ces problèmes de façon plus détaillé de 2 manières différentes :
-- sur une liste d'alertes déjà présente sur la page, détaillant chaque alerte présente sur la carte
-- sur une autre page, en cliquant sur le bâtiment que l'on souhaite (voir [Energie plan](#énergie-plan))
+Je suis m'occupe de la gestion de l'énergie sur le campus. Les alertes d'énergie concerne les lumières oubliées et les températures trop faibles ou trop élevé.
+Je veux voir une information globales sur les problèmes d'énergie.
+La procédure est identique que pour les problèmes de [sécurité](#sécurité).
 
 ### Données nécessaires
-Idem que pour [Sécurité map](#sécurité-map)
-
-
-----------
-
-
-## Energie plan
-
-### Intention recherchée
-Je suis administrateur de **SmartCampus** et m'occupe de la gestion de l'énergie sur le campus. Je peux identifier d'un seul coup d'oeil sur un plan (plan d'architecte) les problèmes d'énergie. Une fois que j'ai identifié les problèmes je peux voir les détails de ces problèmes sur la liste déjà  présente sur cette même page.
-
-### Données nécessaires
-Idem que pour [Sécurité map](#sécurité-map)
+Idem que pour [Sécurité](#sécurité)
 
 
 ----------
@@ -145,8 +121,9 @@ Idem que [Map (sélection)](#map-sélection).
 
 ### Intention recherchée
 Je suis utilisateur du campus (enseignant). Deux utilisations de ce dashboard sont possibles:
-- Je souhaite savoir, à l'instant même, dans quel parking j'ai le plus de chance de trouver une place pour me garer
-- Je souhaite savoir à l'avance, dans quel parking j'ai le plus de chance de trouver une place pour me garer (selon le jour et l'heure d'arrivée)
+
+- Je souhaite me garer (maintenant), pour cela je regarde l'occupation (scalaire) actuelle des parkings où j'ai accès, ainsi que le taux d'occupation de chacun pour choisir celui où j'aurais le plus de facilité pour me garer.
+- Je souhaite savoir quel est le meilleur horaire pour me garer étant donné un jour donné afin de prévoir mon heure d'arrivée. Pour cela je visualise la taux d'occupation (%) dans le créneau horaire qui m'interesse et je compare également les flux de départ et d'arrivée des autres utilisateurs
 
 ### Données nécessaires
 Un fichier JSON contenant les valeurs actuelles sur les parkings et un autre contenant un historique (pour les statistiques).
@@ -177,8 +154,8 @@ Un fichier JSON contenant les valeurs actuelles sur les parkings et un autre con
 ### Intention recherchée
 Je suis utilisateur du campus. Sur ce dashboard deux utilisations sont possibles :
 
-- Je compte manger au RU ce midi (il est à peu près l'heure du repas), je regarde le menu du jour pour savoir ce qu'on me proposer à manger aujourd'hui, ensuite je regarde le temps d'attente actuel et l'heure supposée à laquelle je devrais manger si je pars immédiatement.
-- Nous sommes Lundi, j'ai une journée très chargée Jeudi et donc très peu de temps pour manger le midi. Je regarde donc le temps moyen d'attente le Jeudi pour attendre le moins possible et manger le plus rapidement possible.
+- Je compte manger au RU ce midi (il est à peu près l'heure du repas), je regarde le menu du jour pour savoir ce qu'on me proposer à manger aujourd'hui, si celui m'interesse, je regarde le temps d'attente actuel ainsi que l'heure supposée à laquelle je devrais manger si je pars immédiatement.
+- Nous sommes Lundi, j'ai une journée très chargée Jeudi et donc très peu de temps pour manger le midi. Je regarde donc le temps moyen d'attente (scalaire) le Jeudi pour attendre le moins possible et manger le plus rapidement possible. Si je trouve un horaire qui me convient, je vérifie si le menu du jour concerné afin de prendre ma décision.
 
 ### Données nécessaires
 #### Menu
