@@ -122,11 +122,16 @@ function check_left_info(id){
 
 
 /**
- * Fonction 
+ * Function which handle data and launch
+ * the good callback function with good parameters
+ * @param sensors json data
+ * @param kind_wanted the kind of data which will be displayed
+ * @param callback the callback function
  */
 function handle_marker(sensors,kind_wanted,callback){
     var number_sensors = new Object();
     var list_bat = [];
+    var kind_found = false;
     for(i=0;i<sensors.length;i++){
         var sensor = sensors[i];
         var bat = sensor.bat;
@@ -139,6 +144,7 @@ function handle_marker(sensors,kind_wanted,callback){
         if(!already)list_bat[list_bat.length] = bat;
         already = false;
         var kind = sensor.kind;
+        if(kind == kind_wanted) kind_found = true;
         var n = number_sensors[bat+'_'+kind];
         if (n == undefined){
             number_sensors[bat+'_'+kind] = 0;
@@ -147,8 +153,10 @@ function handle_marker(sensors,kind_wanted,callback){
             number_sensors[bat+'_'+kind]++;
         }
     }
-    for(i=0;i<list_bat.length;i++){
-        callback(list_bat[i],kind_wanted,number_sensors[list_bat[i]+'_'+kind_wanted]);
+    if(kind_found){
+        for(i=0;i<list_bat.length;i++){
+            callback(list_bat[i],kind_wanted,number_sensors[list_bat[i]+'_'+kind_wanted]);
+        }
     }
 }
 
