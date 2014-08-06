@@ -44,8 +44,7 @@
                     <script type="text/javascript">
                         $("#plan-security").ready(function(){
                             load_svg_jsonurl("../common-data/plan_T1_4e.svg","plan-security","data/alertes.json",put_sensors,{"door":"img/door-false.png","window":"img/window.png"});
-                            display_list_warning("security");
-                            display_alert_number();
+                            load_json("data/alertes.json","security");
                         });
                     </script>
                 </div>

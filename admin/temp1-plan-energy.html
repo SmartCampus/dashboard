@@ -45,8 +45,7 @@
                     <script type="text/javascript">
                         $("#plan-energy").ready(function(){
                             load_svg_jsonurl("../common-data/plan_T1_4e.svg","plan-energy","data/alertes.json",put_sensors,{"light":"img/light.png","temp":"img/temp.png"});
-                            display_list_warning("energy");
-                            display_alert_number();
+                            load_json("data/alertes.json","energy");
                         });
                     </script>
                 </div>
