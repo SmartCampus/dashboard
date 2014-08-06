@@ -1,0 +1,57 @@
+{"menus":[
+    {"date":"06/08/2014",
+     "entree":"carottes rapées",
+     "plat":"steak frites",
+     "dessert":"yaourt"
+    },
+    {"date":"07/08/2014",
+     "entree":"salami",
+     "plat":"pizza reine",
+     "dessert":"mille feuilles"
+    },
+    {"date":"08/08/2014",
+     "entree":"saucisson",
+     "plat":"spaghetti bolo",
+     "dessert":"lol"
+    },
+    {"date":"09/08/2014",
+     "entree":"tomate mozza",
+     "plat":"paupiettes pommes de terres vapeur",
+     "dessert":"paris brest"
+    },
+    {"date":"10/08/2014",
+     "entree":"celeri",
+     "plat":"pizza pepperoni",
+     "dessert":"fruits"
+    },
+    {"date":"11/08/2014",
+     "entree":"betterave",
+     "plat":"socca",
+     "dessert":"compote"
+    },
+    {"date":"12/08/2014",
+     "entree":"oeuf dur",
+     "plat":"colin haricots vert",
+     "dessert":"donuts"
+    },
+    {"date":"13/08/2014",
+     "entree":"paté de mouton",
+     "plat":"saucisses lentilles",
+     "dessert":"beignet framboise"
+    },
+    {"date":"14/08/2014",
+     "entree":"salade de pates",
+     "plat":"penne carbo",
+     "dessert":"foret noire"
+    },
+    {"date":"15/08/2014",
+     "entree":"salade de riz",
+     "plat":"croustibat (qui peut le battre ?) avec carottes vapeur",
+     "dessert":"cookie"
+    },
+    {"date":"16/08/2014",
+     "entree":"salade de pommes de terre",
+     "plat":"pommes daufines paupiettes",
+     "dessert":"salade de fruit"
+    }
+]}

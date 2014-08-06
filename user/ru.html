@@ -5,6 +5,10 @@
         <title>SmartCampus - Dashboard</title>
         <!-- Jquery librairies -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+        <link rel="stylesheet" href="css/jquery-ui.min.css">
+        <link rel="stylesheet" href="css/jquery-ui.structure.min.css">
+        <link rel="stylesheet" href="css/jquery-ui.theme.min.css">
         <!-- Bibliotèque Amcharts -->
         <script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
         <script type="text/javascript" src="http://www.amcharts.com/lib/3/gauge.js"></script>
@@ -19,6 +23,7 @@
         <!-- mes trucs -->
         <link rel="stylesheet" href="css/style.css">
         <script type="text/javascript" src="./js/script.js"></script>
+        <script type="text/javascript" src="./js/menu.js"></script>
         <style>
             #time-left{
                 width: 100%;
@@ -47,18 +52,30 @@
                         <ul>
                             <li class="list-group-item">
                                 <h4 class="list-group-item-heading">Entrée</h4>
-                                <p class="list-group-item-text">Tartare de homard à la framboise sur son lit de pousses d'épinard</p>
+                                <p class="list-group-item-text" id="entree"></p>
                             </li>
                             <li class="list-group-item">
                                 <h4 class="list-group-item-heading">Plat</h4>
-                                <p class="list-group-item-text">Filet de boeuf Rossini sauce madère gratin de pomme de terre façon grand-mère</p>
+                                <p class="list-group-item-text" id="plat"></p>
                             </li>
                             <li class="list-group-item">
                                 <h4 class="list-group-item-heading">Dessert</h4>
-                                <p class="list-group-item-text">Tarte aux pommes</p>
+                                <p class="list-group-item-text" id="dessert"></p>
                             </li>
                         </ul>
+                        <script>
+                            var today = new Date();
+                            var dd = today.getDate();
+                            var mm = today.getMonth()+1; //January is 0!
+                            var yyyy = today.getFullYear();
+                            if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} var today = dd+'/'+mm+'/'+yyyy;
+                            // erase this line when actualized data :
+                            today = '06/08/2014';
+                            load_json_menu("data/menus.json",today);
+                        </script>
                     </div>
+                    Date : <input type="text" id="date_picker">
+                    <script type="text/javascript" src="js/datepicker.js"></script>
                 </div>
                 <div class="col-md-3"><h3 id="title-time-left"></h3>
                     <div class="time-left-div">
