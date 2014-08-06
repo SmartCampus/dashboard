@@ -24,8 +24,8 @@
             </div>
             <nav>
                 <ul class="nav nav-tabs" role="tablist">
-                <li><a href="security-map.html"><span class="glyphicon glyphicon-lock"></span>  Sécurité</a></li>
-                <li class="active"><a href="energy-map.html"><span class="glyphicon glyphicon-flash"></span>  Energie</a></li>
+                <li><a href="security-map.html" id="title-alerte-security"><span class="glyphicon glyphicon-lock"></span>  Sécurité</a></li>
+                <li class="active"><a href="energy-map.html" id="title-alerte-energy"><span class="glyphicon glyphicon-flash"></span>  Energie</a></li>
                 </ul>
             </nav>
         </header>
@@ -46,6 +46,7 @@
                         $("#plan-energy").ready(function(){
                             load_svg_jsonurl("../common-data/plan_T1_4e.svg","plan-energy","data/alertes.json",put_sensors,{"light":"img/light.png","temp":"img/temp.png"});
                             display_list_warning("energy");
+                            display_alert_number();
                         });
                     </script>
                 </div>

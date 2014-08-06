@@ -26,8 +26,8 @@
             </div>
             <nav>
                 <ul class="nav nav-tabs" role="tablist">
-                <li class="active"><a href="security-map.html"><span class="glyphicon glyphicon-lock"></span>  Sécurité</a></li>
-                <li><a href="energy-map.html"><span class="glyphicon glyphicon-flash"></span>  Energie</a></li>
+                <li class="active"><a href="security-map.html" id="title-alerte-security"><span class="glyphicon glyphicon-lock"></span>  Sécurité</a></li>
+                <li><a href="energy-map.html" id="title-alerte-energy"><span class="glyphicon glyphicon-flash"></span>  Energie</a></li>
                 </ul>
             </nav>
         </header>
@@ -43,6 +43,7 @@
                     <div class="DocumentList" id="list-alertes"></div>
                     <script>
                         display_list_warning("security");
+                        display_alert_number();
                     </script>
                 </div>
                     
