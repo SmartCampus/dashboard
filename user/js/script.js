@@ -126,9 +126,8 @@ function display_clock(id,url){
               }]  
             }
         });
-        //chart.addLegend(legend);
         // update each second
-        setTimeout(updateClock, 1000);
+        setInterval(updateClock, 1000);
 
 
         // update clock
@@ -145,7 +144,6 @@ function display_clock(id,url){
             chart.arrows[1].setValue((12 * ((minutes+data.value) + seconds / 60) / 60));
             // set seconds
             chart.arrows[2].setValue(12 * date.getSeconds() / 60);
-            clearTimeout();
         }
     });
 }
