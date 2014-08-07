@@ -7,7 +7,7 @@
     text-align: center;
 }
 
-#plus_img{
+#plus_img, #minus_img{
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -40,4 +40,13 @@
 
 .title_home{
     text-align: center;
+}
+
+#list-parks
+{
+    overflow-y:auto;
+    max-height: 400px;
+    max-width: 45%;
+    padding: 0;
+    margin: 0;
 }

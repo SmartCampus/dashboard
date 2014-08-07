@@ -159,6 +159,8 @@ function update_avg(url,id_div,day,x_legende,y_legende,title,unit,parking){
     $.getJSON(url, function(data) {
         var avgs = [];
         var dates = [];
+        var arrival = [];
+        var departure = [];
         var id = data.id;
         var values;
         var all_values;
@@ -186,15 +188,17 @@ function update_avg(url,id_div,day,x_legende,y_legende,title,unit,parking){
         }
         
         for(i=0;i<values.length;i++){
-            avgs[i] = values[i].value;
+            avgs[i] = values[i].avg;
+            arrival[i] = values[i].arrival;
+            departure[i] = values[i].departure;
             dates[i] = values[i].date;
         }
-        set_values_charts(id_div,dates,avgs,x_legende,y_legende,title,unit);
+        set_values_charts(id_div,dates,avgs,arrival,departure,x_legende,y_legende,title,unit);
         
     });
 }
 
-function set_values_charts(id,dates,avgs,x_legende,y_legende,title,unit){
+function set_values_charts(id,dates,avgs,arrival,departure,x_legende,y_legende,title,unit){
     $("#"+id).highcharts({
         chart: {
             type: 'column'
@@ -208,16 +212,10 @@ function set_values_charts(id,dates,avgs,x_legende,y_legende,title,unit){
         xAxis: {
             categories: dates
         },
-        yAxis: {
-            min: 0,
-            title: {
-                text: y_legende
-            }
-        },
         tooltip: {
             headerFormat: '<span class="title-gauge" style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} '+unit+'</b></td></tr>',
+                '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -229,8 +227,16 @@ function set_values_charts(id,dates,avgs,x_legende,y_legende,title,unit){
             }
         },
         series: [{
-            name: x_legende,
+            name: "Nombre de départs",
+            data: departure
+
+        },{
+            name: "Taux d'occupation (%)",
             data: avgs
+
+        },{
+            name: "Nombre d'arrivées",
+            data: arrival
 
         }]
     });
