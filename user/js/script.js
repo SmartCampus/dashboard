@@ -207,12 +207,15 @@ function set_values_charts(id,dates,avgs,arrival,departure,x_legende,y_legende,t
     if(departure[0] != undefined){
         series[1] = {
             name: "Nombre de départs",
+            yAxis: 1,
             data: departure
+            
         };
     }
     if(arrival[0] != undefined){
         series[2] = {
             name: "Nombre d'arrivées",
+            yAxis: 1,
             data: arrival
         };
     }
@@ -229,6 +232,22 @@ function set_values_charts(id,dates,avgs,arrival,departure,x_legende,y_legende,t
         xAxis: {
             categories: dates
         },
+        yAxis: [{ // Primary yAxis
+            labels: {
+                format: '{value} %'
+            },
+            title: {
+                text: 'Taux d\'occupation'
+            }
+        }, { // Secondary yAxis
+            title: {
+                text: 'Valeur'
+            },
+            labels: {
+                format: '{value}'
+            },
+            opposite: true
+        }],
         tooltip: {
             headerFormat: '<span class="title-gauge" style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
