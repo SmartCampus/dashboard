@@ -199,6 +199,23 @@ function update_avg(url,id_div,day,x_legende,y_legende,title,unit,parking){
 }
 
 function set_values_charts(id,dates,avgs,arrival,departure,x_legende,y_legende,title,unit){
+    var series = [];
+    series[0] = {
+        name : "Taux d'occupation (%)",
+        data : avgs
+    };
+    if(departure[0] != undefined){
+        series[1] = {
+            name: "Nombre de départs",
+            data: departure
+        };
+    }
+    if(arrival[0] != undefined){
+        series[2] = {
+            name: "Nombre d'arrivées",
+            data: arrival
+        };
+    }
     $("#"+id).highcharts({
         chart: {
             type: 'column'
@@ -226,19 +243,7 @@ function set_values_charts(id,dates,avgs,arrival,departure,x_legende,y_legende,t
                 borderWidth: 0
             }
         },
-        series: [{
-            name: "Nombre de départs",
-            data: departure
-
-        },{
-            name: "Taux d'occupation (%)",
-            data: avgs
-
-        },{
-            name: "Nombre d'arrivées",
-            data: arrival
-
-        }]
+        series: series
     });
 }
 
