@@ -136,7 +136,6 @@ Ici l'ensemble des données sur tous les capteurs du bâtiments affiché sont n�
     }
  ]
 }
-
 ```
 
 
