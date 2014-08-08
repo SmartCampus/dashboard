@@ -1,9 +1,13 @@
+/* Load a json file from a url
+ * then parse the json file 
+ */
 function load_json_menu(url,arg){
     $.getJSON(url,function( data ){
         return parse_and_get_menu(data,arg);
     });
 }
 
+/* Parse json file and then get the menu from it */
 function parse_and_get_menu(json,arg){
     var data;
     if(json instanceof String || typeof(json) == "string"){
@@ -15,6 +19,7 @@ function parse_and_get_menu(json,arg){
     return get_menu(data,arg);
 }
 
+/* get the menu from a json file */
 function get_menu(json,date_wanted){
     menus = json.menus;
     var menu_of_the_day = [];

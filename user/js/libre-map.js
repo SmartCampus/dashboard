@@ -3,6 +3,11 @@ batWanted = 'temp1';
 
 google.maps.event.addDomListener(window, 'load', initialize_one);
 
+/* Function which insert a google
+ * maps marker on a google maps
+ * The coordinates of the poi are in '../common-data/coord_poi.json'
+ * @param bat_wanted the building where the marker will be put
+ */
 function insert_marker(bat_wanted){
     $.getJSON("../common-data/coord_poi.json", function( data ){
         var coords = data.coords;

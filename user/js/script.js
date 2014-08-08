@@ -155,6 +155,9 @@ function display_clock(id,url){
 ########                                                       #######
 ######################################################################*/
 
+/* Met a jour les données pour les bar charts depuis
+ * un fichier json
+ */
 function update_avg(url,id_div,day,x_legende,y_legende,title,unit,parking){
     $.getJSON(url, function(data) {
         var avgs = [];
