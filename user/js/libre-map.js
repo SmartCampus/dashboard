@@ -1,5 +1,7 @@
-google.maps.event.addDomListener(window, 'load', initialize);
-insert_marker("temp1");
+// set this variable to load poi on the good building
+batWanted = 'temp1';
+
+google.maps.event.addDomListener(window, 'load', initialize_one);
 
 function insert_marker(bat_wanted){
     $.getJSON("../common-data/coord_poi.json", function( data ){

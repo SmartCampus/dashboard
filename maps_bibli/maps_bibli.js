@@ -16,11 +16,26 @@ function load_and_launch(url_json,callback_handle,callback_do,kind){
         }
     });
 }
+//Set the batWanted variable before call initialize_one() function
+var batWanted;
+function initialize_one(){
+    initialize("one",batWanted);
+}
+/* Set the optionsMaps variable before call initialize_all() function
+ * format : optionsMaps = ["data.json",["light","door"]];
+ * 'data.json' is the json file which contains coordinates of buildings
+ * 'light' and 'door' are attribute 'kind' of the json file
+ */
+var optionsMaps;
+
+function initialize_all(){
+    initialize("all",optionsMaps);
+}
 
 
 
 /* Initialize the map (google) */
-function initialize() {
+function initialize(callback,args) {
     
     /* Options de la map */
     var mapOptions = {
@@ -37,7 +52,10 @@ function initialize() {
     // liste des coordonnees gmaps des batiments
     var bats = [];
     // on met les batiments sur la map
+    if(callback == "one") insert_marker(args);
+    if(callback == "all") insert_all_marker(load_and_launch,handle_marker,add_info_marker,args[0],args[1]);
     put_bats(map,"../common-data/coord_bat.json",bats,batiments);
+    
 }
 
 /**
